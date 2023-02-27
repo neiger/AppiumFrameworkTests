@@ -1,0 +1,37 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Appium Automation Framework" parallel="methods" thread-count="1">
+
+    <listeners>
+        <listener class-name="general.MobileDriverManager">
+            <!-- Mobile timeout and halt setup -->
+            <parameter name="tmStatic" value="5"/>
+            <parameter name="tmDynamic" value="60"/>
+
+            <!--  Mobile Main Config Parameters  -->
+            <parameter name="platformName" value="Android"/>
+            <parameter name="platformVersion" value="13"/>
+            <parameter name="deviceName" value="emulator-5554"/>
+            <parameter name="automationName" value="UiAutomator2"/>
+            <parameter name="appPath" value="com.google.android.apps.maps"/>   <!-- com.google.android.apps.maps   com.avantica.qapp -->
+            <parameter name="appActivity" value="com.google.android.maps.MapsActivity"/> <!-- com.google.android.maps.MapsActivity   com.avantica.qapp.activities.GreetingActivity -->
+            <parameter name="noReset" value="true"/> <!-- True to prevent prompt for asking permissions again -->
+            <parameter name="appiumServer" value="http://127.0.0.1:4723/wd/hub"/>
+        </listener>
+    </listeners>
+
+
+    <!--  Test Case testing Parameters  -->
+    <parameter name="usr" value="neiger.serrano@encora.com"/>
+    <parameter name="pwd" value="Abc-123-123"/>
+    <parameter name="error" value="UiAutomator2"/>
+    <parameter name="error2" value="/Users/neiger.serrano/Downloads/qapp.apk"/>
+
+    <test name="Android Apps Test Cases">
+        <classes>
+            <class name="tests.MapsMainScreenTests">
+            </class>
+        </classes>
+    </test>
+
+</suite>
