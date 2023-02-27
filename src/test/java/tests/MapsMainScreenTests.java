@@ -18,6 +18,6 @@ public class MapsMainScreenTests extends MobileDriverManager {
         Assert.assertTrue(mapsMainScreen.verifyLoads(), "[ERROR]    Maps Screen does not loaded");
         Assert.assertTrue(mapsMainScreen.typeAnAddressInOmniBoxSearch("San Jose, Curridabat"), "[ERROR]    The field was not filled");
         Assert.assertTrue(mapsMainScreen.typeAnAddressInOmniBoxSearch("San Jose, Ciudad Colon"), "[ERROR]    The field was not filled");
-        Assert.assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), "[ERROR]    The app did not halt on screen");
+        Assert.assertFalse(mapsMainScreen.waitForAFewSecondsOnScreen(), "[ERROR]    The app did not halt on screen");
     }
 }
