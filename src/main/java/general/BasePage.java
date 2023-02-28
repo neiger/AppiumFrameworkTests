@@ -1,7 +1,5 @@
 package general;
 
-import java.io.File;
-import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +11,6 @@ import io.appium.java_client.AppiumFluentWait;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.functions.ExpectedCondition;
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
@@ -124,7 +121,6 @@ public abstract class BasePage {
         } else return flag;
     }
 
-    //     driver.getKeyboard().pressKey(Keys.ENTER);
     protected boolean pressKeyboardKey(Keys keyValue) {
         boolean flag = false;
         if(keyValue != null) {
@@ -133,14 +129,17 @@ public abstract class BasePage {
         } else {
             System.out.println("[ERROR]    There is a problem with the Key pressed");
         }
-
         return flag;
     }
 
-    protected void takeDeviceSnapShot() throws IOException {
-        //driver.getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(driver.getScreenshotAs(OutputType.FILE), new File("/Users/neiger.serrano/Desktop/Repo/Screenshots"));
-    }
+
+
+
+
+
+
+
+
 
     /*
      *
