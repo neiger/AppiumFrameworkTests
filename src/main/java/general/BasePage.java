@@ -18,7 +18,7 @@ import org.openqa.selenium.support.ui.*;
 public abstract class BasePage {
 
     protected AndroidDriver<MobileElement> driver;
-    private AppiumFluentWait<AppiumDriver<MobileElement>> wait;
+    private AppiumFluentWait<AndroidDriver<MobileElement>> wait;
 
     private int staticTimeOut;
     private int dynamicTimeOut;
@@ -40,8 +40,8 @@ public abstract class BasePage {
     // method to wait for the visibility of an element
     protected boolean waitForElementToBeVisible(MobileElement element) {
         boolean flag = false;
-        flag = this.wait.until(new Function<AppiumDriver<MobileElement>, Boolean>() {
-            public Boolean apply(AppiumDriver<MobileElement> arg0) {
+        flag = this.wait.until(new Function<AndroidDriver<MobileElement>, Boolean>() {
+            public Boolean apply(AndroidDriver<MobileElement> arg0) {
                 return element != null && element.isDisplayed();
             };
         });
@@ -50,8 +50,8 @@ public abstract class BasePage {
 
     protected boolean waitForElementToBeClickable(MobileElement element) {
         boolean flag = false;
-        flag = this.wait.until(new Function<AppiumDriver<MobileElement>, Boolean>() {
-            public Boolean apply(AppiumDriver<MobileElement> arg0) {
+        flag = this.wait.until(new Function<AndroidDriver<MobileElement>, Boolean>() {
+            public Boolean apply(AndroidDriver<MobileElement> arg0) {
                 return element.isEnabled();
             };
         });
@@ -62,8 +62,8 @@ public abstract class BasePage {
     protected boolean tapElement(MobileElement element) {
         boolean flag = false;
         flag = waitForElementToBeVisible(element) && waitForElementToBeClickable(element) &&
-                this.wait.until(new Function<AppiumDriver<MobileElement>, Boolean>() {
-                    public Boolean apply(AppiumDriver<MobileElement> arg0) {
+                this.wait.until(new Function<AndroidDriver<MobileElement>, Boolean>() {
+                    public Boolean apply(AndroidDriver<MobileElement> arg0) {
                         element.click();
                         return true;
                     };
@@ -94,8 +94,8 @@ public abstract class BasePage {
     protected boolean verifyTextOnElement(MobileElement element, String text) {
         boolean flag = false;
         flag = waitForElementToBeVisible(element) &&
-                this.wait.until(new Function<AppiumDriver<MobileElement>, Boolean>() {
-                    public Boolean apply(AppiumDriver<MobileElement> arg0) {
+                this.wait.until(new Function<AndroidDriver<MobileElement>, Boolean>() {
+                    public Boolean apply(AndroidDriver<MobileElement> arg0) {
                         return element.getText().contains(text);
                     };
                 });
@@ -127,7 +127,7 @@ public abstract class BasePage {
             driver.getKeyboard().pressKey(keyValue);
             flag = true;
         } else {
-            System.out.println("[ERROR]    There is a problem with the Key pressed");
+            System.out.println("[]  ----->  There is a problem with the Key pressed");
         }
         return flag;
     }
@@ -161,7 +161,7 @@ public abstract class BasePage {
         } catch (Exception e) {
             String exp = e.toString();
             if(e.toString().contains("element not found")) {
-                System.out.println("[ERROR]  Element is not found");
+                System.out.println("[]  ----->  Element is not found");
             }
             return false;
         }
@@ -231,7 +231,7 @@ public abstract class BasePage {
             System.out.println("The list on WebElement: " + elementList.size() + " match: " + listSize);
             return true;
         } else {
-            System.out.println("[ERROR] The list on WebElement: " + elementList.size() + " does not match: " + listSize);
+            System.out.println("[]  ----->  The list on WebElement: " + elementList.size() + " does not match: " + listSize);
             return false;
         }
     }
@@ -243,7 +243,7 @@ public abstract class BasePage {
             System.out.println("Page loaded properly.");
             return true;
         } else {
-            System.out.println("[ERROR]  ----->  The wait time has failed");
+            System.out.println("[]  ----->  The wait time has failed");
             return false;
         }
     }

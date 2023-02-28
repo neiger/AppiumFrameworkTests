@@ -21,7 +21,7 @@ import java.util.Date;
 
 public class MobileDriverManager extends TestListenerAdapter {
 
-    private static ThreadLocal<AppiumDriver> mobAppiumDriver = new ThreadLocal<AppiumDriver>();
+    private static ThreadLocal<AndroidDriver> mobAppiumDriver = new ThreadLocal<AndroidDriver>();
 
     private static int staticTime;
     private static int dynamicTime;
@@ -41,13 +41,13 @@ public class MobileDriverManager extends TestListenerAdapter {
     }
 
 
-    @Parameters({"platformName", "platformVersion", "deviceName", "automationName", "appPath","appActivity", "noReset", "appiumServer"})
+    @Parameters({"platformName", "platformVersion", "deviceName", "automationName", "appPackage","appActivity", "noReset", "appiumServer"})
     @BeforeMethod(alwaysRun = true)
     public final void setMobDriver(String platformName, String platformVersion, String deviceName,
-                                   String automationName, String appPath, String appActivity,
+                                   String automationName, String appPackage, String appActivity,
                                    String noReset, String appiumServer) throws Exception {
 
-        System.out.println("[DRIVER MSG]  ---- The mobile test driver is being initialized now");
+        System.out.println("[DRIVER MSG]  ----> The mobile test driver is being initialized now");
 
         DesiredCapabilities capability = new DesiredCapabilities();
 
@@ -56,8 +56,8 @@ public class MobileDriverManager extends TestListenerAdapter {
         capability.setCapability(MobileCapabilityType.PLATFORM_VERSION, platformVersion);
         capability.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
         capability.setCapability(MobileCapabilityType.AUTOMATION_NAME, automationName);
-        //capability.setCapability(MobileCapabilityType.APP, appPath); // In case apk needs to be installed
-        capability.setCapability("appPackage", appPath);
+        //capability.setCapability(MobileCapabilityType.APP, appPackage); // In case apk needs to be installed
+        capability.setCapability("appPackage", appPackage);
         capability.setCapability("appActivity", appActivity);
         capability.setCapability(MobileCapabilityType.NO_RESET, noReset);
 
@@ -72,7 +72,7 @@ public class MobileDriverManager extends TestListenerAdapter {
 
     @AfterMethod(alwaysRun = true)
     public void deleteDriver() {
-        System.out.println("[DRIVER MSG]  ---- The browser driver is being close now");
+        System.out.println("[DRIVER MSG]  ----> The browser driver is being close now");
         getDriver().quit();
     }
 
@@ -80,7 +80,7 @@ public class MobileDriverManager extends TestListenerAdapter {
     public void onTestFailure(ITestResult iTestResult) {
         String testName = iTestResult.getInstance().getClass().getSimpleName();
         if(iTestResult.getStatus() == 2) {
-            System.out.println("THE TEST FAILED IS: " + testName);
+            System.out.println("[FAILED TEST NAME:]  ----->  " + testName);
             try {
                 File srcFile =  mobAppiumDriver.get().getScreenshotAs(OutputType.FILE);
                 Date d = new Date();
