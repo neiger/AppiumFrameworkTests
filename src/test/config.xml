@@ -5,7 +5,7 @@
     <listeners>
         <listener class-name="general.MobileDriverManager">
             <!-- Mobile timeout and halt setup -->
-            <parameter name="tmStatic" value="5"/>
+            <parameter name="tmStatic" value="2"/>
             <parameter name="tmDynamic" value="60"/>
 
             <!--  Mobile Main Config Parameters  -->

@@ -1,27 +1,20 @@
 package general;
 
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.ITestResult;
-import org.testng.TestListenerAdapter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
-import java.io.File;
-import java.io.IOException;
 import java.net.URL;
-import java.util.Date;
 
 
-public class MobileDriverManager extends TestListenerAdapter {
+public class MobileDriverManager extends TestUtilities {
 
-    private static ThreadLocal<AndroidDriver> mobAppiumDriver = new ThreadLocal<AndroidDriver>();
+    private static ThreadLocal<AndroidDriver> mobAndroidDriver = new ThreadLocal<AndroidDriver>();
 
     private static int staticTime;
     private static int dynamicTime;
@@ -61,13 +54,13 @@ public class MobileDriverManager extends TestListenerAdapter {
         capability.setCapability("appActivity", appActivity);
         capability.setCapability(MobileCapabilityType.NO_RESET, noReset);
 
-        mobAppiumDriver.set(new AndroidDriver<MobileElement>(new URL(appiumServer), capability));
+        mobAndroidDriver.set(new AndroidDriver<MobileElement>(new URL(appiumServer), capability));
     }
 
     // driver initiator which gets ready in the @BeforeMethod and does not require to be passed
     // as parameter in the ScreenTests classes
     public AndroidDriver<MobileElement> getDriver() {
-        return (AndroidDriver<MobileElement>) mobAppiumDriver.get();
+        return (AndroidDriver<MobileElement>) mobAndroidDriver.get();
     }
 
     @AfterMethod(alwaysRun = true)
@@ -81,16 +74,7 @@ public class MobileDriverManager extends TestListenerAdapter {
         String testName = iTestResult.getInstance().getClass().getSimpleName();
         if(iTestResult.getStatus() == 2) {
             System.out.println("[FAILED TEST NAME:]  ----->  " + testName);
-            try {
-                File srcFile =  mobAppiumDriver.get().getScreenshotAs(OutputType.FILE);
-                Date d = new Date();
-                String TimeStamp = d.toString().replace(":","_").replace(" ","_");
-                FileUtils.copyFile(srcFile, new File("./Screenshots/" +
-                        testName + "_" + TimeStamp + ".png"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
+            takeDeviceSnapshot(mobAndroidDriver, testName);
         }
     }
 }
