@@ -16,14 +16,14 @@ public class TestUtilities extends TestListenerAdapter {
     private static final ThreadLocal<SoftAssert> assertGeneric = new ThreadLocal<SoftAssert>();
     private static final ThreadLocal<Boolean> assertCalling = new ThreadLocal<>();
 
-    protected void assertTrue(boolean val, String msg){
+    protected void assertTrue(boolean validation, String msg){
         assertCalling.set(true);
-        assertGeneric.get().assertTrue(val,msg);
+        assertGeneric.get().assertTrue(validation,msg);
     }
 
-    protected void assertFalse(boolean val, String msg){
+    protected void assertFalse(boolean validation, String msg){
         assertCalling.set(true);
-        assertGeneric.get().assertFalse(val,msg);
+        assertGeneric.get().assertFalse(validation,msg);
     }
 
     protected void assertAll(){
