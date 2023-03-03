@@ -22,10 +22,7 @@
 
 
     <!--  Test Case testing Parameters  -->
-    <parameter name="usr" value="neiger.serrano@encora.com"/>
-    <parameter name="pwd" value="Abc-123-123"/>
-    <parameter name="error" value="UiAutomator2"/>
-    <parameter name="error2" value="/Users/neiger.serrano/Downloads/qapp.apk"/>
+
 
     <test name="Android Apps Test Cases">
         <classes>
