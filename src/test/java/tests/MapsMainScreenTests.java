@@ -28,7 +28,14 @@ public class MapsMainScreenTests extends MobileDriverManager {
     @Test
     public void verifySearchMapsWithLatAndLong() {
         assertTrue(mapsMainScreen.typeAnAddressInOmniBoxSearch("37.3732324,-121.9654005"), "[]  ----->  The field was not filled");
-        assertFalse(mapsMainScreen.waitForAFewSecondsOnScreen(), "[]  ----->  The app did not halt on screen");
+        assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), "[]  ----->  The app did not halt on screen");
+        assertAll();
+    }
+
+    @Test
+    public void verifyDoubleTapOnMap() {
+        System.out.println("[STARTING THE TEST]...");
+        assertTrue(mapsMainScreen.doubleTapOnElement(), "[]  ----->  Double tap was not performed");
         assertAll();
     }
 }

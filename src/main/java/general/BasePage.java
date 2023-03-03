@@ -9,7 +9,9 @@ import java.util.function.Function;
 import io.appium.java_client.AppiumFluentWait;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidTouchAction;
 import io.appium.java_client.functions.ExpectedCondition;
+import io.appium.java_client.touch.offset.ElementOption;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
@@ -18,6 +20,7 @@ public abstract class BasePage {
 
     protected AndroidDriver<MobileElement> driver;
     private AppiumFluentWait<AndroidDriver<MobileElement>> wait;
+    private AndroidTouchAction androidTouchAction;
 
     private int staticTimeOut;
     private int dynamicTimeOut;
@@ -29,7 +32,7 @@ public abstract class BasePage {
         this.dynamicTimeOut = MobileDriverManager.getDynamicTime();
         this.wait = new AppiumFluentWait<>(driver);
         this.wait.withTimeout(Duration.ofSeconds(this.dynamicTimeOut));
-
+        androidTouchAction = new AndroidTouchAction(this.driver);
     }
 
     /****** GENERIC METHODS ******/
@@ -63,7 +66,8 @@ public abstract class BasePage {
         flag = waitForElementToBeVisible(element) && waitForElementToBeClickable(element) &&
                 this.wait.until(new Function<AndroidDriver<MobileElement>, Boolean>() {
                     public Boolean apply(AndroidDriver<MobileElement> arg0) {
-                        element.click();
+                        androidTouchAction.tap(ElementOption.element(element)).perform();
+                        //element.click();
                         return true;
                     };
                 });
@@ -76,7 +80,8 @@ public abstract class BasePage {
         boolean validationReturn = false;
 
         if (waitForElementToBeClickable(element)) {
-            element.click();
+            androidTouchAction.tap(ElementOption.element(element)).perform();
+            //element.click();
             element.clear();
             validationReturn = typeOnTxtElement(element, txt);
         }
@@ -89,35 +94,15 @@ public abstract class BasePage {
         //true;//element.getTagName().contains(txt);
     }
 
-    // method to verify text on a certain element
-    protected boolean verifyTextOnElement(MobileElement element, String text) {
-        boolean flag = false;
-        flag = waitForElementToBeVisible(element) &&
-                this.wait.until(new Function<AndroidDriver<MobileElement>, Boolean>() {
-                    public Boolean apply(AndroidDriver<MobileElement> arg0) {
-                        return element.getText().contains(text);
-                    };
-                });
-        return flag;
-    }
 
     protected boolean implicityWaitTimeOnScreen() {
         try {
             TimeUnit.SECONDS.sleep(this.staticTimeOut);
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            TestUtilities.errorsAndExceptionsManagement(e);
             return false;
         }
-    }
-
-    protected String getTextFromElement(MobileElement element) {
-        String flag = "";
-        if (waitForElementToBeVisible(element))
-        {
-            flag = element.getText();
-            return flag;
-        } else return flag;
     }
 
     protected boolean pressKeyboardKey(Keys keyValue) {
@@ -131,11 +116,18 @@ public abstract class BasePage {
         return flag;
     }
 
+    protected boolean doubleTapOnElement(MobileElement element) {
+        boolean flag = false;
+        try {
+            androidTouchAction.tap(ElementOption.element(element)).perform();
+            androidTouchAction.tap(ElementOption.element(element)).perform();
+            flag = true;
+        } catch (Exception e) {
+            TestUtilities.errorsAndExceptionsManagement(e);
+        }
 
-
-
-
-
+        return flag;
+    }
 
 
 
@@ -153,6 +145,29 @@ public abstract class BasePage {
      *
      *
      *  */
+
+    // method to verify text on a certain element
+    protected boolean verifyTextOnElement(MobileElement element, String text) {
+        boolean flag = false;
+        flag = waitForElementToBeVisible(element) &&
+                this.wait.until(new Function<AndroidDriver<MobileElement>, Boolean>() {
+                    public Boolean apply(AndroidDriver<MobileElement> arg0) {
+                        return element.getText().contains(text);
+                    };
+                });
+        return flag;
+    }
+
+
+    protected String getTextFromElement(MobileElement element) {
+        String flag = "";
+        if (waitForElementToBeVisible(element))
+        {
+            flag = element.getText();
+            return flag;
+        } else return flag;
+    }
+
 
     protected boolean isElementVisible(MobileElement element) {
         try {

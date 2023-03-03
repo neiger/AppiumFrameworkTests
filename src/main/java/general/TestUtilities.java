@@ -8,7 +8,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.asserts.SoftAssert;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class TestUtilities extends TestListenerAdapter {
@@ -45,8 +48,33 @@ public class TestUtilities extends TestListenerAdapter {
             FileUtils.copyFile(srcFile, new File("./Screenshots/" +
                     testName + "_" + TimeStamp + ".png"));
         } catch (IOException e) {
-            e.printStackTrace();
+            TestUtilities.errorsAndExceptionsManagement(e);
         }
     }
 
+    protected static void errorsAndExceptionsManagement(Exception e){
+        try {
+            String error = e.toString();
+            Boolean append = true;
+            File txtObj = new File("logging.txt");
+            FileWriter fileWriter = new FileWriter("logging.txt", append);
+            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
+            String dateAndTime = LocalDateTime.now().format(dateTimeFormatter).toString();
+
+            if (txtObj.createNewFile()) {
+                System.out.println("File created. " + txtObj.getName());
+                fileWriter.write("\n"+"\nDate and Time: "+dateAndTime);
+                fileWriter.write("\nERROR MESSAGE LOG "+ "\n" + error);
+                fileWriter.close();
+            } else {
+                System.out.println("File already exists.");
+                fileWriter.write("\n"+"\nDate and Time: "+dateAndTime);
+                fileWriter.write("\nERROR MESSAGE LOG "+ "\n" + error);
+                fileWriter.close();
+            }
+        } catch (Exception i) {
+            System.out.println("An error has occurred\n" + i.toString());
+        }
+
+    }
 }

@@ -34,8 +34,8 @@ public class MapsMainScreen extends BasePage {
     @AndroidFindBy(id="com.google.android.apps.maps:id/mylocation_button")
     protected MobileElement myLocationBtn;
 
-    @AndroidFindBy(xpath="//android.view.View[@content-desc=\"Directions to Ciudad Colón\"]")
-    protected MobileElement directionsBtn;
+    @AndroidFindBy(id="com.google.android.apps.maps:id/home_bottom_sheet_container")
+    protected MobileElement doubleTapOnMap;
 
     @Override
     public boolean verifyLoads() {
@@ -53,7 +53,7 @@ public class MapsMainScreen extends BasePage {
                 pressKeyboardKey(Keys.ENTER);
     }
 
-    public boolean navigateToCC(){
-        return tapElement(directionsBtn);
+    public boolean doubleTapOnElement(){
+        return doubleTapOnElement(doubleTapOnMap) && implicityWaitTimeOnScreen();
     }
 }
