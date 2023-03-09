@@ -22,14 +22,26 @@
 
 
     <!--  Test Case testing Parameters  -->
+    <parameter name="getStartX" value="720" /> <!--   810      720 -->
+    <parameter name="getStartY" value="2500" /> <!--  1700     2500 -->
+    <parameter name="getEndX" value="720" />  <!--    330      720 -->
+    <parameter name="getEndY" value="506" /> <!--    1200     506 -->
 
 
+
+    <!--  Test Case Execution Order  -->
     <test name="Android Apps Test Cases">
         <classes>
             <class name="tests.MapsMainScreenTests">
                 <!-- -->
                 <methods>
-                    <include name="verifyDoubleTapOnMap"/>
+                    <exclude name="verifyMapsMainScreen"/>
+                    <include name="verifySearchMapsWithLatAndLong"/>
+                    <exclude name="verifyDoubleTapOnMap"/>
+                    <exclude name="verifyDoubleTapOnMapScreen" />
+                    <exclude name="verifySwipeOnScreenWithCoordinatesXxYy" />
+                    <exclude name="verifyScrollToAnElementOnScreen" />
+                    <exclude name="verifyZoomInAndZoomOutOnMapsScreen" />
                 </methods>
             </class>
         </classes>

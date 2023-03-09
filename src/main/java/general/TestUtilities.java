@@ -52,7 +52,7 @@ public class TestUtilities extends TestListenerAdapter {
         }
     }
 
-    protected static void errorsAndExceptionsManagement(Exception e){
+    public static void errorsAndExceptionsManagement(Exception e){
         try {
             String error = e.toString();
             Boolean append = true;

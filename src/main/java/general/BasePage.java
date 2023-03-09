@@ -1,29 +1,27 @@
 package general;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
 import io.appium.java_client.AppiumFluentWait;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.MultiTouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidTouchAction;
-import io.appium.java_client.functions.ExpectedCondition;
+import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.ElementOption;
+import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.*;
 
 public abstract class BasePage {
 
     protected AndroidDriver<MobileElement> driver;
-    private AppiumFluentWait<AndroidDriver<MobileElement>> wait;
-    private AndroidTouchAction androidTouchAction;
+    private final AppiumFluentWait<AndroidDriver<MobileElement>> wait;
+    private final AndroidTouchAction androidTouchAction;
 
-    private int staticTimeOut;
-    private int dynamicTimeOut;
+    private final int staticTimeOut;
+    private final int dynamicTimeOut;
 
     // CONSTRUCTOR - Receiving webdriver as a parameter to save it on a global variable to be used later
     public BasePage(AndroidDriver<MobileElement> driver) {
@@ -41,35 +39,35 @@ public abstract class BasePage {
 
     // method to wait for the visibility of an element
     protected boolean waitForElementToBeVisible(MobileElement element) {
-        boolean flag = false;
+        boolean flag;
         flag = this.wait.until(new Function<AndroidDriver<MobileElement>, Boolean>() {
             public Boolean apply(AndroidDriver<MobileElement> arg0) {
                 return element != null && element.isDisplayed();
-            };
+            }
         });
         return flag;
     }
 
     protected boolean waitForElementToBeClickable(MobileElement element) {
-        boolean flag = false;
+        boolean flag;
         flag = this.wait.until(new Function<AndroidDriver<MobileElement>, Boolean>() {
             public Boolean apply(AndroidDriver<MobileElement> arg0) {
                 return element.isEnabled();
-            };
+            }
         });
         return flag;
     }
 
     // method to wait for an element to be clickable
     protected boolean tapElement(MobileElement element) {
-        boolean flag = false;
+        boolean flag;
         flag = waitForElementToBeVisible(element) && waitForElementToBeClickable(element) &&
                 this.wait.until(new Function<AndroidDriver<MobileElement>, Boolean>() {
                     public Boolean apply(AndroidDriver<MobileElement> arg0) {
                         androidTouchAction.tap(ElementOption.element(element)).perform();
                         //element.click();
                         return true;
-                    };
+                    }
                 });
         return flag;
     }
@@ -116,20 +114,102 @@ public abstract class BasePage {
         return flag;
     }
 
+    /**
+     *
+     *
+     *   ANDROID GESTURES
+     *
+     *
+     **/
+
     protected boolean doubleTapOnElement(MobileElement element) {
         boolean flag = false;
         try {
-            androidTouchAction.tap(ElementOption.element(element)).perform();
             androidTouchAction.tap(ElementOption.element(element)).perform();
             flag = true;
         } catch (Exception e) {
             TestUtilities.errorsAndExceptionsManagement(e);
         }
+        return flag;
+    }
+
+    protected boolean doubleTapOnScreenWithCoordinatesXY(MobileElement element, int getStartX, int getStartY) {
+        boolean flag = false;
+        try {
+            androidTouchAction.tap(ElementOption.element(element, getStartX, getStartY)).perform();
+            androidTouchAction.tap(ElementOption.element(element, getStartX, getStartY)).perform();
+            flag = true;
+        } catch (Exception e) {
+            TestUtilities.errorsAndExceptionsManagement(e);
+        }
+        return flag;
+    }
+
+    protected boolean swipeOnScreenWithCoordinatesXxYy(int getStartX, int getStartY, int getEndX, int getEndY) {
+        boolean flag = false;
+        try{
+            androidTouchAction.longPress(ElementOption.point(getStartX, getStartY)).moveTo(ElementOption.point(getEndX,getEndY)).release().perform();
+            flag = true;
+        } catch (Exception e){
+            TestUtilities.errorsAndExceptionsManagement(e);
+        }
+        return flag;
+    }
+
+     /*
+    UNDER DEVELOPMENT
+     */
+
+    protected boolean scrollToAnElementOnScreen(String scrollVal) {
+        boolean flag = false;
+        try {
+            driver.findElementByAndroidUIAutomator(scrollVal);
+        } catch (Exception e) { TestUtilities.errorsAndExceptionsManagement(e);}
+        return flag;
+    }
+
+    protected boolean zoomInOutOnScreen(MobileElement element) {
+        boolean flag = false;
+
+        Dimension dim = element.getSize();
+        int width = dim.width;
+        int height = dim.height;
+
+        //Start XY && End XY 1st Touch
+        int ftStartXcc = 750; //(int) (width * .5);
+        int ftStartYcc = 1450; //(int) (height * .4);
+        int ftEndXcc = 1100; //(int) (width * .1);
+        int ftEndYcc = 800; //(int) (height * .1);
+
+        //Start XY && End XY 2nd Touch
+        int stStartXcc = 748;//(int) (width * .5);
+        int stStartYcc = 1448;//(int) (height * .6);
+        int stEndXcc = 400; //(int) (width * .9);
+        int stEndYcc = 2000; //(int) (height * .9);
+
+        try {
+
+            AndroidTouchAction touch1 = new AndroidTouchAction(driver);
+            AndroidTouchAction touch2 = new AndroidTouchAction(driver);
+
+            touch1.longPress(PointOption.point(ftStartXcc, ftStartYcc)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000)))
+                    .moveTo(PointOption.point(ftEndXcc, ftEndYcc));
+
+            touch2.longPress(PointOption.point(stStartXcc, stStartYcc)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000)))
+                    .moveTo(PointOption.point(stEndXcc, stEndYcc));
+
+            MultiTouchAction multi = new MultiTouchAction(driver);
+            multi.add(touch1).add(touch2).perform();
+
+            flag = true;
+        } catch (Exception e) {TestUtilities.errorsAndExceptionsManagement(e);}
 
         return flag;
     }
 
-
+    /*
+    UNDER DEVELOPMENT
+     */
 
 
     /*
@@ -148,12 +228,12 @@ public abstract class BasePage {
 
     // method to verify text on a certain element
     protected boolean verifyTextOnElement(MobileElement element, String text) {
-        boolean flag = false;
+        boolean flag;
         flag = waitForElementToBeVisible(element) &&
                 this.wait.until(new Function<AndroidDriver<MobileElement>, Boolean>() {
                     public Boolean apply(AndroidDriver<MobileElement> arg0) {
                         return element.getText().contains(text);
-                    };
+                    }
                 });
         return flag;
     }
@@ -168,121 +248,4 @@ public abstract class BasePage {
         } else return flag;
     }
 
-
-    protected boolean isElementVisible(MobileElement element) {
-        try {
-            return element != null && element.isDisplayed();
-        } catch (Exception e) {
-            String exp = e.toString();
-            if(e.toString().contains("element not found")) {
-                System.out.println("[]  ----->  Element is not found");
-            }
-            return false;
-        }
-    }
-
-    // clear text
-    protected boolean cleanTextField(MobileElement element) {
-        try {
-            waitForElementToBeVisible(element);
-            element.clear();
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    //will get anytext present on a field
-    protected String getTextOnField(MobileElement element) {
-        try {
-            wait.until(ExpectedConditions.visibilityOf(element));
-            String link = element.getAttribute("value");
-            return link;
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    protected boolean jsScrollToFindElement(String scrollY) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        try {
-            js.executeScript("window.scrollBy(0," + scrollY + ")");
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    protected boolean hooverOnElement(MobileElement element) {
-        try {
-            Actions action = new Actions(driver);
-            waitForElementToBeVisible(element);
-            action.moveToElement(element).perform();
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-
-    }
-
-    protected boolean verifyElementsOnList(List<MobileElement> elements, List<String> elementsText) {
-        try {
-            for (int i = 0, listVal = elements.size(); i < listVal; i++) {
-                verifyTextOnElement(elements.get(i), elementsText.get(i));
-            }
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-
-
-    protected boolean listMatchSize(List<MobileElement> elementList, int listSize) {
-        if (elementList.size() == listSize) {
-            System.out.println("The list on WebElement: " + elementList.size() + " match: " + listSize);
-            return true;
-        } else {
-            System.out.println("[]  ----->  The list on WebElement: " + elementList.size() + " does not match: " + listSize);
-            return false;
-        }
-    }
-
-    protected boolean waitForJStoLoad(){
-
-        JavascriptExecutor j = (JavascriptExecutor)driver;
-        if (j.executeScript("return document.readyState").toString().equals("complete")){
-            System.out.println("Page loaded properly.");
-            return true;
-        } else {
-            System.out.println("[]  ----->  The wait time has failed");
-            return false;
-        }
-    }
-
-    protected List<String> convertListFromWebElementstoStringArray(List<MobileElement> webElementList){
-        try {
-            List <String> enlist = new ArrayList<String>();
-            for (MobileElement e : webElementList) {
-                enlist.add(getTextFromElement(e));
-            }
-            return enlist;
-        } catch (Exception e){
-            return null;
-        }
-    }
-
-    protected boolean isElementPresenceLocated(MobileElement element, String value) {
-        try {
-            return (boolean) this.wait.until((Function<WebDriver, Boolean>)new ExpectedCondition<Boolean>() {
-                public Boolean apply(WebDriver arg0) {
-                    return element.getCssValue("display").equals(value);
-                };
-            });
-        } catch (Exception e) {
-            return false;
-        }
-    }
 }
