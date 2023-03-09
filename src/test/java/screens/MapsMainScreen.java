@@ -1,6 +1,7 @@
 package screens;
 
 import general.BasePage;
+import general.TestUtilities;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -34,8 +35,21 @@ public class MapsMainScreen extends BasePage {
     @AndroidFindBy(id="com.google.android.apps.maps:id/mylocation_button")
     protected MobileElement myLocationBtn;
 
-    @AndroidFindBy(xpath="//android.view.View[@content-desc=\"Directions to Ciudad Colón\"]")
-    protected MobileElement directionsBtn;
+    @AndroidFindBy(id="com.google.android.apps.maps:id/explore_tab_home_bottom_sheet")
+    protected MobileElement mapsViewContainer;
+
+
+    @AndroidFindBy(id="com.google.android.apps.maps:id/home_bottom_sheet_container") //com.google.android.apps.maps:id/explore_tab_home_bottom_sheet
+    protected MobileElement doubleTapOnMap;
+
+    @AndroidFindBy(xpath="//android.widget.FrameLayout[@content-desc=\"Explore\"]/android.widget.FrameLayout/android.widget.ImageView")
+    protected MobileElement exploreBtn;
+
+    @AndroidFindBy(xpath="//android.support.v7.widget.RecyclerView[@content-desc=\"Explore this area\"]/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout")
+    protected MobileElement exploreAreaFrame;
+
+    @AndroidFindBy(xpath="//android.widget.FrameLayout[@content-desc=\"Photo of Central Market Curridabat\"]/android.widget.ImageView")
+    protected MobileElement imageViewerScrollTo;
 
     @Override
     public boolean verifyLoads() {
@@ -53,7 +67,35 @@ public class MapsMainScreen extends BasePage {
                 pressKeyboardKey(Keys.ENTER);
     }
 
-    public boolean navigateToCC(){
-        return tapElement(directionsBtn);
+    public boolean doubleTapOnElement(){
+        return doubleTapOnElement(doubleTapOnMap);
     }
+
+    public boolean doubleTapOnScreenWithXY(int getStartX, int getStartY){
+        return doubleTapOnScreenWithCoordinatesXY(doubleTapOnMap, getStartX, getStartY);
+    }
+
+    public boolean swipeOnScreenWithCoordinates(int getStartX, int getStartY, int getEndX, int getEndY) {
+        return swipeOnScreenWithCoordinatesXxYy(getStartX, getStartY, getEndX, getEndY);
+    }
+
+    public boolean scrollToAnElement() {
+        try {
+            tapElement(exploreBtn);
+            waitForAFewSecondsOnScreen();
+            tapElement(exploreAreaFrame);
+            waitForAFewSecondsOnScreen();
+            return scrollToAnElementOnScreen(imageViewerScrollTo.toString()) && pressKeyboardKey(Keys.BACK_SPACE);
+        } catch (Exception e) {
+            TestUtilities.errorsAndExceptionsManagement(e); return false;
+        }
+
+    }
+
+    public boolean zoomInzoomOuOnMapsScreen() {
+        return zoomInOutOnScreen(mapsViewContainer) && waitForAFewSecondsOnScreen() &&
+                zoomInOutOnScreen(mapsViewContainer) && waitForAFewSecondsOnScreen() &&
+                zoomInOutOnScreen(mapsViewContainer) && waitForAFewSecondsOnScreen();
+    }
+
 }

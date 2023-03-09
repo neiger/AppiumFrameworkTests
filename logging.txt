@@ -1,0 +1,53 @@
+
+
+Date and Time: 03-03-2023 12:01:05
+ERROR MESSAGE LOG 
+org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({By.id: com.google.android.apps.maps:id/home_bottom_sheet_container52})
+
+Date and Time: 03-03-2023 12:01:06
+ERROR MESSAGE LOG 
+org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({By.id: com.google.android.apps.maps:id/home_bottom_sheet_container52})
+
+Date and Time: 03-03-2023 12:06:35
+ERROR MESSAGE LOG 
+org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({By.id: com.google.android.apps.maps:id/home_bottom_sheet_container52})
+
+Date and Time: 03-03-2023 16:21:11
+ERROR MESSAGE LOG 
+org.openqa.selenium.InvalidElementStateException: Tap at [x=1290.0, y=3238.0] has failed
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:8b5:a49c:22b9:88c5%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, databaseEnabled: false, desired: {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, deviceName: emulator-5554, noReset: true, platformName: android, platformVersion: 13}, deviceApiLevel: 33, deviceManufacturer: Google, deviceModel: sdk_gphone64_x86_64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3120, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 13, statBarHeight: 136, takesScreenshot: true, viewportRect: {height: 2764, left: 0, top: 136, width: 1440}, warnings: {}, webStorageEnabled: false}
+Session ID: 984b3b13-8cc4-4558-8401-b6720661aea4
+
+Date and Time: 03-03-2023 16:25:16
+ERROR MESSAGE LOG 
+org.openqa.selenium.InvalidElementStateException: Tap at [x=717.0, y=3234.0] has failed
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:8b5:a49c:22b9:88c5%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, databaseEnabled: false, desired: {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, deviceName: emulator-5554, noReset: true, platformName: android, platformVersion: 13}, deviceApiLevel: 33, deviceManufacturer: Google, deviceModel: sdk_gphone64_x86_64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3120, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 13, statBarHeight: 136, takesScreenshot: true, viewportRect: {height: 2764, left: 0, top: 136, width: 1440}, warnings: {}, webStorageEnabled: false}
+Session ID: 61f728c4-7397-4d3b-b800-9c809ab75f09
+
+Date and Time: 03-06-2023 15:13:11
+ERROR MESSAGE LOG 
+org.openqa.selenium.InvalidSelectorException: Could not parse selector expression `new UiSelector().Located by By.chained({By.xpath: //android.widget.FrameLayout[@content-desc="Photo of Central Market Curridabat"]/android.widget.ImageView})`: UiSelector has no `Located by By.chained` method
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:148f:e013:7038:2cb6%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, databaseEnabled: false, desired: {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, deviceName: emulator-5554, noReset: true, platformName: android, platformVersion: 13}, deviceApiLevel: 33, deviceManufacturer: Google, deviceModel: sdk_gphone64_x86_64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3120, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 13, statBarHeight: 136, takesScreenshot: true, viewportRect: {height: 2764, left: 0, top: 136, width: 1440}, warnings: {}, webStorageEnabled: false}
+Session ID: 7dafb096-1024-4334-8b16-2621b2cbe1c7
+*** Element info: {Using=-android uiautomator, value=Located by By.chained({By.xpath: //android.widget.FrameLayout[@content-desc="Photo of Central Market Curridabat"]/android.widget.ImageView})}
+
+Date and Time: 03-07-2023 12:23:29
+ERROR MESSAGE LOG 
+org.openqa.selenium.InvalidSelectorException: Could not parse selector expression `new UiSelector().Located by By.chained({By.xpath: //android.widget.FrameLayout[@content-desc="Photo of Central Market Curridabat"]/android.widget.ImageView})`: UiSelector has no `Located by By.chained` method
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:148f:e013:7038:2cb6%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, databaseEnabled: false, desired: {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, deviceName: emulator-5554, noReset: true, platformName: android, platformVersion: 13}, deviceApiLevel: 33, deviceManufacturer: Google, deviceModel: sdk_gphone64_x86_64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3120, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 13, statBarHeight: 136, takesScreenshot: true, viewportRect: {height: 2764, left: 0, top: 136, width: 1440}, warnings: {}, webStorageEnabled: false}
+Session ID: 166b558d-59ca-4e73-a00d-e4fd688ca6cf
+*** Element info: {Using=-android uiautomator, value=Located by By.chained({By.xpath: //android.widget.FrameLayout[@content-desc="Photo of Central Market Curridabat"]/android.widget.ImageView})}
