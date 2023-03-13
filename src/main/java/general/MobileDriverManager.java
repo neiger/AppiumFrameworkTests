@@ -14,7 +14,7 @@ import java.net.URL;
 
 public class MobileDriverManager extends TestUtilities {
 
-    private static ThreadLocal<AndroidDriver> mobAndroidDriver = new ThreadLocal<AndroidDriver>();
+    private static final ThreadLocal<AndroidDriver> mobAndroidDriver = new ThreadLocal<>();
 
     private static int staticTime;
     private static int dynamicTime;
@@ -53,14 +53,15 @@ public class MobileDriverManager extends TestUtilities {
         capability.setCapability("appPackage", appPackage);
         capability.setCapability("appActivity", appActivity);
         capability.setCapability(MobileCapabilityType.NO_RESET, noReset);
+        capability.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 0);
 
         mobAndroidDriver.set(new AndroidDriver<MobileElement>(new URL(appiumServer), capability));
     }
 
     // driver initiator which gets ready in the @BeforeMethod and does not require to be passed
     // as parameter in the ScreenTests classes
-    public AndroidDriver<MobileElement> getDriver() {
-        return (AndroidDriver<MobileElement>) mobAndroidDriver.get();
+    public AndroidDriver getDriver() {
+        return mobAndroidDriver.get();
     }
 
     @AfterMethod(alwaysRun = true)

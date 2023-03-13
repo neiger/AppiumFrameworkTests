@@ -1,7 +1,6 @@
 package screens;
 
 import general.BasePage;
-import general.TestUtilities;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -18,7 +17,7 @@ public class MapsMainScreen extends BasePage {
 
     /*
      *
-     *  Google maps UI elements found to validate and perform actions
+     *  Google Maps UI elements found to validate and perform actions
      *
      *
      */
@@ -42,14 +41,11 @@ public class MapsMainScreen extends BasePage {
     @AndroidFindBy(id="com.google.android.apps.maps:id/home_bottom_sheet_container") //com.google.android.apps.maps:id/explore_tab_home_bottom_sheet
     protected MobileElement doubleTapOnMap;
 
-    @AndroidFindBy(xpath="//android.widget.FrameLayout[@content-desc=\"Explore\"]/android.widget.FrameLayout/android.widget.ImageView")
+    @AndroidFindBy(id="com.google.android.apps.maps:id/navigation_bar_item_large_label_view")
     protected MobileElement exploreBtn;
 
     @AndroidFindBy(xpath="//android.support.v7.widget.RecyclerView[@content-desc=\"Explore this area\"]/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout")
     protected MobileElement exploreAreaFrame;
-
-    @AndroidFindBy(xpath="//android.widget.FrameLayout[@content-desc=\"Photo of Central Market Curridabat\"]/android.widget.ImageView")
-    protected MobileElement imageViewerScrollTo;
 
     @Override
     public boolean verifyLoads() {
@@ -79,23 +75,26 @@ public class MapsMainScreen extends BasePage {
         return swipeOnScreenWithCoordinatesXxYy(getStartX, getStartY, getEndX, getEndY);
     }
 
-    public boolean scrollToAnElement() {
-        try {
-            tapElement(exploreBtn);
-            waitForAFewSecondsOnScreen();
-            tapElement(exploreAreaFrame);
-            waitForAFewSecondsOnScreen();
-            return scrollToAnElementOnScreen(imageViewerScrollTo.toString()) && pressKeyboardKey(Keys.BACK_SPACE);
-        } catch (Exception e) {
-            TestUtilities.errorsAndExceptionsManagement(e); return false;
+    public boolean openExploreBtnElement(int getStartX, int getStartY, int getEndX, int getEndY) {
+        return tapElement(exploreBtn) && tapElement(exploreAreaFrame) && waitForAFewSecondsOnScreen()
+                && swipeOnScreenWithCoordinatesXxYy(getStartX, getStartY, getEndX, getEndY);
+    }
+
+    public boolean zoomOnMapsScreen() {
+        return zoomOnScreen(mapsViewContainer) && waitForAFewSecondsOnScreen();
+    }
+
+    public boolean verifyTextDisplayedOnElement(String txt) {
+        return verifyTextOnElement(exploreBtn, txt);
+    }
+
+    public boolean getTextFromElement() {
+        boolean flag = false;
+        String val = getTextFromElement(exploreBtn);
+        if(!val.isEmpty()){
+            System.out.println("The text retrieved is: [" + val + "]");
+            flag = true;
         }
-
+        return flag;
     }
-
-    public boolean zoomInzoomOuOnMapsScreen() {
-        return zoomInOutOnScreen(mapsViewContainer) && waitForAFewSecondsOnScreen() &&
-                zoomInOutOnScreen(mapsViewContainer) && waitForAFewSecondsOnScreen() &&
-                zoomInOutOnScreen(mapsViewContainer) && waitForAFewSecondsOnScreen();
-    }
-
 }
