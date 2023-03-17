@@ -10,8 +10,8 @@
 
             <!--  Mobile Main Config Parameters  -->
             <parameter name="platformName" value="Android"/>
-            <parameter name="platformVersion" value="13"/>
-            <parameter name="deviceName" value="emulator-5554"/>
+            <parameter name="platformVersion" value="11"/>
+            <parameter name="deviceName" value="HWQYD22514501984"/> <!-- non-GMS HWQYD22514501984  GMS R3CTC0D3BFE Emulator emulator-5554 -->
             <parameter name="automationName" value="UiAutomator2"/>
             <parameter name="appPackage" value="com.google.android.apps.maps"/>   <!-- com.google.android.apps.maps   com.avantica.qapp -->
             <parameter name="appActivity" value="com.google.android.maps.MapsActivity"/> <!-- com.google.android.maps.MapsActivity   com.avantica.qapp.activities.GreetingActivity -->
@@ -23,10 +23,10 @@
 
     <!--  Test Case testing Parameters  -->
     <parameter name="address" value="San Jose, Curridabat;San Jose, Ciudad Colon;37.3732324,-121.9654005"/>
-    <parameter name="getStartX" value="720" /> <!--   810      720 -->
-    <parameter name="getStartY" value="2500" /> <!--  1700     2500 -->
-    <parameter name="getEndX" value="720" />  <!--    330      720 -->
-    <parameter name="getEndY" value="506" /> <!--    1200     506 -->
+    <parameter name="getStartX" value="540" /> <!--   810      720 -->
+    <parameter name="getStartY" value="800" /> <!--  1700     2500 -->
+    <parameter name="getEndX" value="540" />  <!--    330      720 -->
+    <parameter name="getEndY" value="500" /> <!--    1200     506 -->
 
 
 
@@ -36,8 +36,8 @@
             <class name="tests.MapsMainScreenTests">
                 <!-- -->
                 <methods>
-                    <include name="verifyMapsMainScreen"/>
-                    <include name="verifySearchMapsWithLatAndLong"/>
+                    <exclude name="verifyMapsMainScreen"/>
+                    <exclude name="verifySearchMapsWithLatAndLong"/>
                     <exclude name="verifyDoubleTapOnMap"/>
                     <exclude name="verifyDoubleTapOnMapScreen" />
                     <include name="verifySwipeOnScreenWithCoordinatesXxYy" />

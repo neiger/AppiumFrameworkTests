@@ -18,8 +18,8 @@ public abstract class BasePage {
     protected AndroidDriver<MobileElement> driver;
     private final AppiumFluentWait<AndroidDriver<MobileElement>> wait;
     private final AndroidTouchAction androidTouchAction;
-
     private final int staticTimeOut;
+    private ErrorsManager errorsManager = new ErrorsManager();
 
     // CONSTRUCTOR - Receiving web driver as a parameter to save it on a global variable to be used later
     public BasePage(AndroidDriver<MobileElement> driver) {
@@ -102,7 +102,7 @@ public abstract class BasePage {
             TimeUnit.SECONDS.sleep(this.staticTimeOut);
             return true;
         } catch (Exception e) {
-            TestUtilities.errorsAndExceptionsManagement(e);
+            errorsManager.errNExpManager(e);
             return false;
         }
     }
@@ -127,7 +127,7 @@ public abstract class BasePage {
             androidTouchAction.tap(ElementOption.element(element)).perform();
             flag = true;
         } catch (Exception e) {
-            TestUtilities.errorsAndExceptionsManagement(e);
+            errorsManager.errNExpManager(e);
         }
         return flag;
     }
@@ -139,7 +139,7 @@ public abstract class BasePage {
             androidTouchAction.tap(ElementOption.element(element, getStartX, getStartY)).perform();
             flag = true;
         } catch (Exception e) {
-            TestUtilities.errorsAndExceptionsManagement(e);
+            errorsManager.errNExpManager(e);
         }
         return flag;
     }
@@ -150,7 +150,7 @@ public abstract class BasePage {
             androidTouchAction.longPress(ElementOption.point(getStartX, getStartY)).moveTo(ElementOption.point(getEndX,getEndY)).release().perform();
             flag = true;
         } catch (Exception e){
-            TestUtilities.errorsAndExceptionsManagement(e);
+            errorsManager.errNExpManager(e);
         }
         return flag;
     }
@@ -207,7 +207,7 @@ public abstract class BasePage {
                  .perform();
 
             flag = true;
-        } catch (Exception e) {TestUtilities.errorsAndExceptionsManagement(e);}
+        } catch (Exception e) {errorsManager.errNExpManager(e);}
 
         return flag;
     }
