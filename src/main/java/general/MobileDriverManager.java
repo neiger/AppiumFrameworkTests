@@ -15,7 +15,6 @@ import java.net.URL;
 public class MobileDriverManager extends TestUtilities {
 
     private static final ThreadLocal<AndroidDriver> mobAndroidDriver = new ThreadLocal<>();
-    private ErrorsManager errorsManager = new ErrorsManager();
 
     private static int staticTime;
     private static int dynamicTime;
@@ -58,7 +57,7 @@ public class MobileDriverManager extends TestUtilities {
 
             mobAndroidDriver.set(new AndroidDriver<MobileElement>(new URL(appiumServer), capability));
 
-        } catch (Exception e) {errorsManager.errNExpManager(e);}
+        } catch (Exception e) {ErrorsManager.errNExpManager(e);}
 
     }
 
@@ -73,7 +72,7 @@ public class MobileDriverManager extends TestUtilities {
         try {
             System.out.println("[DRIVER MSG]  ----> The browser driver is being close now");
             getDriver().quit();
-        } catch (NullPointerException e) {errorsManager.errNExpManager(e);}
+        } catch (NullPointerException e) {ErrorsManager.errNExpManager(e);}
     }
 
     @Override

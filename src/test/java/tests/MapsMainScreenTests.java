@@ -63,15 +63,15 @@ public class MapsMainScreenTests extends MobileDriverManager {
     }
 
     @Test     @Parameters({"getStartX", "getStartY", "getEndX", "getEndY"})
-    public void verifyScrollToAnElementOnScreen(int getStartX, int getStartY, int getEndX, int getEndY) {
+    public void verifyUsersCanSwipeWhileExploring(int getStartX, int getStartY, int getEndX, int getEndY) {
         assertTrue(mapsMainScreen.openExploreBtnElement(getStartX, getStartY, getEndX, getEndY), basicErrorMsg("Scroll down can't be performed"));
         assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), basicErrorMsg("The app did not halt on screen"));
         assertAll();
     }
 
     @Test
-    public void verifyZoomInAndZoomOutOnMapsScreen() {
-        assertTrue(mapsMainScreen.zoomOnMapsScreen(), basicErrorMsg("Zoom feature fails"));
+    public void verifyMultiTouchOnMapsScreen() {
+        assertTrue(mapsMainScreen.multiTouchOnMapsScreen(), basicErrorMsg("Zoom feature fails"));
         assertAll();
     }
 

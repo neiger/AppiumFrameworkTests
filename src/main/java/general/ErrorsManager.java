@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class ErrorsManager {
+public abstract class ErrorsManager {
 
     public static void errNExpManager(Exception e){
         try {

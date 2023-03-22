@@ -17,7 +17,7 @@ import java.util.Date;
 public class TestUtilities extends TestListenerAdapter {
 
     private static final ThreadLocal<SoftAssert> assertGeneric = new ThreadLocal<>();
-    private ErrorsManager errorsManager = new ErrorsManager();
+    //private ErrorsManager errorsManager = new ErrorsManager();
 
     protected void assertTrue(boolean validation, String msg){
         assertGeneric.get().assertTrue(validation,msg);
@@ -44,7 +44,7 @@ public class TestUtilities extends TestListenerAdapter {
             FileUtils.copyFile(srcFile, new File("./Screenshots/" +
                     testName + "_" + TimeStamp + ".png"));
         } catch (IOException e) {
-            errorsManager.errNExpManager(e);
+            ErrorsManager.errNExpManager(e);
         }
     }
 
