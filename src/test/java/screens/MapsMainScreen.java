@@ -1,8 +1,8 @@
 package screens;
 
 import general.BasePage;
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.Keys;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class MapsMainScreen extends BasePage {
 
-    public MapsMainScreen(AndroidDriver<MobileElement> driver) {
+    public MapsMainScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
@@ -23,32 +23,32 @@ public class MapsMainScreen extends BasePage {
      */
 
     @AndroidFindBy(id="com.google.android.apps.maps:id/search_omnibox_text_box")
-    protected MobileElement searchOmniboxTxt;
+    protected AndroidElement searchOmniboxTxt;
 
     @AndroidFindBy(id="com.google.android.apps.maps:id/search_omnibox_edit_text")
-    protected MobileElement enableSearchOmniboxTxt;
+    protected AndroidElement enableSearchOmniboxTxt;
 
     @AndroidFindBy(id="com.google.android.apps.maps:id/watermark_image")
-    protected MobileElement googWaterMarkImage;
+    protected AndroidElement googWaterMarkImage;
 
     @AndroidFindBy(id="com.google.android.apps.maps:id/mylocation_button")
-    protected MobileElement myLocationBtn;
+    protected AndroidElement myLocationBtn;
 
     @AndroidFindBy(id="com.google.android.apps.maps:id/explore_tab_home_bottom_sheet")
-    protected MobileElement mapsViewContainer;
+    protected AndroidElement mapsViewContainer;
 
 
     @AndroidFindBy(id="com.google.android.apps.maps:id/home_bottom_sheet_container") //com.google.android.apps.maps:id/explore_tab_home_bottom_sheet
-    protected MobileElement doubleTapOnMap;
+    protected AndroidElement doubleTapOnMap;
 
     @AndroidFindBy(id="com.google.android.apps.maps:id/navigation_bar_item_large_label_view")
-    protected MobileElement exploreBtnTxt;
+    protected AndroidElement exploreBtnTxt;
 
     @AndroidFindBy(xpath="//android.widget.FrameLayout[@content-desc=\"Explore\"]/android.widget.FrameLayout/android.widget.ImageView")
-    protected MobileElement exploreBtn;
+    protected AndroidElement exploreBtn;
 
     @AndroidFindBy(xpath="//android.support.v7.widget.RecyclerView[@content-desc=\"Explore this area\"]/android.widget.FrameLayout[1]")
-    protected MobileElement exploreAreaFrame;
+    protected AndroidElement exploreAreaFrame;
 
     @Override
     public boolean verifyLoads() {
@@ -88,7 +88,7 @@ public class MapsMainScreen extends BasePage {
     }
 
     public boolean verifyTextDisplayedOnElement(String txt) {
-        return verifyTextOnMobElement(exploreBtn, txt);
+        return verifyTextOnMobElement(exploreBtnTxt, txt);
     }
 
     public boolean getTextFromElement() {

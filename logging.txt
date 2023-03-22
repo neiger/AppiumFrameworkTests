@@ -449,3 +449,92 @@ Driver info: driver.version: AndroidDriver
 Date and Time: 03-21-2023 16:29:23
 ERROR MESSAGE LOG 
 java.lang.NullPointerException
+
+Date and Time: 03-22-2023 12:59:11
+ERROR MESSAGE LOG 
+org.openqa.selenium.SessionNotCreatedException: Unable to create a new remote session. Please check the server log for more details. Original error: An unknown server-side error occurred while processing the command. Original error: Unable to find an active device or emulator with OS 12. The following are available: R3CTC0D3BFE (13)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:496:6f6a:810a:47e4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Unable to find an active device or emulator with OS 12. The following are available: R3CTC0D3BFE (13)
+    at getResponseForW3CError (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/errors.js:804:9)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/protocol.js:380:37)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:496:6f6a:810a:47e4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-22-2023 12:59:11
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-22-2023 12:59:29
+ERROR MESSAGE LOG 
+org.openqa.selenium.SessionNotCreatedException: Unable to create a new remote session. Please check the server log for more details. Original error: An unknown server-side error occurred while processing the command. Original error: Unable to find an active device or emulator with OS 12. The following are available: R3CTC0D3BFE (13)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:496:6f6a:810a:47e4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Unable to find an active device or emulator with OS 12. The following are available: R3CTC0D3BFE (13)
+    at getResponseForW3CError (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/errors.js:804:9)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/protocol.js:380:37)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:496:6f6a:810a:47e4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-22-2023 12:59:29
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-22-2023 13:00:59
+ERROR MESSAGE LOG 
+org.openqa.selenium.SessionNotCreatedException: Unable to create a new remote session. Please check the server log for more details. Original error: An unknown server-side error occurred while processing the command. Original error: Unable to find an active device or emulator with OS 12. The following are available: R3CTC0D3BFE (13)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:496:6f6a:810a:47e4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Unable to find an active device or emulator with OS 12. The following are available: R3CTC0D3BFE (13)
+    at getResponseForW3CError (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/errors.js:804:9)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/protocol.js:380:37)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:496:6f6a:810a:47e4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-22-2023 13:00:59
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-22-2023 13:02:55
+ERROR MESSAGE LOG 
+org.openqa.selenium.SessionNotCreatedException: Unable to create a new remote session. Please check the server log for more details. Original error: An unknown server-side error occurred while processing the command. Original error: Unable to find an active device or emulator with OS 12. The following are available: R3CTC0D3BFE (13)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:496:6f6a:810a:47e4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Unable to find an active device or emulator with OS 12. The following are available: R3CTC0D3BFE (13)
+    at getResponseForW3CError (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/errors.js:804:9)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/protocol.js:380:37)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:496:6f6a:810a:47e4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-22-2023 13:02:55
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-22-2023 13:03:07
+ERROR MESSAGE LOG 
+org.openqa.selenium.SessionNotCreatedException: Unable to create a new remote session. Please check the server log for more details. Original error: An unknown server-side error occurred while processing the command. Original error: Unable to find an active device or emulator with OS 12. The following are available: R3CTC0D3BFE (13)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:496:6f6a:810a:47e4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Unable to find an active device or emulator with OS 12. The following are available: R3CTC0D3BFE (13)
+    at getResponseForW3CError (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/errors.js:804:9)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/protocol.js:380:37)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:496:6f6a:810a:47e4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-22-2023 13:03:07
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-22-2023 16:25:31
+ERROR MESSAGE LOG 
+java.lang.ClassCastException: io.appium.java_client.android.AndroidDriver cannot be cast to org.openqa.selenium.interactions.HasTouchScreen

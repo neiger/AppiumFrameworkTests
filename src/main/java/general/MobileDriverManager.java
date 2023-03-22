@@ -1,7 +1,7 @@
 package general;
 
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.ITestResult;
@@ -55,7 +55,7 @@ public class MobileDriverManager extends TestUtilities {
             capability.setCapability(MobileCapabilityType.NO_RESET, noReset);
             capability.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 0);
 
-            mobAndroidDriver.set(new AndroidDriver<MobileElement>(new URL(appiumServer), capability));
+            mobAndroidDriver.set(new AndroidDriver<AndroidElement>(new URL(appiumServer), capability));
 
         } catch (Exception e) {ErrorsManager.errNExpManager(e);}
 
