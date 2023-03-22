@@ -534,3 +534,7 @@ Driver info: driver.version: AndroidDriver
 Date and Time: 03-22-2023 13:03:07
 ERROR MESSAGE LOG 
 java.lang.NullPointerException
+
+Date and Time: 03-22-2023 16:25:31
+ERROR MESSAGE LOG 
+java.lang.ClassCastException: io.appium.java_client.android.AndroidDriver cannot be cast to org.openqa.selenium.interactions.HasTouchScreen

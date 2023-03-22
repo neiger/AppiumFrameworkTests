@@ -38,12 +38,12 @@
                 <methods>
                     <exclude name="verifyMapsMainScreen"/>
                     <exclude name="verifySearchMapsWithLatAndLong"/>
-                    <exclude name="verifyDoubleTapOnMap"/>
-                    <exclude name="verifyDoubleTapOnMapScreen" />
+                    <include name="verifyDoubleTapOnMap"/>
+                    <include name="verifyDoubleTapOnMapScreen" />
                     <exclude name="verifySwipeOnScreenWithCoordinatesXxYy" />
                     <exclude name="verifyUsersCanSwipeWhileExploring" /> <!-- needs fix -->
-                    <include name="verifyMultiTouchOnMapsScreen" />
-                    <include name="verifyTextDisplayedOnMobileElement" />
+                    <exclude name="verifyMultiTouchOnMapsScreen" />
+                    <exclude name="verifyTextDisplayedOnMobileElement" />
                 </methods>
             </class>
 

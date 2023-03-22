@@ -218,7 +218,6 @@ public abstract class BasePage {
         boolean flag;
         flag = this.wait.until(arg0 -> {
                     androidTouchAction.tap(ElementOption.point(getX,getY)).release().perform();
-                    //androidTouchAction.press(ElementOption.point(getX,getY)).perform();
             return true;
                 });
         return flag;
