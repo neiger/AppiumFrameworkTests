@@ -6,15 +6,15 @@
         <listener class-name="general.MobileDriverManager">
             <!-- Mobile timeout and halt setup -->
             <parameter name="tmStatic" value="3"/>
-            <parameter name="tmDynamic" value="60"/>
+            <parameter name="tmDynamic" value="10"/>
 
             <!--  Mobile Main Config Parameters  -->
             <parameter name="platformName" value="Android"/>
-            <parameter name="platformVersion" value="13"/>
-            <parameter name="deviceName" value="emulator-5554"/>
+            <parameter name="platformVersion" value="11"/>  <!-- non-GMS Android 11 / GMS Android 12 -->
+            <parameter name="deviceName" value="HWQYD22514501984"/> <!-- non-GMS HWQYD22514501984  GMS R3CTC0D3BFE Emulator emulator-5554 -->
             <parameter name="automationName" value="UiAutomator2"/>
-            <parameter name="appPackage" value="com.google.android.apps.maps"/>   <!-- com.google.android.apps.maps   com.avantica.qapp -->
-            <parameter name="appActivity" value="com.google.android.maps.MapsActivity"/> <!-- com.google.android.maps.MapsActivity   com.avantica.qapp.activities.GreetingActivity -->
+            <parameter name="appPackage" value="com.openmobilehub.auth.sample"/>   <!-- com.openmobilehub.auth.sample|com.google.android.apps.maps|com.avantica.qapp -->
+            <parameter name="appActivity" value="com.openmobilehub.auth.sample.login.LoginActivity"/> <!--com.openmobilehub.auth.sample.login.LoginActivity| com.google.android.maps.MapsActivity   com.avantica.qapp.activities.GreetingActivity -->
             <parameter name="noReset" value="true"/> <!-- True to prevent prompt for asking permissions again -->
             <parameter name="appiumServer" value="http://127.0.0.1:4723/wd/hub"/>
         </listener>
@@ -22,10 +22,11 @@
 
 
     <!--  Test Case testing Parameters  -->
-    <parameter name="getStartX" value="720" /> <!--   810      720 -->
-    <parameter name="getStartY" value="2500" /> <!--  1700     2500 -->
-    <parameter name="getEndX" value="720" />  <!--    330      720 -->
-    <parameter name="getEndY" value="506" /> <!--    1200     506 -->
+    <parameter name="address" value="San Jose, Curridabat;San Jose, Ciudad Colon;37.3732324,-121.9654005"/>
+    <parameter name="getStartX" value="540" /> <!--   810      720 -->
+    <parameter name="getStartY" value="1780" /> <!--  1780     2500 -->
+    <parameter name="getEndX" value="540" />  <!--    330      720 -->
+    <parameter name="getEndY" value="100" /> <!--    100     506 -->
 
 
 
@@ -36,14 +37,22 @@
                 <!-- -->
                 <methods>
                     <exclude name="verifyMapsMainScreen"/>
-                    <include name="verifySearchMapsWithLatAndLong"/>
+                    <exclude name="verifySearchMapsWithLatAndLong"/>
                     <exclude name="verifyDoubleTapOnMap"/>
                     <exclude name="verifyDoubleTapOnMapScreen" />
                     <exclude name="verifySwipeOnScreenWithCoordinatesXxYy" />
-                    <exclude name="verifyScrollToAnElementOnScreen" />
-                    <exclude name="verifyZoomInAndZoomOutOnMapsScreen" />
+                    <exclude name="verifyUsersCanSwipeWhileExploring" /> <!-- needs fix -->
+                    <exclude name="verifyMultiTouchOnMapsScreen" />
+                    <exclude name="verifyTextDisplayedOnMobileElement" />
                 </methods>
             </class>
+
+            <class name="tests.AuthSampleLoginScreenTests">
+                <methods>
+                    <include name="verifyUserCanSignInFromWebViewBrowserScreen"/>
+                </methods>
+            </class>
+
         </classes>
     </test>
 

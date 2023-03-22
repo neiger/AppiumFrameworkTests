@@ -14,7 +14,7 @@ import java.net.URL;
 
 public class MobileDriverManager extends TestUtilities {
 
-    private static ThreadLocal<AndroidDriver> mobAndroidDriver = new ThreadLocal<AndroidDriver>();
+    private static final ThreadLocal<AndroidDriver> mobAndroidDriver = new ThreadLocal<>();
 
     private static int staticTime;
     private static int dynamicTime;
@@ -38,35 +38,41 @@ public class MobileDriverManager extends TestUtilities {
     @BeforeMethod(alwaysRun = true)
     public final void setMobDriver(String platformName, String platformVersion, String deviceName,
                                    String automationName, String appPackage, String appActivity,
-                                   String noReset, String appiumServer) throws Exception {
+                                   String noReset, String appiumServer) {
+        try {
+            System.out.println("[DRIVER MSG]  ----> The mobile test driver is being initialized now");
 
-        System.out.println("[DRIVER MSG]  ----> The mobile test driver is being initialized now");
+            DesiredCapabilities capability = new DesiredCapabilities();
 
-        DesiredCapabilities capability = new DesiredCapabilities();
+            // Android Device capabilities
+            capability.setCapability(MobileCapabilityType.PLATFORM_NAME, platformName);
+            capability.setCapability(MobileCapabilityType.PLATFORM_VERSION, platformVersion);
+            capability.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
+            capability.setCapability(MobileCapabilityType.AUTOMATION_NAME, automationName);
+            //capability.setCapability(MobileCapabilityType.APP, appPackage); // In case apk needs to be installed
+            capability.setCapability("appPackage", appPackage);
+            capability.setCapability("appActivity", appActivity);
+            capability.setCapability(MobileCapabilityType.NO_RESET, noReset);
+            capability.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 0);
 
-        // Android Device capabilities
-        capability.setCapability(MobileCapabilityType.PLATFORM_NAME, platformName);
-        capability.setCapability(MobileCapabilityType.PLATFORM_VERSION, platformVersion);
-        capability.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
-        capability.setCapability(MobileCapabilityType.AUTOMATION_NAME, automationName);
-        //capability.setCapability(MobileCapabilityType.APP, appPackage); // In case apk needs to be installed
-        capability.setCapability("appPackage", appPackage);
-        capability.setCapability("appActivity", appActivity);
-        capability.setCapability(MobileCapabilityType.NO_RESET, noReset);
+            mobAndroidDriver.set(new AndroidDriver<MobileElement>(new URL(appiumServer), capability));
 
-        mobAndroidDriver.set(new AndroidDriver<MobileElement>(new URL(appiumServer), capability));
+        } catch (Exception e) {ErrorsManager.errNExpManager(e);}
+
     }
 
     // driver initiator which gets ready in the @BeforeMethod and does not require to be passed
     // as parameter in the ScreenTests classes
-    public AndroidDriver<MobileElement> getDriver() {
-        return (AndroidDriver<MobileElement>) mobAndroidDriver.get();
+    public AndroidDriver getDriver() {
+        return mobAndroidDriver.get();
     }
 
     @AfterMethod(alwaysRun = true)
-    public void deleteDriver() {
-        System.out.println("[DRIVER MSG]  ----> The browser driver is being close now");
-        getDriver().quit();
+    public void deleteDriver() throws NullPointerException{
+        try {
+            System.out.println("[DRIVER MSG]  ----> The browser driver is being close now");
+            getDriver().quit();
+        } catch (NullPointerException e) {ErrorsManager.errNExpManager(e);}
     }
 
     @Override

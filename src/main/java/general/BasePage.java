@@ -2,7 +2,6 @@ package general;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Function;
 
 import io.appium.java_client.AppiumFluentWait;
 import io.appium.java_client.MobileElement;
@@ -14,22 +13,21 @@ import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.*;
 
+
 public abstract class BasePage {
 
     protected AndroidDriver<MobileElement> driver;
     private final AppiumFluentWait<AndroidDriver<MobileElement>> wait;
-    private final AndroidTouchAction androidTouchAction;
-
+    private AndroidTouchAction androidTouchAction;
     private final int staticTimeOut;
-    private final int dynamicTimeOut;
 
-    // CONSTRUCTOR - Receiving webdriver as a parameter to save it on a global variable to be used later
+    // CONSTRUCTOR - Receiving web driver as a parameter to save it on a global variable to be used later
     public BasePage(AndroidDriver<MobileElement> driver) {
         this.driver = driver;
         this.staticTimeOut = MobileDriverManager.getStaticTime();
-        this.dynamicTimeOut = MobileDriverManager.getDynamicTime();
+        int dynamicTimeOut = MobileDriverManager.getDynamicTime();
         this.wait = new AppiumFluentWait<>(driver);
-        this.wait.withTimeout(Duration.ofSeconds(this.dynamicTimeOut));
+        this.wait.withTimeout(Duration.ofSeconds(dynamicTimeOut));
         androidTouchAction = new AndroidTouchAction(this.driver);
     }
 
@@ -38,67 +36,83 @@ public abstract class BasePage {
     public abstract boolean verifyLoads();
 
     // method to wait for the visibility of an element
-    protected boolean waitForElementToBeVisible(MobileElement element) {
+    protected boolean waitForMobElementToBeVisible(MobileElement element) {
         boolean flag;
-        flag = this.wait.until(new Function<AndroidDriver<MobileElement>, Boolean>() {
-            public Boolean apply(AndroidDriver<MobileElement> arg0) {
-                return element != null && element.isDisplayed();
-            }
-        });
+        flag = this.wait.until(arg -> element != null && element.isDisplayed());
         return flag;
     }
 
-    protected boolean waitForElementToBeClickable(MobileElement element) {
+    protected boolean waitForMobElementToBeTappable(MobileElement element) {
         boolean flag;
-        flag = this.wait.until(new Function<AndroidDriver<MobileElement>, Boolean>() {
-            public Boolean apply(AndroidDriver<MobileElement> arg0) {
-                return element.isEnabled();
-            }
-        });
+        flag = this.wait.until(arg -> element.isEnabled());
         return flag;
     }
 
     // method to wait for an element to be clickable
-    protected boolean tapElement(MobileElement element) {
+    protected boolean tapMobElement(MobileElement element) {
         boolean flag;
-        flag = waitForElementToBeVisible(element) && waitForElementToBeClickable(element) &&
-                this.wait.until(new Function<AndroidDriver<MobileElement>, Boolean>() {
-                    public Boolean apply(AndroidDriver<MobileElement> arg0) {
+        flag = waitForMobElementToBeVisible(element) && waitForMobElementToBeTappable(element) &&
+                this.wait.until(arg0 -> {
                         androidTouchAction.tap(ElementOption.element(element)).perform();
-                        //element.click();
                         return true;
-                    }
-                });
+                    });
         return flag;
     }
 
-    // method to enter text on an specific field
-    protected boolean sendTextOnCleanElement(MobileElement element, String txt) {
+    // method to enter text on a specific field
+    protected boolean sendTextOnEmptyMobElement(MobileElement element, String txt) {
 
         boolean validationReturn = false;
 
-        if (waitForElementToBeClickable(element)) {
+        if (waitForMobElementToBeTappable(element)) {
             androidTouchAction.tap(ElementOption.element(element)).perform();
-            //element.click();
             element.clear();
-            validationReturn = typeOnTxtElement(element, txt);
+            validationReturn = typeTxtOnMobElement(element, txt);
         }
         return validationReturn;
     }
 
-    private boolean typeOnTxtElement(MobileElement element, String txt) {
+    private boolean typeTxtOnMobElement(MobileElement element, String txt) {
         element.sendKeys(txt);
         return element.isEnabled();
         //true;//element.getTagName().contains(txt);
     }
 
 
+    // method to verify text on a certain element
+    protected boolean verifyTextOnMobElement(MobileElement element, String text) {
+        boolean flag;
+        flag = waitForMobElementToBeVisible(element) &&
+                this.wait.until(arg0 -> element.getText().contains(text));
+        return flag;
+    }
+
+
+    protected String getTextFromMobElement(MobileElement element) {
+        String flag = "";
+        if (waitForMobElementToBeVisible(element))
+        {
+            flag = element.getText();
+        }
+        return flag;
+    }
+
     protected boolean implicityWaitTimeOnScreen() {
         try {
             TimeUnit.SECONDS.sleep(this.staticTimeOut);
             return true;
         } catch (Exception e) {
-            TestUtilities.errorsAndExceptionsManagement(e);
+            ErrorsManager.errNExpManager(e);
+            return false;
+        }
+    }
+
+    protected boolean implicityWaitTimeOnScreenManual(int secs) {
+        try {
+            TimeUnit.SECONDS.sleep(secs);
+            return true;
+        } catch (Exception e) {
+            ErrorsManager.errNExpManager(e);
             return false;
         }
     }
@@ -114,21 +128,16 @@ public abstract class BasePage {
         return flag;
     }
 
-    /**
-     *
-     *
-     *   ANDROID GESTURES
-     *
-     *
-     **/
+    /*****   ANDROID GESTURES  *****/
 
-    protected boolean doubleTapOnElement(MobileElement element) {
+    protected boolean doubleTapOnMobElement(MobileElement element) {
         boolean flag = false;
         try {
             androidTouchAction.tap(ElementOption.element(element)).perform();
+            androidTouchAction.tap(ElementOption.element(element)).perform();
             flag = true;
         } catch (Exception e) {
-            TestUtilities.errorsAndExceptionsManagement(e);
+            ErrorsManager.errNExpManager(e);
         }
         return flag;
     }
@@ -140,7 +149,7 @@ public abstract class BasePage {
             androidTouchAction.tap(ElementOption.element(element, getStartX, getStartY)).perform();
             flag = true;
         } catch (Exception e) {
-            TestUtilities.errorsAndExceptionsManagement(e);
+            ErrorsManager.errNExpManager(e);
         }
         return flag;
     }
@@ -151,101 +160,68 @@ public abstract class BasePage {
             androidTouchAction.longPress(ElementOption.point(getStartX, getStartY)).moveTo(ElementOption.point(getEndX,getEndY)).release().perform();
             flag = true;
         } catch (Exception e){
-            TestUtilities.errorsAndExceptionsManagement(e);
+            ErrorsManager.errNExpManager(e);
         }
         return flag;
     }
 
-     /*
-    UNDER DEVELOPMENT
-     */
-
-    protected boolean scrollToAnElementOnScreen(String scrollVal) {
-        boolean flag = false;
-        try {
-            driver.findElementByAndroidUIAutomator(scrollVal);
-        } catch (Exception e) { TestUtilities.errorsAndExceptionsManagement(e);}
-        return flag;
-    }
-
-    protected boolean zoomInOutOnScreen(MobileElement element) {
+    protected boolean multiTouchOnScreen(MobileElement element) {
         boolean flag = false;
 
         Dimension dim = element.getSize();
         int width = dim.width;
         int height = dim.height;
+        System.out.println("Maps Dimension: " + dim + " Width: " +width + " Height: " + height);
 
         //Start XY && End XY 1st Touch
-        int ftStartXcc = 750; //(int) (width * .5);
-        int ftStartYcc = 1450; //(int) (height * .4);
-        int ftEndXcc = 1100; //(int) (width * .1);
-        int ftEndYcc = 800; //(int) (height * .1);
+        int ftStartXcc = 400;//(int) (width * .5);    // 1440 * 0.5 = 720
+        int ftStartYcc = (int) (height * .4);   // 2547 * 0.4 = 1018.8
+
+        int ftEndXcc = (int) (width * .1);      // 1440 * 0.1 = 144
+        int ftEndYcc = (int) (height * .1);     // 2547 * 0.1 = 254.7
+        System.out.println("First Touch: " + ftStartXcc + " -> " + ftStartYcc + " ----> " + ftEndXcc + " -> " + ftEndYcc);
 
         //Start XY && End XY 2nd Touch
-        int stStartXcc = 748;//(int) (width * .5);
-        int stStartYcc = 1448;//(int) (height * .6);
-        int stEndXcc = 400; //(int) (width * .9);
-        int stEndYcc = 2000; //(int) (height * .9);
+        int stStartXcc = (int) (width * .5);    // 1440 * 0.5 = 720
+        int stStartYcc = (int) (height * .6);   // 2547 * 0.6 = 1528.2
+
+        int stEndXcc = (int) (width * .9);      // 1440 * 0.9 = 1296
+        int stEndYcc = (int) (height * .9);     // 2547 * 0.9 = 2292.3
+        System.out.println("Second Touch: " + stStartXcc + " -> " + stStartYcc + " ----> " + stEndXcc + " -> " + stEndYcc);
 
         try {
 
             AndroidTouchAction touch1 = new AndroidTouchAction(driver);
-            AndroidTouchAction touch2 = new AndroidTouchAction(driver);
-
-            touch1.longPress(PointOption.point(ftStartXcc, ftStartYcc)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000)))
+            touch1.longPress(PointOption.point(ftStartXcc, ftStartYcc))
+                    .waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000)))
                     .moveTo(PointOption.point(ftEndXcc, ftEndYcc));
 
-            touch2.longPress(PointOption.point(stStartXcc, stStartYcc)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000)))
+            AndroidTouchAction touch2 = new AndroidTouchAction(driver);
+            touch2.longPress(PointOption.point(stStartXcc, stStartYcc))
+                    .waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000)))
                     .moveTo(PointOption.point(stEndXcc, stEndYcc));
 
             MultiTouchAction multi = new MultiTouchAction(driver);
-            multi.add(touch1).add(touch2).perform();
+            multi.add(touch1)
+                 .add(touch2)
+                 .perform();
 
             flag = true;
-        } catch (Exception e) {TestUtilities.errorsAndExceptionsManagement(e);}
+        } catch (Exception e) {
+            ErrorsManager.errNExpManager(e);}
 
         return flag;
     }
 
-    /*
-    UNDER DEVELOPMENT
-     */
-
-
-    /*
-     *
-     *
-     *
-     *
-     *
-     * BELOW METHODS NEED TO BE MIGRATED FOR ANDROID AUTOMATION CALLS
-     *
-     *
-     *
-     *
-     *
-     *  */
-
-    // method to verify text on a certain element
-    protected boolean verifyTextOnElement(MobileElement element, String text) {
+    // method to wait for an element to be clickable
+    protected boolean tapOnScreenXY(int getX, int getY) {
         boolean flag;
-        flag = waitForElementToBeVisible(element) &&
-                this.wait.until(new Function<AndroidDriver<MobileElement>, Boolean>() {
-                    public Boolean apply(AndroidDriver<MobileElement> arg0) {
-                        return element.getText().contains(text);
-                    }
+        flag = this.wait.until(arg0 -> {
+                    androidTouchAction.tap(ElementOption.point(getX,getY)).release().perform();
+                    //androidTouchAction.press(ElementOption.point(getX,getY)).perform();
+            return true;
                 });
         return flag;
-    }
-
-
-    protected String getTextFromElement(MobileElement element) {
-        String flag = "";
-        if (waitForElementToBeVisible(element))
-        {
-            flag = element.getText();
-            return flag;
-        } else return flag;
     }
 
 }

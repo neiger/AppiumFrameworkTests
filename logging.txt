@@ -51,3 +51,401 @@ Driver info: io.appium.java_client.android.AndroidDriver
 Capabilities {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, databaseEnabled: false, desired: {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, deviceName: emulator-5554, noReset: true, platformName: android, platformVersion: 13}, deviceApiLevel: 33, deviceManufacturer: Google, deviceModel: sdk_gphone64_x86_64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3120, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 13, statBarHeight: 136, takesScreenshot: true, viewportRect: {height: 2764, left: 0, top: 136, width: 1440}, warnings: {}, webStorageEnabled: false}
 Session ID: 166b558d-59ca-4e73-a00d-e4fd688ca6cf
 *** Element info: {Using=-android uiautomator, value=Located by By.chained({By.xpath: //android.widget.FrameLayout[@content-desc="Photo of Central Market Curridabat"]/android.widget.ImageView})}
+
+Date and Time: 03-10-2023 10:21:23
+ERROR MESSAGE LOG 
+org.openqa.selenium.InvalidSelectorException: Could not parse selector expression `new UiSelector().Located by By.chained({By.xpath: //android.widget.FrameLayout[@content-desc="Photo of Central Market Curridabat"]/android.widget.ImageView})`: UiSelector has no `Located by By.chained` method
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:1088:2038:9459:17f9%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, databaseEnabled: false, desired: {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, deviceName: emulator-5554, noReset: true, platformName: android, platformVersion: 13}, deviceApiLevel: 33, deviceManufacturer: Google, deviceModel: sdk_gphone64_x86_64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3120, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 13, statBarHeight: 136, takesScreenshot: true, viewportRect: {height: 2764, left: 0, top: 136, width: 1440}, warnings: {}, webStorageEnabled: false}
+Session ID: f7bc5d11-d562-4c25-912d-fb3c654f4649
+*** Element info: {Using=-android uiautomator, value=Located by By.chained({By.xpath: //android.widget.FrameLayout[@content-desc="Photo of Central Market Curridabat"]/android.widget.ImageView})}
+
+Date and Time: 03-10-2023 11:13:14
+ERROR MESSAGE LOG 
+org.openqa.selenium.InvalidSelectorException: Could not parse selector expression `new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text('Follow'))`: `UiScrollable` doesn't have suitable method `scrollIntoView` with arguments [new UiSelector().text('Follow')]: Could not parse selector expression `new UiSelector().text('Follow')`: `UiSelector` doesn't have suitable method `text` with arguments ['Follow']: Could not parse selector expression `new UiSelector().text('Follow')`: 'Follow' is not a string
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:1088:2038:9459:17f9%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, databaseEnabled: false, desired: {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, deviceName: emulator-5554, noReset: true, platformName: android, platformVersion: 13}, deviceApiLevel: 33, deviceManufacturer: Google, deviceModel: sdk_gphone64_x86_64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3120, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 13, statBarHeight: 136, takesScreenshot: true, viewportRect: {height: 2764, left: 0, top: 136, width: 1440}, warnings: {}, webStorageEnabled: false}
+Session ID: 317021ea-5b5f-4173-b05e-6f59e7194c93
+*** Element info: {Using=-android uiautomator, value=new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text('Follow'))}
+
+Date and Time: 03-10-2023 14:40:42
+ERROR MESSAGE LOG 
+org.openqa.selenium.NoSuchSessionException: A session is either terminated or not started
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:1088:2038:9459:17f9%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, databaseEnabled: false, desired: {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, deviceName: emulator-5554, noReset: true, platformName: android, platformVersion: 13}, deviceApiLevel: 33, deviceManufacturer: Google, deviceModel: sdk_gphone64_x86_64, deviceName: emulator-5554, deviceScreenDensity: 560, deviceScreenSize: 1440x3120, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, noReset: true, pixelRatio: 3.5, platform: LINUX, platformName: Android, platformVersion: 13, statBarHeight: 136, takesScreenshot: true, viewportRect: {height: 2764, left: 0, top: 136, width: 1440}, warnings: {}, webStorageEnabled: false}
+Session ID: 51a631e4-31d1-400a-be77-1b687d9e84e4
+
+Date and Time: 03-10-2023 14:55:47
+ERROR MESSAGE LOG 
+java.lang.ClassCastException: org.openqa.selenium.interactions.Actions cannot be cast to java.lang.CharSequence
+
+Date and Time: 03-14-2023 08:57:11
+ERROR MESSAGE LOG 
+org.openqa.selenium.WebDriverException: Connection refused (Connection refused)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:52:2c4b:4baf:251f%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-14-2023 08:57:11
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-14-2023 08:57:11
+ERROR MESSAGE LOG 
+org.openqa.selenium.WebDriverException: Connection refused (Connection refused)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:52:2c4b:4baf:251f%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-14-2023 08:57:11
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-14-2023 08:57:11
+ERROR MESSAGE LOG 
+org.openqa.selenium.WebDriverException: Connection refused (Connection refused)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:52:2c4b:4baf:251f%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-14-2023 08:57:11
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-14-2023 08:58:08
+ERROR MESSAGE LOG 
+org.openqa.selenium.WebDriverException: Connection refused (Connection refused)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:52:2c4b:4baf:251f%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-14-2023 08:58:08
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-14-2023 08:58:08
+ERROR MESSAGE LOG 
+org.openqa.selenium.WebDriverException: Connection refused (Connection refused)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:52:2c4b:4baf:251f%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-14-2023 08:58:08
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-14-2023 08:58:08
+ERROR MESSAGE LOG 
+org.openqa.selenium.WebDriverException: Connection refused (Connection refused)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:52:2c4b:4baf:251f%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-14-2023 08:58:08
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-14-2023 09:01:16
+ERROR MESSAGE LOG 
+org.openqa.selenium.WebDriverException: Connection refused (Connection refused)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:52:2c4b:4baf:251f%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-14-2023 09:01:16
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-14-2023 09:01:16
+ERROR MESSAGE LOG 
+org.openqa.selenium.WebDriverException: Connection refused (Connection refused)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:52:2c4b:4baf:251f%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-14-2023 09:01:16
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-14-2023 09:01:16
+ERROR MESSAGE LOG 
+org.openqa.selenium.WebDriverException: Connection refused (Connection refused)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:52:2c4b:4baf:251f%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-14-2023 09:01:16
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-14-2023 09:02:07
+ERROR MESSAGE LOG 
+org.openqa.selenium.SessionNotCreatedException: Unable to create a new remote session. Please check the server log for more details. Original error: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20232ms.
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:52:2c4b:4baf:251f%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20232ms.
+    at getResponseForW3CError (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/errors.js:804:9)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/protocol.js:380:37)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:52:2c4b:4baf:251f%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-14-2023 09:02:07
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-14-2023 09:02:27
+ERROR MESSAGE LOG 
+org.openqa.selenium.SessionNotCreatedException: Unable to create a new remote session. Please check the server log for more details. Original error: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20037ms.
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:52:2c4b:4baf:251f%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20037ms.
+    at getResponseForW3CError (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/errors.js:804:9)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/protocol.js:380:37)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:52:2c4b:4baf:251f%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-14-2023 09:02:27
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-14-2023 09:02:47
+ERROR MESSAGE LOG 
+org.openqa.selenium.SessionNotCreatedException: Unable to create a new remote session. Please check the server log for more details. Original error: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20001ms.
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:52:2c4b:4baf:251f%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20001ms.
+    at getResponseForW3CError (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/errors.js:804:9)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/protocol.js:380:37)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:52:2c4b:4baf:251f%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-14-2023 09:02:47
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-17-2023 15:48:28
+ERROR MESSAGE LOG 
+org.openqa.selenium.InvalidElementStateException: Tap at [x=720.0, y=2767.0] has failed
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:1089:6420:3740:5eca%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, databaseEnabled: false, desired: {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, deviceName: R3CTC0D3BFE, newCommandTimeout: 0, noReset: true, platformName: android, platformVersion: 12}, deviceApiLevel: 31, deviceManufacturer: samsung, deviceModel: SM-S901U1, deviceName: R3CTC0D3BFE, deviceScreenDensity: 480, deviceScreenSize: 1080x2340, deviceUDID: R3CTC0D3BFE, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 0, noReset: true, pixelRatio: 3, platform: LINUX, platformName: Android, platformVersion: 12, statBarHeight: 81, takesScreenshot: true, viewportRect: {height: 2034, left: 0, top: 81, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: b2ce2231-fb52-46c3-94be-9d50b3ef6352
+
+Date and Time: 03-17-2023 16:23:16
+ERROR MESSAGE LOG 
+org.openqa.selenium.SessionNotCreatedException: Unable to create a new remote session. Please check the server log for more details. Original error: An unknown server-side error occurred while processing the command. Original error: Unable to find an active device or emulator with OS 12. The following are available: HWQYD22514501984 (11)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:1089:6420:3740:5eca%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Unable to find an active device or emulator with OS 12. The following are available: HWQYD22514501984 (11)
+    at getResponseForW3CError (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/errors.js:804:9)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/protocol.js:380:37)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:1089:6420:3740:5eca%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-17-2023 16:23:16
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-17-2023 16:28:21
+ERROR MESSAGE LOG 
+org.openqa.selenium.SessionNotCreatedException: Unable to create a new remote session. Please check the server log for more details. Original error: An unknown server-side error occurred while processing the command. Original error: Cannot start the 'com.google.android.apps.maps' application. Visit https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/android/activity-startup.md for troubleshooting. Original error: Cannot start the 'com.google.android.apps.maps' application. Visit https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/android/activity-startup.md for troubleshooting. Original error: Activity name '.com.google.android.maps.MapsActivity' used to start the app doesn't exist or cannot be launched! Make sure it exists and is a launchable activity
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:1089:6420:3740:5eca%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Cannot start the 'com.google.android.apps.maps' application. Visit https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/android/activity-startup.md for troubleshooting. Original error: Cannot start the 'com.google.android.apps.maps' application. Visit https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/android/activity-startup.md for troubleshooting. Original error: Activity name '.com.google.android.maps.MapsActivity' used to start the app doesn't exist or cannot be launched! Make sure it exists and is a launchable activity
+    at getResponseForW3CError (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/errors.js:804:9)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/protocol.js:380:37)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:1089:6420:3740:5eca%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-17-2023 16:28:21
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-20-2023 10:05:57
+ERROR MESSAGE LOG 
+org.openqa.selenium.WebDriverException: Connection refused (Connection refused)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:10ca:2f32:e3ec:4ae4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-20-2023 10:05:57
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-20-2023 10:05:57
+ERROR MESSAGE LOG 
+org.openqa.selenium.WebDriverException: Connection refused (Connection refused)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:10ca:2f32:e3ec:4ae4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-20-2023 10:05:57
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-20-2023 10:06:20
+ERROR MESSAGE LOG 
+org.openqa.selenium.WebDriverException: Connection refused (Connection refused)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:10ca:2f32:e3ec:4ae4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-20-2023 10:06:20
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-20-2023 13:30:21
+ERROR MESSAGE LOG 
+org.openqa.selenium.SessionNotCreatedException: Unable to create a new remote session. Please check the server log for more details. Original error: An unknown server-side error occurred while processing the command. Original error: Error getting device platform version. Original error: Error executing adbExec. Original error: 'Command '/Users/neiger.serrano/Library/Android/sdk/platform-tools/adb -P 5037 -s HWQYD22514501984 shell getprop ro.build.version.release' timed out after 20000ms'. Try to increase the 20000ms adb execution timeout represented by 'adbExecTimeout' capability
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:10ca:2f32:e3ec:4ae4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Error getting device platform version. Original error: Error executing adbExec. Original error: 'Command '/Users/neiger.serrano/Library/Android/sdk/platform-tools/adb -P 5037 -s HWQYD22514501984 shell getprop ro.build.version.release' timed out after 20000ms'. Try to increase the 20000ms adb execution timeout represented by 'adbExecTimeout' capability
+    at getResponseForW3CError (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/errors.js:804:9)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/protocol.js:380:37)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:10ca:2f32:e3ec:4ae4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-20-2023 13:30:21
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-20-2023 14:03:54
+ERROR MESSAGE LOG 
+java.lang.IllegalArgumentException: Some coordinates or an offset from an element should be defined. Use withPosition or withElement methods
+
+Date and Time: 03-20-2023 15:13:01
+ERROR MESSAGE LOG 
+org.openqa.selenium.WebDriverException: Connection refused (Connection refused)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:10ca:2f32:e3ec:4ae4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-20-2023 15:13:01
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-20-2023 15:14:54
+ERROR MESSAGE LOG 
+org.openqa.selenium.InvalidElementStateException: Unable to perform W3C actions. Check the logcat output for possible error reports and make sure your input actions chain is valid.
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:10ca:2f32:e3ec:4ae4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, databaseEnabled: false, desired: {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, deviceName: R3CTC0D3BFE, newCommandTimeout: 0, noReset: true, platformName: android, platformVersion: 12}, deviceApiLevel: 31, deviceManufacturer: samsung, deviceModel: SM-S901U1, deviceName: R3CTC0D3BFE, deviceScreenDensity: 480, deviceScreenSize: 1080x2340, deviceUDID: R3CTC0D3BFE, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 0, noReset: true, pixelRatio: 3, platform: LINUX, platformName: Android, platformVersion: 12, statBarHeight: 81, takesScreenshot: true, viewportRect: {height: 2034, left: 0, top: 81, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: 539ce8cb-c6f1-497e-87dc-13b85ee38e17
+
+Date and Time: 03-20-2023 15:15:59
+ERROR MESSAGE LOG 
+org.openqa.selenium.InvalidElementStateException: Unable to perform W3C actions. Check the logcat output for possible error reports and make sure your input actions chain is valid.
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:10ca:2f32:e3ec:4ae4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, databaseEnabled: false, desired: {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, deviceName: R3CTC0D3BFE, newCommandTimeout: 0, noReset: true, platformName: android, platformVersion: 12}, deviceApiLevel: 31, deviceManufacturer: samsung, deviceModel: SM-S901U1, deviceName: R3CTC0D3BFE, deviceScreenDensity: 480, deviceScreenSize: 1080x2340, deviceUDID: R3CTC0D3BFE, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 0, noReset: true, pixelRatio: 3, platform: LINUX, platformName: Android, platformVersion: 12, statBarHeight: 81, takesScreenshot: true, viewportRect: {height: 2034, left: 0, top: 81, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: 2064cdc2-5e3e-4193-b46b-a81d6e88394b
+
+Date and Time: 03-20-2023 15:16:56
+ERROR MESSAGE LOG 
+org.openqa.selenium.InvalidElementStateException: Unable to perform W3C actions. Check the logcat output for possible error reports and make sure your input actions chain is valid.
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:10ca:2f32:e3ec:4ae4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, databaseEnabled: false, desired: {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, deviceName: R3CTC0D3BFE, newCommandTimeout: 0, noReset: true, platformName: android, platformVersion: 12}, deviceApiLevel: 31, deviceManufacturer: samsung, deviceModel: SM-S901U1, deviceName: R3CTC0D3BFE, deviceScreenDensity: 480, deviceScreenSize: 1080x2340, deviceUDID: R3CTC0D3BFE, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 0, noReset: true, pixelRatio: 3, platform: LINUX, platformName: Android, platformVersion: 12, statBarHeight: 81, takesScreenshot: true, viewportRect: {height: 2034, left: 0, top: 81, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: 71cd3ccb-be8a-454a-9a54-3c2c41644363
+
+Date and Time: 03-20-2023 15:20:09
+ERROR MESSAGE LOG 
+org.openqa.selenium.InvalidElementStateException: Unable to perform W3C actions. Check the logcat output for possible error reports and make sure your input actions chain is valid.
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:10ca:2f32:e3ec:4ae4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, databaseEnabled: false, desired: {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, deviceName: R3CTC0D3BFE, newCommandTimeout: 0, noReset: true, platformName: android, platformVersion: 12}, deviceApiLevel: 31, deviceManufacturer: samsung, deviceModel: SM-S901U1, deviceName: R3CTC0D3BFE, deviceScreenDensity: 480, deviceScreenSize: 1080x2340, deviceUDID: R3CTC0D3BFE, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 0, noReset: true, pixelRatio: 3, platform: LINUX, platformName: Android, platformVersion: 12, statBarHeight: 81, takesScreenshot: true, viewportRect: {height: 2034, left: 0, top: 81, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: 5a7f5233-8ee5-4bcd-9b06-885440386d3d
+
+Date and Time: 03-20-2023 15:22:19
+ERROR MESSAGE LOG 
+org.openqa.selenium.InvalidElementStateException: Unable to perform W3C actions. Check the logcat output for possible error reports and make sure your input actions chain is valid.
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:10ca:2f32:e3ec:4ae4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, databaseEnabled: false, desired: {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, deviceName: R3CTC0D3BFE, newCommandTimeout: 0, noReset: true, platformName: android, platformVersion: 12}, deviceApiLevel: 31, deviceManufacturer: samsung, deviceModel: SM-S901U1, deviceName: R3CTC0D3BFE, deviceScreenDensity: 480, deviceScreenSize: 1080x2340, deviceUDID: R3CTC0D3BFE, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 0, noReset: true, pixelRatio: 3, platform: LINUX, platformName: Android, platformVersion: 12, statBarHeight: 81, takesScreenshot: true, viewportRect: {height: 2034, left: 0, top: 81, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: fd094510-aba5-4b0d-8d3c-f8c6ef95850e
+
+Date and Time: 03-20-2023 15:26:17
+ERROR MESSAGE LOG 
+org.openqa.selenium.InvalidElementStateException: Unable to perform W3C actions. Check the logcat output for possible error reports and make sure your input actions chain is valid.
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:10ca:2f32:e3ec:4ae4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, databaseEnabled: false, desired: {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, deviceName: R3CTC0D3BFE, newCommandTimeout: 0, noReset: true, platformName: android, platformVersion: 12}, deviceApiLevel: 31, deviceManufacturer: samsung, deviceModel: SM-S901U1, deviceName: R3CTC0D3BFE, deviceScreenDensity: 480, deviceScreenSize: 1080x2340, deviceUDID: R3CTC0D3BFE, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 0, noReset: true, pixelRatio: 3, platform: LINUX, platformName: Android, platformVersion: 12, statBarHeight: 81, takesScreenshot: true, viewportRect: {height: 2034, left: 0, top: 81, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: c7540f62-fd92-4f45-8351-59cc99a70ddf
+
+Date and Time: 03-21-2023 16:28:14
+ERROR MESSAGE LOG 
+org.openqa.selenium.SessionNotCreatedException: Unable to create a new remote session. Please check the server log for more details. Original error: An unknown server-side error occurred while processing the command. Original error: Cannot start the 'com.google.android.apps.maps' application. Visit https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/android/activity-startup.md for troubleshooting. Original error: Cannot start the 'com.google.android.apps.maps' application. Visit https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/android/activity-startup.md for troubleshooting. Original error: Activity name '.com.google.android.maps.MapsActivity' used to start the app doesn't exist or cannot be launched! Make sure it exists and is a launchable activity
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:496:6f6a:810a:47e4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Cannot start the 'com.google.android.apps.maps' application. Visit https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/android/activity-startup.md for troubleshooting. Original error: Cannot start the 'com.google.android.apps.maps' application. Visit https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/android/activity-startup.md for troubleshooting. Original error: Activity name '.com.google.android.maps.MapsActivity' used to start the app doesn't exist or cannot be launched! Make sure it exists and is a launchable activity
+    at getResponseForW3CError (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/errors.js:804:9)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/protocol.js:380:37)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:496:6f6a:810a:47e4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-21-2023 16:28:14
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-21-2023 16:28:36
+ERROR MESSAGE LOG 
+org.openqa.selenium.SessionNotCreatedException: Unable to create a new remote session. Please check the server log for more details. Original error: An unknown server-side error occurred while processing the command. Original error: Cannot start the 'com.google.android.apps.maps' application. Visit https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/android/activity-startup.md for troubleshooting. Original error: Cannot start the 'com.google.android.apps.maps' application. Visit https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/android/activity-startup.md for troubleshooting. Original error: Activity name '.com.google.android.maps.MapsActivity' used to start the app doesn't exist or cannot be launched! Make sure it exists and is a launchable activity
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:496:6f6a:810a:47e4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Cannot start the 'com.google.android.apps.maps' application. Visit https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/android/activity-startup.md for troubleshooting. Original error: Cannot start the 'com.google.android.apps.maps' application. Visit https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/android/activity-startup.md for troubleshooting. Original error: Activity name '.com.google.android.maps.MapsActivity' used to start the app doesn't exist or cannot be launched! Make sure it exists and is a launchable activity
+    at getResponseForW3CError (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/errors.js:804:9)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/protocol.js:380:37)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:496:6f6a:810a:47e4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-21-2023 16:28:36
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 03-21-2023 16:29:23
+ERROR MESSAGE LOG 
+org.openqa.selenium.SessionNotCreatedException: Unable to create a new remote session. Please check the server log for more details. Original error: An unknown server-side error occurred while processing the command. Original error: Unable to find an active device or emulator with OS 11. The following are available: R3CTC0D3BFE (12), adb-R3CTC0D3BFE-qGiKFA._adb-tls-connect._tcp. (12)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:496:6f6a:810a:47e4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Unable to find an active device or emulator with OS 11. The following are available: R3CTC0D3BFE (12), adb-R3CTC0D3BFE-qGiKFA._adb-tls-connect._tcp. (12)
+    at getResponseForW3CError (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/errors.js:804:9)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/protocol.js:380:37)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:496:6f6a:810a:47e4%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: AndroidDriver
+
+Date and Time: 03-21-2023 16:29:23
+ERROR MESSAGE LOG 
+java.lang.NullPointerException

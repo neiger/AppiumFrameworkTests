@@ -6,73 +6,80 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import screens.MapsMainScreen;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class MapsMainScreenTests extends MobileDriverManager {
 
     private MapsMainScreen mapsMainScreen;
-
+    private List<String> stringList;
     public MapsMainScreenTests() { }
 
-    @BeforeMethod
-    public void setMapsMainScreen() {
+    @BeforeMethod @Parameters({"address"})
+    public void setMapsMainScreen(String address) {
         mapsMainScreen = new MapsMainScreen(getDriver());
-        assertTrue(mapsMainScreen.verifyLoads(), "[]  ----->  Maps Screen does not loaded");
+        assertTrue(mapsMainScreen.verifyLoads(), basicErrorMsg("Maps Screen does not loaded"));
+        stringList = Arrays.asList(address.split(";"));
     }
 
     @Test
     public void verifyMapsMainScreen() {
-        assertTrue(mapsMainScreen.typeAnAddressInOmniBoxSearch("San Jose, Curridabat"), "[]  ----->  The field was not filled");
-        assertTrue(mapsMainScreen.typeAnAddressInOmniBoxSearch("San Jose, Ciudad Colon"), "[]  ----->  The field was not filled");
-        assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), "[]  ----->  The app did not halt on screen");
+        assertTrue(mapsMainScreen.typeAnAddressInOmniBoxSearch(stringList.get(0)), basicErrorMsg("The field was not filled"));
+        assertTrue(mapsMainScreen.typeAnAddressInOmniBoxSearch(stringList.get(1)), basicErrorMsg("The field was not filled"));
+        assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), basicErrorMsg("The app did not halt on screen"));
         assertAll();
     }
 
     @Test
     public void verifySearchMapsWithLatAndLong() {
-        assertTrue(mapsMainScreen.typeAnAddressInOmniBoxSearch("37.3732324,-121.9654005"), "[]  ----->  The field was not filled");
-        assertFalse(mapsMainScreen.waitForAFewSecondsOnScreen(), "[]  ----->  The app did not halt on screen");
+        assertTrue(mapsMainScreen.typeAnAddressInOmniBoxSearch(stringList.get(2)), basicErrorMsg("The field was not filled"));
+        assertFalse(mapsMainScreen.waitForAFewSecondsOnScreen(), basicErrorMsg("The app did not halt on screen"));
         assertAll();
     }
 
     @Test
     public void verifyDoubleTapOnMap() {
-        System.out.println("[STARTING THE TEST]...");
-        assertTrue(mapsMainScreen.doubleTapOnElement(), "[]  ----->  Double tap was not performed");
-        assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), "[]  ----->  The app did not halt on screen");
+        assertTrue(mapsMainScreen.doubleTapOnElement(), basicErrorMsg("Double tap was not performed"));
+        assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), basicErrorMsg("The app did not halt on screen"));
         assertAll();
     }
 
     @Parameters({"getStartX", "getStartY"})
     @Test
     public void verifyDoubleTapOnMapScreen(int getStartX, int getStartY) {
-        System.out.println("[STARTING THE TEST]...");
-        assertTrue(mapsMainScreen.doubleTapOnScreenWithXY(getStartX, getStartY), "[]  ----->  Double tap was not performed");
-        assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), "[]  ----->  The app did not halt on screen");
+        assertTrue(mapsMainScreen.doubleTapOnScreenWithXY(getStartX, getStartY), basicErrorMsg("Double tap was not performed"));
+        assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), basicErrorMsg("The app did not halt on screen"));
         assertAll();
     }
 
     @Parameters({"getStartX", "getStartY", "getEndX", "getEndY"})
     @Test
     public void verifySwipeOnScreenWithCoordinatesXxYy(int getStartX, int getStartY, int getEndX, int getEndY) {
-        System.out.println("[STARTING THE TEST]...");
-        assertTrue(mapsMainScreen.swipeOnScreenWithCoordinates(getStartX, getStartY, getEndX, getEndY), "[]  ----->  Drag N Drop was not performed");
-        assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), "[]  ----->  The app did not halt on screen");
-        assertTrue(mapsMainScreen.swipeOnScreenWithCoordinates(getStartX, getStartY, getEndX, getEndY), "[]  ----->  Drag N Drop was not performed");
-        assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), "[]  ----->  The app did not halt on screen");
+        assertTrue(mapsMainScreen.swipeOnScreenWithCoordinates(getStartX, getStartY, getEndX, getEndY), basicErrorMsg("Drag N Drop was not performed"));
+        assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), basicErrorMsg("The app did not halt on screen"));
+        assertTrue(mapsMainScreen.swipeOnScreenWithCoordinates(getStartX, getStartY, getEndX, getEndY), basicErrorMsg("Drag N Drop was not performed"));
+        assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), basicErrorMsg("The app did not halt on screen"));
+        assertAll();
+    }
+
+    @Test     @Parameters({"getStartX", "getStartY", "getEndX", "getEndY"})
+    public void verifyUsersCanSwipeWhileExploring(int getStartX, int getStartY, int getEndX, int getEndY) {
+        assertTrue(mapsMainScreen.openExploreBtnElement(getStartX, getStartY, getEndX, getEndY), basicErrorMsg("Scroll down can't be performed"));
+        assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), basicErrorMsg("The app did not halt on screen"));
         assertAll();
     }
 
     @Test
-    public void verifyScrollToAnElementOnScreen() {
-        System.out.println("[STARTING THE TEST]...");
-        assertTrue(mapsMainScreen.scrollToAnElement(), "[] ---->  Scroll down can't be performed");
-        assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), "[]  ----->  The app did not halt on screen");
+    public void verifyMultiTouchOnMapsScreen() {
+        assertTrue(mapsMainScreen.multiTouchOnMapsScreen(), basicErrorMsg("Zoom feature fails"));
         assertAll();
     }
 
     @Test
-    public void verifyZoomInAndZoomOutOnMapsScreen() {
-        System.out.println("[STARTING THE TEST]...");
-        assertTrue(mapsMainScreen.zoomInzoomOuOnMapsScreen(), "[ZOOM FEATURE] it fails");
+    public void verifyTextDisplayedOnMobileElement() {
+        String txt = "Explore";
+        assertTrue(mapsMainScreen.verifyTextDisplayedOnElement(txt), basicErrorMsg("Unable to get the text"));
+        assertTrue(mapsMainScreen.getTextFromElement(), basicErrorMsg("Unable to get the text"));
         assertAll();
     }
 
