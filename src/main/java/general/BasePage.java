@@ -4,9 +4,9 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import io.appium.java_client.AppiumFluentWait;
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.MultiTouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.android.AndroidTouchAction;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.ElementOption;
@@ -16,13 +16,13 @@ import org.openqa.selenium.*;
 
 public abstract class BasePage {
 
-    protected AndroidDriver<MobileElement> driver;
-    private final AppiumFluentWait<AndroidDriver<MobileElement>> wait;
+    protected AndroidDriver<AndroidElement> driver;
+    private final AppiumFluentWait<AndroidDriver<AndroidElement>> wait;
     private AndroidTouchAction androidTouchAction;
     private final int staticTimeOut;
 
     // CONSTRUCTOR - Receiving web driver as a parameter to save it on a global variable to be used later
-    public BasePage(AndroidDriver<MobileElement> driver) {
+    public BasePage(AndroidDriver<AndroidElement> driver) {
         this.driver = driver;
         this.staticTimeOut = MobileDriverManager.getStaticTime();
         int dynamicTimeOut = MobileDriverManager.getDynamicTime();
@@ -36,20 +36,20 @@ public abstract class BasePage {
     public abstract boolean verifyLoads();
 
     // method to wait for the visibility of an element
-    protected boolean waitForMobElementToBeVisible(MobileElement element) {
+    protected boolean waitForMobElementToBeVisible(AndroidElement element) {
         boolean flag;
         flag = this.wait.until(arg -> element != null && element.isDisplayed());
         return flag;
     }
 
-    protected boolean waitForMobElementToBeTappable(MobileElement element) {
+    protected boolean waitForMobElementToBeTappable(AndroidElement element) {
         boolean flag;
         flag = this.wait.until(arg -> element.isEnabled());
         return flag;
     }
 
     // method to wait for an element to be clickable
-    protected boolean tapMobElement(MobileElement element) {
+    protected boolean tapMobElement(AndroidElement element) {
         boolean flag;
         flag = waitForMobElementToBeVisible(element) && waitForMobElementToBeTappable(element) &&
                 this.wait.until(arg0 -> {
@@ -60,7 +60,7 @@ public abstract class BasePage {
     }
 
     // method to enter text on a specific field
-    protected boolean sendTextOnEmptyMobElement(MobileElement element, String txt) {
+    protected boolean sendTextOnEmptyMobElement(AndroidElement element, String txt) {
 
         boolean validationReturn = false;
 
@@ -72,7 +72,7 @@ public abstract class BasePage {
         return validationReturn;
     }
 
-    private boolean typeTxtOnMobElement(MobileElement element, String txt) {
+    private boolean typeTxtOnMobElement(AndroidElement element, String txt) {
         element.sendKeys(txt);
         return element.isEnabled();
         //true;//element.getTagName().contains(txt);
@@ -80,7 +80,7 @@ public abstract class BasePage {
 
 
     // method to verify text on a certain element
-    protected boolean verifyTextOnMobElement(MobileElement element, String text) {
+    protected boolean verifyTextOnMobElement(AndroidElement element, String text) {
         boolean flag;
         flag = waitForMobElementToBeVisible(element) &&
                 this.wait.until(arg0 -> element.getText().contains(text));
@@ -88,7 +88,7 @@ public abstract class BasePage {
     }
 
 
-    protected String getTextFromMobElement(MobileElement element) {
+    protected String getTextFromMobElement(AndroidElement element) {
         String flag = "";
         if (waitForMobElementToBeVisible(element))
         {
@@ -130,7 +130,7 @@ public abstract class BasePage {
 
     /*****   ANDROID GESTURES  *****/
 
-    protected boolean doubleTapOnMobElement(MobileElement element) {
+    protected boolean doubleTapOnMobElement(AndroidElement element) {
         boolean flag = false;
         try {
             androidTouchAction.tap(ElementOption.element(element)).perform();
@@ -142,7 +142,7 @@ public abstract class BasePage {
         return flag;
     }
 
-    protected boolean doubleTapOnScreenWithCoordinatesXY(MobileElement element, int getStartX, int getStartY) {
+    protected boolean doubleTapOnScreenWithCoordinatesXY(AndroidElement element, int getStartX, int getStartY) {
         boolean flag = false;
         try {
             androidTouchAction.tap(ElementOption.element(element, getStartX, getStartY)).perform();
@@ -165,7 +165,7 @@ public abstract class BasePage {
         return flag;
     }
 
-    protected boolean multiTouchOnScreen(MobileElement element) {
+    protected boolean multiTouchOnScreen(AndroidElement element) {
         boolean flag = false;
 
         Dimension dim = element.getSize();
