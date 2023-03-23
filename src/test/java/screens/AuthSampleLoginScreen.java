@@ -3,14 +3,14 @@ package screens;
 import general.BasePage;
 import general.ErrorsManager;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class AuthSampleLoginScreen extends BasePage {
 
-    public AuthSampleLoginScreen(AndroidDriver<AndroidElement> driver) {
+    public AuthSampleLoginScreen(AndroidDriver driver) {
         super(driver);
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
@@ -25,17 +25,17 @@ public class AuthSampleLoginScreen extends BasePage {
      */
 
     @AndroidFindBy(id="com.openmobilehub.auth.sample:id/action_bar")
-    private AndroidElement topActionBar;
+    private WebElement topActionBar;
 
     @AndroidFindBy(id="com.openmobilehub.auth.sample:id/btn_login")
-    private AndroidElement loginBtn;
+    private WebElement loginBtn;
 
 
     @AndroidFindBy(id="com.openmobilehub.auth.sample:id/tvName")
-    private AndroidElement tvName;
+    private WebElement tvName;
 
     @AndroidFindBy(id="com.openmobilehub.auth.sample:id/tvEmail")
-    private AndroidElement tvEmail;
+    private WebElement tvEmail;
 
     /*
     METHODS

@@ -1,9 +1,8 @@
 package general;
 
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.remote.MobileCapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -38,13 +37,21 @@ public class MobileDriverManager extends TestUtilities {
     @BeforeMethod(alwaysRun = true)
     public final void setMobDriver(String platformName, String platformVersion, String deviceName,
                                    String automationName, String appPackage, String appActivity,
-                                   String noReset, String appiumServer) {
+                                   boolean noReset, String appiumServer) {
         try {
             System.out.println("[DRIVER MSG]  ----> The mobile test driver is being initialized now");
 
-            DesiredCapabilities capability = new DesiredCapabilities();
-
+            UiAutomator2Options capability = new UiAutomator2Options();
             // Android Device capabilities
+            capability.setPlatformName(platformName);
+            capability.setPlatformVersion(platformVersion);
+            capability.setDeviceName(deviceName);
+            capability.setAutomationName(automationName);
+            capability.setAppPackage(appPackage);
+            capability.setAppActivity(appActivity);
+            capability.setNoReset(noReset);
+
+            /*
             capability.setCapability(MobileCapabilityType.PLATFORM_NAME, platformName);
             capability.setCapability(MobileCapabilityType.PLATFORM_VERSION, platformVersion);
             capability.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
@@ -54,8 +61,8 @@ public class MobileDriverManager extends TestUtilities {
             capability.setCapability("appActivity", appActivity);
             capability.setCapability(MobileCapabilityType.NO_RESET, noReset);
             capability.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 0);
-
-            mobAndroidDriver.set(new AndroidDriver<AndroidElement>(new URL(appiumServer), capability));
+            */
+            mobAndroidDriver.set(new AndroidDriver(new URL(appiumServer), capability));
 
         } catch (Exception e) {ErrorsManager.errNExpManager(e);}
 

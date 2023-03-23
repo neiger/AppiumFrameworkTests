@@ -36,10 +36,10 @@
             <class name="tests.MapsMainScreenTests">
                 <!-- -->
                 <methods>
-                    <exclude name="verifyMapsMainScreen"/>
-                    <exclude name="verifySearchMapsWithLatAndLong"/>
-                    <include name="verifyDoubleTapOnMap"/>
-                    <include name="verifyDoubleTapOnMapScreen" />
+                    <include name="verifySearchMapsWithCityName"/>
+                    <include name="verifySearchMapsWithLatAndLong"/>
+                    <exclude name="verifyDoubleTapOnMap"/>
+                    <exclude name="verifyDoubleTapOnMapScreen" />
                     <exclude name="verifySwipeOnScreenWithCoordinatesXxYy" />
                     <exclude name="verifyUsersCanSwipeWhileExploring" /> <!-- needs fix -->
                     <exclude name="verifyMultiTouchOnMapsScreen" />

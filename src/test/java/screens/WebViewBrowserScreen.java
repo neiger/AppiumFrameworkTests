@@ -2,13 +2,13 @@ package screens;
 
 import general.BasePage;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class WebViewBrowserScreen extends BasePage {
-    public WebViewBrowserScreen(AndroidDriver<AndroidElement> driver) {
+    public WebViewBrowserScreen(AndroidDriver driver) {
         super(driver);
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
@@ -23,10 +23,10 @@ public class WebViewBrowserScreen extends BasePage {
      */
 
     @AndroidFindBy(id="com.huawei.browser:id/fake_dialog_layout")
-    private AndroidElement browserDialogScreen;
+    private WebElement browserDialogScreen;
 
     @AndroidFindBy(id="") //X=553  Y=700        X=800   Y=2025
-    private AndroidElement gAccountLogged;
+    private WebElement gAccountLogged;
 
 
     /*

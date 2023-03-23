@@ -2,15 +2,15 @@ package screens;
 
 import general.BasePage;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class MapsMainScreen extends BasePage {
 
-    public MapsMainScreen(AndroidDriver<AndroidElement> driver) {
+    public MapsMainScreen(AndroidDriver driver) {
         super(driver);
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
@@ -23,32 +23,32 @@ public class MapsMainScreen extends BasePage {
      */
 
     @AndroidFindBy(id="com.google.android.apps.maps:id/search_omnibox_text_box")
-    protected AndroidElement searchOmniboxTxt;
+    protected WebElement searchOmniboxTxt;
 
     @AndroidFindBy(id="com.google.android.apps.maps:id/search_omnibox_edit_text")
-    protected AndroidElement enableSearchOmniboxTxt;
+    protected WebElement enableSearchOmniboxTxt;
 
     @AndroidFindBy(id="com.google.android.apps.maps:id/watermark_image")
-    protected AndroidElement googWaterMarkImage;
+    protected WebElement googWaterMarkImage;
 
     @AndroidFindBy(id="com.google.android.apps.maps:id/mylocation_button")
-    protected AndroidElement myLocationBtn;
+    protected WebElement myLocationBtn;
 
     @AndroidFindBy(id="com.google.android.apps.maps:id/explore_tab_home_bottom_sheet")
-    protected AndroidElement mapsViewContainer;
+    protected WebElement mapsViewContainer;
 
 
     @AndroidFindBy(id="com.google.android.apps.maps:id/home_bottom_sheet_container") //com.google.android.apps.maps:id/explore_tab_home_bottom_sheet
-    protected AndroidElement doubleTapOnMap;
+    protected WebElement doubleTapOnMap;
 
     @AndroidFindBy(id="com.google.android.apps.maps:id/navigation_bar_item_large_label_view")
-    protected AndroidElement exploreBtnTxt;
+    protected WebElement exploreBtnTxt;
 
     @AndroidFindBy(xpath="//android.widget.FrameLayout[@content-desc=\"Explore\"]/android.widget.FrameLayout/android.widget.ImageView")
-    protected AndroidElement exploreBtn;
+    protected WebElement exploreBtn;
 
     @AndroidFindBy(xpath="//android.support.v7.widget.RecyclerView[@content-desc=\"Explore this area\"]/android.widget.FrameLayout[1]")
-    protected AndroidElement exploreAreaFrame;
+    protected WebElement exploreAreaFrame;
 
     @Override
     public boolean verifyLoads() {

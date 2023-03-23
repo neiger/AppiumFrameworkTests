@@ -23,7 +23,7 @@ public class MapsMainScreenTests extends MobileDriverManager {
     }
 
     @Test
-    public void verifyMapsMainScreen() {
+    public void verifySearchMapsWithCityName() {
         assertTrue(mapsMainScreen.typeAnAddressInOmniBoxSearch(stringList.get(0)), basicErrorMsg("The field was not filled"));
         assertTrue(mapsMainScreen.typeAnAddressInOmniBoxSearch(stringList.get(1)), basicErrorMsg("The field was not filled"));
         assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), basicErrorMsg("The app did not halt on screen"));
@@ -33,7 +33,7 @@ public class MapsMainScreenTests extends MobileDriverManager {
     @Test
     public void verifySearchMapsWithLatAndLong() {
         assertTrue(mapsMainScreen.typeAnAddressInOmniBoxSearch(stringList.get(2)), basicErrorMsg("The field was not filled"));
-        assertFalse(mapsMainScreen.waitForAFewSecondsOnScreen(), basicErrorMsg("The app did not halt on screen"));
+        assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), basicErrorMsg("The app did not halt on screen"));
         assertAll();
     }
 
