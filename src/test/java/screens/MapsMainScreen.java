@@ -74,17 +74,21 @@ public class MapsMainScreen extends BasePage {
         return doubleTapOnScreenWithCoordinatesXY(doubleTapOnMap, getStartX, getStartY);
     }
 
-    public boolean swipeOnScreenWithCoordinates(int getStartX, int getStartY, int getEndX, int getEndY) {
-        return swipeOnScreenWithCoordinatesXxYy(getStartX, getStartY, getEndX, getEndY);
+    public boolean horizontalSwipeOnScreenWithCoordinates() {
+        return horizontalSwipeOnScreenXY(mapsViewContainer);
+    }
+
+    public boolean verticalSwipeOnScreenWithCoordinates() {
+        return verticalSwipeOnScreenXY(mapsViewContainer);
     }
 
     public boolean openExploreBtnElement(int getStartX, int getStartY, int getEndX, int getEndY) {
-        return tapMobElement(exploreBtn) && tapMobElement(exploreAreaFrame) && waitForAFewSecondsOnScreen()
-                && swipeOnScreenWithCoordinatesXxYy(getStartX, getStartY, getEndX, getEndY);
+        return tapMobElement(exploreBtn) && tapMobElement(exploreAreaFrame) && waitForAFewSecondsOnScreen();
+                //&& swipeOnScreenWithCoordinatesXxYy(getStartX, getStartY, getEndX, getEndY);
     }
 
     public boolean multiTouchOnMapsScreen() {
-        return multiTouchOnScreen(mapsViewContainer) && waitForAFewSecondsOnScreen();
+        return multiTouchOnScreen(mapsViewContainer) && implicityWaitTimeOnScreenManual(5);
     }
 
     public boolean verifyTextDisplayedOnElement(String txt) {

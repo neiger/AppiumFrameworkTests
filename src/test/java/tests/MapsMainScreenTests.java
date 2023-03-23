@@ -52,12 +52,10 @@ public class MapsMainScreenTests extends MobileDriverManager {
         assertAll();
     }
 
-    @Parameters({"getStartX", "getStartY", "getEndX", "getEndY"})
     @Test
-    public void verifySwipeOnScreenWithCoordinatesXxYy(int getStartX, int getStartY, int getEndX, int getEndY) {
-        assertTrue(mapsMainScreen.swipeOnScreenWithCoordinates(getStartX, getStartY, getEndX, getEndY), basicErrorMsg("Drag N Drop was not performed"));
-        assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), basicErrorMsg("The app did not halt on screen"));
-        assertTrue(mapsMainScreen.swipeOnScreenWithCoordinates(getStartX, getStartY, getEndX, getEndY), basicErrorMsg("Drag N Drop was not performed"));
+    public void verifySwipeOnScreenWithCoordinatesXxYy() {
+        assertTrue(mapsMainScreen.horizontalSwipeOnScreenWithCoordinates(), basicErrorMsg("Horizontal swipe was not performed"));
+        assertTrue(mapsMainScreen.verticalSwipeOnScreenWithCoordinates(), basicErrorMsg("Vertical swipe was not performed"));
         assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), basicErrorMsg("The app did not halt on screen"));
         assertAll();
     }
@@ -80,6 +78,13 @@ public class MapsMainScreenTests extends MobileDriverManager {
         String txt = "Explore";
         assertTrue(mapsMainScreen.verifyTextDisplayedOnElement(txt), basicErrorMsg("Unable to get the text"));
         assertTrue(mapsMainScreen.getTextFromElement(), basicErrorMsg("Unable to get the text"));
+        assertAll();
+    }
+
+    @Test
+    public void dummyTestForFalseTesting() {
+        boolean flag = true;
+        assertFalse(flag, basicErrorMsg("This test will fail due testing purpuses to validate a normal failure"));
         assertAll();
     }
 

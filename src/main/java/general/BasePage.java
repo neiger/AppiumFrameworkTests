@@ -1,6 +1,7 @@
 package general;
 
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -9,6 +10,8 @@ import io.appium.java_client.AppiumFluentWait;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
 
 
 public abstract class BasePage {
@@ -154,15 +157,68 @@ public abstract class BasePage {
         return flag;
     }
 
-    protected boolean swipeOnScreenWithCoordinatesXxYy(int getStartX, int getStartY, int getEndX, int getEndY) {
+    protected boolean horizontalSwipeOnScreenXY(WebElement element) {
         boolean flag = false;
-        try{
-            //touchAction.longPress(ElementOption.point(getStartX, getStartY)).moveTo(ElementOption.point(getEndX,getEndY)).release().perform();
-            touchAction.moveByOffset(getStartX, getStartY).moveByOffset(getEndX,getEndY);
+
+        System.out.println("Maps Dimension: " + element.getSize());
+
+        int centerY = element.getRect().y + (element.getSize().height/2);
+        double stStartXcc = element.getRect().x + (element.getSize().width * 0.9);
+        double stEndXcc = element.getRect().x + (element.getSize().width * 0.1);
+
+        System.out.println("Y: " + centerY + "\nStart X: " + stStartXcc + "\nEnd X: " + stEndXcc);
+
+
+        try {
+            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+
+            Sequence swipe = new Sequence(finger,1);
+
+            swipe.addAction(finger.createPointerMove(Duration.ofSeconds(0), PointerInput.Origin.viewport(), (int) stStartXcc, centerY));
+
+            swipe.addAction(finger.createPointerDown(0));
+
+            swipe.addAction(finger.createPointerMove(Duration.ofMillis(700), PointerInput.Origin.viewport(), (int) stEndXcc, centerY));
+
+            swipe.addAction(finger.createPointerUp(0));
+
+            driver.perform(Arrays.asList(swipe));
+
             flag = true;
-        } catch (Exception e){
-            ErrorsManager.errNExpManager(e);
-        }
+        } catch (Exception e) {
+            ErrorsManager.errNExpManager(e);}
+        return flag;
+    }
+
+    protected boolean verticalSwipeOnScreenXY(WebElement element) {
+        boolean flag = false;
+
+        System.out.println("Maps Dimension: " + element.getSize());
+
+        int centerX = element.getRect().x + (element.getSize().width/2);
+        double stStartYcc = element.getRect().y + (element.getSize().height * 0.8);
+        double stEndYcc = element.getRect().y + (element.getSize().height * 0.1);
+
+        System.out.println("X: " + centerX + "\nStart Y: " + stStartYcc + "\nEnd Y: " + stEndYcc);
+
+        try {
+            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+
+            Sequence swipe = new Sequence(finger,1);
+
+            swipe.addAction(finger.createPointerMove(Duration.ofSeconds(0), PointerInput.Origin.viewport(), centerX, (int) stStartYcc));
+
+            swipe.addAction(finger.createPointerDown(0));
+
+            swipe.addAction(finger.createPointerMove(Duration.ofMillis(700), PointerInput.Origin.viewport(), centerX, (int) stEndYcc));
+
+            swipe.addAction(finger.createPointerUp(0));
+
+            driver.perform(Arrays.asList(swipe));
+
+            flag = true;
+        } catch (Exception e) {
+            ErrorsManager.errNExpManager(e);}
         return flag;
     }
 
@@ -175,10 +231,10 @@ public abstract class BasePage {
         System.out.println("Maps Dimension: " + dim + " Width: " +width + " Height: " + height);
 
         //Start XY && End XY 1st Touch
-        int ftStartXcc = 400;//(int) (width * .5);    // 1440 * 0.5 = 720
+        int ftStartXcc = 540;//(int) (width * .5);    // 1440 * 0.5 = 720
         int ftStartYcc = (int) (height * .4);   // 2547 * 0.4 = 1018.8
 
-        int ftEndXcc = (int) (width * .1);      // 1440 * 0.1 = 144
+        int ftEndXcc = 540;//(int) (width * .1);      // 1440 * 0.1 = 144
         int ftEndYcc = (int) (height * .1);     // 2547 * 0.1 = 254.7
         System.out.println("First Touch: " + ftStartXcc + " -> " + ftStartYcc + " ----> " + ftEndXcc + " -> " + ftEndYcc);
 
@@ -191,22 +247,20 @@ public abstract class BasePage {
         System.out.println("Second Touch: " + stStartXcc + " -> " + stStartYcc + " ----> " + stEndXcc + " -> " + stEndYcc);
 
         try {
-/*
-            Actions touch1 = new Actions(driver);
-            touch1.longPress(PointOption.point(ftStartXcc, ftStartYcc))
-                    .waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000)))
-                    .moveTo(PointOption.point(ftEndXcc, ftEndYcc));
+            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
 
-            Actions touch2 = new Actions(driver);
-            touch2.longPress(PointOption.point(stStartXcc, stStartYcc))
-                    .waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000)))
-                    .moveTo(PointOption.point(stEndXcc, stEndYcc));
+            Sequence swipe = new Sequence(finger,1);
 
-            MultiTouchAction multi = new MultiTouchAction(driver);
-            multi.add(touch1)
-                 .add(touch2)
-                 .perform();
-*/
+            swipe.addAction(finger.createPointerMove(Duration.ofSeconds(0), PointerInput.Origin.viewport(), (int) stStartXcc, stStartYcc));
+
+            swipe.addAction(finger.createPointerDown(0));
+
+            swipe.addAction(finger.createPointerMove(Duration.ofMillis(700), PointerInput.Origin.viewport(), (int) stEndXcc, stEndYcc));
+
+            swipe.addAction(finger.createPointerUp(0));
+
+            driver.perform(Arrays.asList(swipe));
+
             flag = true;
         } catch (Exception e) {
             ErrorsManager.errNExpManager(e);}
