@@ -16,7 +16,8 @@ To execute the code, this framework must be downloaded first,
 the dependencies are listed in the pom.xml maven file. 
 
 #### CLONE OR DOWNLOAD THE CODE
-$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+$ git clone https://github.com/neiger/AndroidFramework.git
+$ git pull
 
 Then proceed as normal with the POM pattern. 
 Create a Screens package then a Tests package.
