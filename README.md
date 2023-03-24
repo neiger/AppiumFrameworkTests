@@ -1,4 +1,4 @@
-# Mobile Automation Framework for FutureWei
+# Mobile Automation Framework for Android
 
 ## Getting started
 
