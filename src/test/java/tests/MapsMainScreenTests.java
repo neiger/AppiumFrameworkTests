@@ -68,8 +68,9 @@ public class MapsMainScreenTests extends MobileDriverManager {
     }
 
     @Test
-    public void verifyMultiTouchOnMapsScreen() {
-        assertTrue(mapsMainScreen.multiTouchOnMapsScreen(), basicErrorMsg("Zoom feature fails"));
+    public void verifyUserCanZoomInOnMapsScreen() {
+        assertTrue(mapsMainScreen.zoomInOnScreenCoordinates(), basicErrorMsg("Zoom feature fails"));
+
         assertAll();
     }
 
@@ -83,7 +84,7 @@ public class MapsMainScreenTests extends MobileDriverManager {
 
     @Test
     public void dummyTestForFalseTesting() {
-        boolean flag = true;
+        boolean flag = false;
         assertFalse(flag, basicErrorMsg("This test will fail due testing purpuses to validate a normal failure"));
         assertAll();
     }

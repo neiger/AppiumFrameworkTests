@@ -2,6 +2,7 @@ package general;
 
 import java.time.Duration;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -143,8 +144,6 @@ public abstract class BasePage {
     protected boolean doubleTapOnScreenWithCoordinatesXY(WebElement element, int getStartX, int getStartY) {
         boolean flag = false;
         try {
-            //touchAction.tap(ElementOption.element(element, getStartX, getStartY)).perform();
-            //touchAction.tap(ElementOption.element(element, getStartX, getStartY)).perform();
             System.out.println(element.toString());
             Map<String, Object> args = new HashMap<>();
             args.put("x", getStartX);
@@ -182,7 +181,7 @@ public abstract class BasePage {
 
             swipe.addAction(finger.createPointerUp(0));
 
-            driver.perform(Arrays.asList(swipe));
+            driver.perform(Collections.singletonList(swipe));
 
             flag = true;
         } catch (Exception e) {
@@ -214,7 +213,7 @@ public abstract class BasePage {
 
             swipe.addAction(finger.createPointerUp(0));
 
-            driver.perform(Arrays.asList(swipe));
+            driver.perform(Collections.singletonList(swipe));
 
             flag = true;
         } catch (Exception e) {
@@ -222,44 +221,96 @@ public abstract class BasePage {
         return flag;
     }
 
-    protected boolean multiTouchOnScreen(WebElement element) {
+    protected boolean zoomInOnScreenXY(WebElement element) {
         boolean flag = false;
 
-        Dimension dim = element.getSize();
-        int width = dim.width;
-        int height = dim.height;
-        System.out.println("Maps Dimension: " + dim + " Width: " +width + " Height: " + height);
+        int centerX = element.getRect().x + (element.getSize().width/2);
+        int centerY = element.getRect().y + (element.getSize().height/2);
+        int xMovement = 300;
 
-        //Start XY && End XY 1st Touch
-        int ftStartXcc = 540;//(int) (width * .5);    // 1440 * 0.5 = 720
-        int ftStartYcc = (int) (height * .4);   // 2547 * 0.4 = 1018.8
+        int finger1Start = centerX - xMovement;
+        int finger2Start = centerX + xMovement;
 
-        int ftEndXcc = 540;//(int) (width * .1);      // 1440 * 0.1 = 144
-        int ftEndYcc = (int) (height * .1);     // 2547 * 0.1 = 254.7
-        System.out.println("First Touch: " + ftStartXcc + " -> " + ftStartYcc + " ----> " + ftEndXcc + " -> " + ftEndYcc);
+        int finger1End = (int) (centerX - (1.2 * xMovement));
+        int finger2End = (int) (centerX + (1.2 * xMovement));
 
-        //Start XY && End XY 2nd Touch
-        int stStartXcc = (int) (width * .5);    // 1440 * 0.5 = 720
-        int stStartYcc = (int) (height * .6);   // 2547 * 0.6 = 1528.2
-
-        int stEndXcc = (int) (width * .9);      // 1440 * 0.9 = 1296
-        int stEndYcc = (int) (height * .9);     // 2547 * 0.9 = 2292.3
-        System.out.println("Second Touch: " + stStartXcc + " -> " + stStartYcc + " ----> " + stEndXcc + " -> " + stEndYcc);
 
         try {
-            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+            PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
 
-            Sequence swipe = new Sequence(finger,1);
+            Sequence swipe01 = new Sequence(finger1,1);
 
-            swipe.addAction(finger.createPointerMove(Duration.ofSeconds(0), PointerInput.Origin.viewport(), (int) stStartXcc, stStartYcc));
+            swipe01.addAction(finger1.createPointerMove(Duration.ofSeconds(0), PointerInput.Origin.viewport(), finger1Start, centerY));
 
-            swipe.addAction(finger.createPointerDown(0));
+            swipe01.addAction(finger1.createPointerDown(0));
 
-            swipe.addAction(finger.createPointerMove(Duration.ofMillis(700), PointerInput.Origin.viewport(), (int) stEndXcc, stEndYcc));
+            swipe01.addAction(finger1.createPointerMove(Duration.ofMillis(2000), PointerInput.Origin.viewport(), finger1End, centerY));
 
-            swipe.addAction(finger.createPointerUp(0));
+            swipe01.addAction(finger1.createPointerUp(0));
 
-            driver.perform(Arrays.asList(swipe));
+
+            PointerInput finger2 = new PointerInput(PointerInput.Kind.TOUCH, "finger2");
+
+            Sequence swipe02 = new Sequence(finger2,1);
+
+            swipe02.addAction(finger1.createPointerMove(Duration.ofSeconds(0), PointerInput.Origin.viewport(), finger2Start, centerY));
+
+            swipe02.addAction(finger1.createPointerDown(0));
+
+            swipe02.addAction(finger1.createPointerMove(Duration.ofMillis(2000), PointerInput.Origin.viewport(), finger2End, centerY));
+
+            swipe02.addAction(finger1.createPointerUp(0));
+
+            driver.perform(Arrays.asList(swipe01,swipe02));
+
+            flag = true;
+        } catch (Exception e) {
+            ErrorsManager.errNExpManager(e);}
+
+        return flag;
+    }
+
+    protected boolean zoomOutOnScreenXY(WebElement element) {
+        boolean flag = false;
+
+        int centerX = element.getRect().x + (element.getSize().width/2);
+        int centerY = element.getRect().y + (element.getSize().height/2);
+        int xMovement = 300;
+
+        int finger1Start = (int) (centerX - (1.2 * xMovement));
+        int finger2Start = (int) (centerX + (1.2 * xMovement));
+
+        int finger1End = centerX - xMovement;
+        int finger2End = centerX + xMovement;
+
+
+        try {
+            PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
+
+            Sequence swipe01 = new Sequence(finger1,1);
+
+            swipe01.addAction(finger1.createPointerMove(Duration.ofSeconds(0), PointerInput.Origin.viewport(), finger1Start, centerY));
+
+            swipe01.addAction(finger1.createPointerDown(0));
+
+            swipe01.addAction(finger1.createPointerMove(Duration.ofMillis(2000), PointerInput.Origin.viewport(), finger1End, centerY));
+
+            swipe01.addAction(finger1.createPointerUp(0));
+
+
+            PointerInput finger2 = new PointerInput(PointerInput.Kind.TOUCH, "finger2");
+
+            Sequence swipe02 = new Sequence(finger2,1);
+
+            swipe02.addAction(finger1.createPointerMove(Duration.ofSeconds(0), PointerInput.Origin.viewport(), finger2Start, centerY));
+
+            swipe02.addAction(finger1.createPointerDown(0));
+
+            swipe02.addAction(finger1.createPointerMove(Duration.ofMillis(2000), PointerInput.Origin.viewport(), finger2End, centerY));
+
+            swipe02.addAction(finger1.createPointerUp(0));
+
+            driver.perform(Arrays.asList(swipe01,swipe02));
 
             flag = true;
         } catch (Exception e) {

@@ -87,8 +87,9 @@ public class MapsMainScreen extends BasePage {
                 //&& swipeOnScreenWithCoordinatesXxYy(getStartX, getStartY, getEndX, getEndY);
     }
 
-    public boolean multiTouchOnMapsScreen() {
-        return multiTouchOnScreen(mapsViewContainer) && implicityWaitTimeOnScreenManual(5);
+    public boolean zoomInOnScreenCoordinates() {
+        return zoomInOnScreenXY(mapsViewContainer) && implicityWaitTimeOnScreenManual(5) &&
+                zoomOutOnScreenXY(mapsViewContainer) && implicityWaitTimeOnScreenManual(5);
     }
 
     public boolean verifyTextDisplayedOnElement(String txt) {

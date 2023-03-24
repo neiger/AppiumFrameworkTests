@@ -42,7 +42,7 @@
                     <exclude name="verifyDoubleTapOnMapScreen" />
                     <include name="verifySwipeOnScreenWithCoordinatesXxYy" />
                     <exclude name="verifyUsersCanSwipeWhileExploring" /> <!-- needs fix -->
-                    <exclude name="verifyMultiTouchOnMapsScreen" />
+                    <include name="verifyUserCanZoomInOnMapsScreen" />
                     <exclude name="verifyTextDisplayedOnMobileElement" />
                     <include name="dummyTestForFalseTesting"/>
                 </methods>
