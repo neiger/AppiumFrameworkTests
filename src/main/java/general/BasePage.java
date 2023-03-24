@@ -18,7 +18,7 @@ public abstract class BasePage {
 
     protected AndroidDriver<AndroidElement> driver;
     private final AppiumFluentWait<AndroidDriver<AndroidElement>> wait;
-    private AndroidTouchAction androidTouchAction;
+    private final AndroidTouchAction androidTouchAction;
     private final int staticTimeOut;
 
     // CONSTRUCTOR - Receiving web driver as a parameter to save it on a global variable to be used later
