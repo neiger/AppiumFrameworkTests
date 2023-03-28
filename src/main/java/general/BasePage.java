@@ -9,6 +9,8 @@ import java.util.concurrent.TimeUnit;
 
 import io.appium.java_client.AppiumFluentWait;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.PointerInput;
@@ -117,13 +119,13 @@ public abstract class BasePage {
         }
     }
 
-    protected boolean pressKeyboardKey(Keys keyValue) {
+    protected boolean pressAndroidKey(AndroidKey keyValue) {
         boolean flag = false;
         if(keyValue != null) {
-            //driver.getKeyboard().pressKey(keyValue);
+            driver.pressKey(new KeyEvent(keyValue));
             flag = true;
         } else {
-            System.out.println("[]  ----->  There is a problem with the Key pressed");
+            System.out.println(TestUtilities.basicErrorMsg("There is a problem with the Key pressed"));
         }
         return flag;
     }
@@ -165,20 +167,15 @@ public abstract class BasePage {
         double stStartXcc = element.getRect().x + (element.getSize().width * 0.9);
         double stEndXcc = element.getRect().x + (element.getSize().width * 0.1);
 
-        System.out.println("Y: " + centerY + "\nStart X: " + stStartXcc + "\nEnd X: " + stEndXcc);
+        System.out.println("Horizontal swipe Y: " + centerY + "\nStart X: " + stStartXcc + "\nEnd X: " + stEndXcc);
 
 
         try {
             PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
-
             Sequence swipe = new Sequence(finger,1);
-
             swipe.addAction(finger.createPointerMove(Duration.ofSeconds(0), PointerInput.Origin.viewport(), (int) stStartXcc, centerY));
-
             swipe.addAction(finger.createPointerDown(0));
-
             swipe.addAction(finger.createPointerMove(Duration.ofMillis(700), PointerInput.Origin.viewport(), (int) stEndXcc, centerY));
-
             swipe.addAction(finger.createPointerUp(0));
 
             driver.perform(Collections.singletonList(swipe));
@@ -198,19 +195,14 @@ public abstract class BasePage {
         double stStartYcc = element.getRect().y + (element.getSize().height * 0.8);
         double stEndYcc = element.getRect().y + (element.getSize().height * 0.1);
 
-        System.out.println("X: " + centerX + "\nStart Y: " + stStartYcc + "\nEnd Y: " + stEndYcc);
+        System.out.println("Vertical swipe X: " + centerX + "\nStart Y: " + stStartYcc + "\nEnd Y: " + stEndYcc);
 
         try {
             PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
-
             Sequence swipe = new Sequence(finger,1);
-
             swipe.addAction(finger.createPointerMove(Duration.ofSeconds(0), PointerInput.Origin.viewport(), centerX, (int) stStartYcc));
-
             swipe.addAction(finger.createPointerDown(0));
-
             swipe.addAction(finger.createPointerMove(Duration.ofMillis(700), PointerInput.Origin.viewport(), centerX, (int) stEndYcc));
-
             swipe.addAction(finger.createPointerUp(0));
 
             driver.perform(Collections.singletonList(swipe));
@@ -228,38 +220,30 @@ public abstract class BasePage {
         int centerY = element.getRect().y + (element.getSize().height/2);
         int xMovement = 300;
 
-        int finger1Start = centerX - xMovement;
-        int finger2Start = centerX + xMovement;
+        int finger1Start = centerX - 40;
+        int finger2Start = centerX + 40;
 
-        int finger1End = (int) (centerX - (1.2 * xMovement));
-        int finger2End = (int) (centerX + (1.2 * xMovement));
+        int finger1End = (int) (centerX - (1.33 * xMovement));
+        int finger2End = (int) (centerX + (1.4 * xMovement));
+
+        System.out.println("ZOOM IN\nCenterX: " + centerX + "\nCenterY: " + centerY + "\nFinger1 Start: " + finger1Start
+                            + "--->Finger1 End: " + finger1End + "\nFinger2 Start: " + finger2Start + "--->Finger2 End: " + finger2End);
 
 
         try {
             PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
-
             Sequence swipe01 = new Sequence(finger1,1);
-
-            swipe01.addAction(finger1.createPointerMove(Duration.ofSeconds(0), PointerInput.Origin.viewport(), finger1Start, centerY));
-
+            swipe01.addAction(finger1.createPointerMove(Duration.ofSeconds(0), PointerInput.Origin.viewport(), finger1Start, centerY-100));
             swipe01.addAction(finger1.createPointerDown(0));
-
-            swipe01.addAction(finger1.createPointerMove(Duration.ofMillis(2000), PointerInput.Origin.viewport(), finger1End, centerY));
-
+            swipe01.addAction(finger1.createPointerMove(Duration.ofMillis(700), PointerInput.Origin.viewport(), finger1End, centerY-100));
             swipe01.addAction(finger1.createPointerUp(0));
 
-
             PointerInput finger2 = new PointerInput(PointerInput.Kind.TOUCH, "finger2");
-
             Sequence swipe02 = new Sequence(finger2,1);
-
-            swipe02.addAction(finger1.createPointerMove(Duration.ofSeconds(0), PointerInput.Origin.viewport(), finger2Start, centerY));
-
-            swipe02.addAction(finger1.createPointerDown(0));
-
-            swipe02.addAction(finger1.createPointerMove(Duration.ofMillis(2000), PointerInput.Origin.viewport(), finger2End, centerY));
-
-            swipe02.addAction(finger1.createPointerUp(0));
+            swipe02.addAction(finger2.createPointerMove(Duration.ofSeconds(0), PointerInput.Origin.viewport(), finger2Start, centerY+100));
+            swipe02.addAction(finger2.createPointerDown(0));
+            swipe02.addAction(finger2.createPointerMove(Duration.ofMillis(700), PointerInput.Origin.viewport(), finger2End, centerY+100));
+            swipe02.addAction(finger2.createPointerUp(0));
 
             driver.perform(Arrays.asList(swipe01,swipe02));
 
@@ -277,38 +261,29 @@ public abstract class BasePage {
         int centerY = element.getRect().y + (element.getSize().height/2);
         int xMovement = 300;
 
-        int finger1Start = (int) (centerX - (1.2 * xMovement));
-        int finger2Start = (int) (centerX + (1.2 * xMovement));
+        int finger1Start = (int) (centerX - (1.65 * xMovement));
+        int finger2Start = (int) (centerX + (1.65 * xMovement));
 
-        int finger1End = centerX - xMovement;
-        int finger2End = centerX + xMovement;
+        int finger1End = centerX - 40;
+        int finger2End = centerX + 40;
 
+        System.out.println("ZOOM OUT\nCenterX: " + centerX + "\nCenterY: " + centerY + "\nFinger1 Start: " + finger1Start
+                + "--->Finger1 End: " + finger1End + "\nFinger2 Start: " + finger2Start + "--->Finger2 End: " + finger2End);
 
         try {
             PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
-
             Sequence swipe01 = new Sequence(finger1,1);
-
             swipe01.addAction(finger1.createPointerMove(Duration.ofSeconds(0), PointerInput.Origin.viewport(), finger1Start, centerY));
-
             swipe01.addAction(finger1.createPointerDown(0));
-
-            swipe01.addAction(finger1.createPointerMove(Duration.ofMillis(2000), PointerInput.Origin.viewport(), finger1End, centerY));
-
+            swipe01.addAction(finger1.createPointerMove(Duration.ofMillis(700), PointerInput.Origin.viewport(), finger1End, centerY));
             swipe01.addAction(finger1.createPointerUp(0));
 
-
             PointerInput finger2 = new PointerInput(PointerInput.Kind.TOUCH, "finger2");
-
             Sequence swipe02 = new Sequence(finger2,1);
-
-            swipe02.addAction(finger1.createPointerMove(Duration.ofSeconds(0), PointerInput.Origin.viewport(), finger2Start, centerY));
-
-            swipe02.addAction(finger1.createPointerDown(0));
-
-            swipe02.addAction(finger1.createPointerMove(Duration.ofMillis(2000), PointerInput.Origin.viewport(), finger2End, centerY));
-
-            swipe02.addAction(finger1.createPointerUp(0));
+            swipe02.addAction(finger2.createPointerMove(Duration.ofSeconds(0), PointerInput.Origin.viewport(), finger2Start, centerY));
+            swipe02.addAction(finger2.createPointerDown(0));
+            swipe02.addAction(finger2.createPointerMove(Duration.ofMillis(700), PointerInput.Origin.viewport(), finger2End, centerY));
+            swipe02.addAction(finger2.createPointerUp(0));
 
             driver.perform(Arrays.asList(swipe01,swipe02));
 

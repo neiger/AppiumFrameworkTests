@@ -25,6 +25,7 @@ public class MapsMainScreenTests extends MobileDriverManager {
     @Test
     public void verifySearchMapsWithCityName() {
         assertTrue(mapsMainScreen.typeAnAddressInOmniBoxSearch(stringList.get(0)), basicErrorMsg("The field was not filled"));
+        assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), basicErrorMsg("The app did not halt on screen"));
         assertTrue(mapsMainScreen.typeAnAddressInOmniBoxSearch(stringList.get(1)), basicErrorMsg("The field was not filled"));
         assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), basicErrorMsg("The app did not halt on screen"));
         assertAll();
@@ -52,25 +53,32 @@ public class MapsMainScreenTests extends MobileDriverManager {
         assertAll();
     }
 
+
+
     @Test
-    public void verifySwipeOnScreenWithCoordinatesXxYy() {
+    public void verifyHorizontalAndVerticalSwipeOnMapScreen() {
         assertTrue(mapsMainScreen.horizontalSwipeOnScreenWithCoordinates(), basicErrorMsg("Horizontal swipe was not performed"));
         assertTrue(mapsMainScreen.verticalSwipeOnScreenWithCoordinates(), basicErrorMsg("Vertical swipe was not performed"));
         assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), basicErrorMsg("The app did not halt on screen"));
         assertAll();
     }
 
+    @Test
+    public void verifyUserCanZoomInOnMapsScreen() {
+        for (int i = 0; i<30; i++) {
+        assertTrue(mapsMainScreen.zoomInOnScreenCoordinates(), basicErrorMsg("Zoom feature fails"));
+        System.out.println("PRINTING EXECUTION NUMBER: " + i);
+        }
+        assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), basicErrorMsg("The app did  not halt on screen"));
+        assertAll();
+    }
+
+
+
     @Test     @Parameters({"getStartX", "getStartY", "getEndX", "getEndY"})
     public void verifyUsersCanSwipeWhileExploring(int getStartX, int getStartY, int getEndX, int getEndY) {
         assertTrue(mapsMainScreen.openExploreBtnElement(getStartX, getStartY, getEndX, getEndY), basicErrorMsg("Scroll down can't be performed"));
         assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), basicErrorMsg("The app did not halt on screen"));
-        assertAll();
-    }
-
-    @Test
-    public void verifyUserCanZoomInOnMapsScreen() {
-        assertTrue(mapsMainScreen.zoomInOnScreenCoordinates(), basicErrorMsg("Zoom feature fails"));
-
         assertAll();
     }
 
@@ -85,7 +93,7 @@ public class MapsMainScreenTests extends MobileDriverManager {
     @Test
     public void dummyTestForFalseTesting() {
         boolean flag = false;
-        assertFalse(flag, basicErrorMsg("This test will fail due testing purpuses to validate a normal failure"));
+        assertFalse(flag, basicErrorMsg("This test will fail due testing purposes to validate a normal failure"));
         assertAll();
     }
 

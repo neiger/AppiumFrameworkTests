@@ -17,7 +17,6 @@ import java.util.Date;
 public class TestUtilities extends TestListenerAdapter {
 
     private static final ThreadLocal<SoftAssert> assertGeneric = new ThreadLocal<>();
-    //private ErrorsManager errorsManager = new ErrorsManager();
 
     protected void assertTrue(boolean validation, String msg){
         assertGeneric.get().assertTrue(validation,msg);
@@ -58,7 +57,7 @@ public class TestUtilities extends TestListenerAdapter {
         System.out.println("[ENDING THE TEST]...\n...");
     }
 
-    protected String basicErrorMsg(String msg) {
+    protected static String basicErrorMsg(String msg) {
         return "[error]  -----> " + msg;
     }
 

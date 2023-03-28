@@ -558,3 +558,12 @@ Driver info: io.appium.java_client.android.AndroidDriver
 Command: [e793385c-6cc8-453d-bd5d-a2e35bd3442c, executeScript {script=mobile: doubleTap, args=[{x=540, y=1780}]}]
 Capabilities {appium:appActivity: com.google.android.maps.Map..., appium:appPackage: com.google.android.apps.maps, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: com.google.android.maps.Map..., appPackage: com.google.android.apps.maps, automationName: UiAutomator2, deviceName: R3CTC0D3BFE, newCommandTimeout: 0, noReset: true, platformName: android, platformVersion: 13}, appium:deviceApiLevel: 33, appium:deviceManufacturer: samsung, appium:deviceModel: SM-S901U1, appium:deviceName: R3CTC0D3BFE, appium:deviceScreenDensity: 480, appium:deviceScreenSize: 1080x2340, appium:deviceUDID: R3CTC0D3BFE, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 0, appium:noReset: true, appium:pixelRatio: 3, appium:platformVersion: 13, appium:statBarHeight: 81, appium:takesScreenshot: true, appium:viewportRect: {height: 2034, left: 0, top: 81, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
 Session ID: e793385c-6cc8-453d-bd5d-a2e35bd3442c
+
+Date and Time: 03-27-2023 08:23:04
+ERROR MESSAGE LOG 
+org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. 
+Host info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:1cde:5ee3:565b:f15e%en0'
+
+Date and Time: 03-27-2023 08:23:04
+ERROR MESSAGE LOG 
+java.lang.NullPointerException

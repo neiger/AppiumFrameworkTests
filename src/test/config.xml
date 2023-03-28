@@ -5,7 +5,7 @@
     <listeners>
         <listener class-name="general.MobileDriverManager">
             <!-- Mobile timeout and halt setup -->
-            <parameter name="tmStatic" value="3"/>
+            <parameter name="tmStatic" value="5"/>
             <parameter name="tmDynamic" value="10"/>
 
             <!--  Mobile Main Config Parameters  -->
@@ -40,11 +40,11 @@
                     <exclude name="verifySearchMapsWithLatAndLong"/>
                     <exclude name="verifyDoubleTapOnMap"/>
                     <exclude name="verifyDoubleTapOnMapScreen" />
-                    <include name="verifySwipeOnScreenWithCoordinatesXxYy" />
-                    <exclude name="verifyUsersCanSwipeWhileExploring" /> <!-- needs fix -->
+                    <exclude name="verifyHorizontalAndVerticalSwipeOnMapScreen" />
                     <include name="verifyUserCanZoomInOnMapsScreen" />
+                    <exclude name="verifyUsersCanSwipeWhileExploring" />
                     <exclude name="verifyTextDisplayedOnMobileElement" />
-                    <include name="dummyTestForFalseTesting"/>
+                    <exclude name="dummyTestForFalseTesting"/>
                 </methods>
             </class>
 

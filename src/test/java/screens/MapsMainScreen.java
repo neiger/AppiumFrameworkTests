@@ -2,6 +2,7 @@ package screens;
 
 import general.BasePage;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.Keys;
@@ -23,32 +24,32 @@ public class MapsMainScreen extends BasePage {
      */
 
     @AndroidFindBy(id="com.google.android.apps.maps:id/search_omnibox_text_box")
-    protected WebElement searchOmniboxTxt;
+    private WebElement searchOmniboxTxt;
 
     @AndroidFindBy(id="com.google.android.apps.maps:id/search_omnibox_edit_text")
-    protected WebElement enableSearchOmniboxTxt;
+    private WebElement enableSearchOmniboxTxt;
 
     @AndroidFindBy(id="com.google.android.apps.maps:id/watermark_image")
-    protected WebElement googWaterMarkImage;
+    private WebElement googWaterMarkImage;
 
     @AndroidFindBy(id="com.google.android.apps.maps:id/mylocation_button")
-    protected WebElement myLocationBtn;
+    private WebElement myLocationBtn;
 
     @AndroidFindBy(id="com.google.android.apps.maps:id/explore_tab_home_bottom_sheet")
-    protected WebElement mapsViewContainer;
+    private WebElement mapsViewContainer;
 
 
     @AndroidFindBy(id="com.google.android.apps.maps:id/home_bottom_sheet_container") //com.google.android.apps.maps:id/explore_tab_home_bottom_sheet
-    protected WebElement doubleTapOnMap;
+    private WebElement doubleTapOnMap;
 
     @AndroidFindBy(id="com.google.android.apps.maps:id/navigation_bar_item_large_label_view")
-    protected WebElement exploreBtnTxt;
+    private WebElement exploreBtnTxt;
 
     @AndroidFindBy(xpath="//android.widget.FrameLayout[@content-desc=\"Explore\"]/android.widget.FrameLayout/android.widget.ImageView")
-    protected WebElement exploreBtn;
+    private WebElement exploreBtn;
 
     @AndroidFindBy(xpath="//android.support.v7.widget.RecyclerView[@content-desc=\"Explore this area\"]/android.widget.FrameLayout[1]")
-    protected WebElement exploreAreaFrame;
+    private WebElement exploreAreaFrame;
 
     @Override
     public boolean verifyLoads() {
@@ -63,7 +64,7 @@ public class MapsMainScreen extends BasePage {
     public boolean typeAnAddressInOmniBoxSearch(String location) {
         return tapMobElement(searchOmniboxTxt) &&
                 sendTextOnEmptyMobElement(enableSearchOmniboxTxt, location) &&
-                pressKeyboardKey(Keys.ENTER);
+                pressAndroidKey(AndroidKey.ENTER);
     }
 
     public boolean doubleTapOnElement(){
@@ -82,14 +83,13 @@ public class MapsMainScreen extends BasePage {
         return verticalSwipeOnScreenXY(mapsViewContainer);
     }
 
-    public boolean openExploreBtnElement(int getStartX, int getStartY, int getEndX, int getEndY) {
-        return tapMobElement(exploreBtn) && tapMobElement(exploreAreaFrame) && waitForAFewSecondsOnScreen();
-                //&& swipeOnScreenWithCoordinatesXxYy(getStartX, getStartY, getEndX, getEndY);
+    public boolean zoomInOnScreenCoordinates() {
+        return zoomInOnScreenXY(mapsViewContainer);// && implicityWaitTimeOnScreenManual(5)
+                //zoomOutOnScreenXY(mapsViewContainer);// && implicityWaitTimeOnScreenManual(5);
     }
 
-    public boolean zoomInOnScreenCoordinates() {
-        return zoomInOnScreenXY(mapsViewContainer) && implicityWaitTimeOnScreenManual(5) &&
-                zoomOutOnScreenXY(mapsViewContainer) && implicityWaitTimeOnScreenManual(5);
+    public boolean openExploreBtnElement(int getStartX, int getStartY, int getEndX, int getEndY) {
+        return tapMobElement(exploreBtn) && tapMobElement(exploreAreaFrame) && waitForAFewSecondsOnScreen();
     }
 
     public boolean verifyTextDisplayedOnElement(String txt) {
