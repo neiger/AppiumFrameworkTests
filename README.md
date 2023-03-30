@@ -2,15 +2,23 @@
 
 ## Getting started
 
-Just general information to be add below here
+This is an upgrade version of the code that will be compatible with Appium v2. Also works
+with appium v1.
+
 ### ====================================================
 
 #### REQUIREMENTS 
-For the appium server installation this is required 
+Appium server installation v1: 
 - brew install node      
 - npm install -g appium  
 - npm install wd       
 - appium &
+
+The needed dependencies are located in the ```pom.xml``` file.
+To take in consideration:
+1. TestNG v7.5 still works with Java v8. A newer version requires Java v11.
+2. Selenium v4.8.1 still works with Java v8. Newer version are backward compatible.
+3. For more info check this link [Java Client migration from 7 to 8](https://github.com/appium/java-client/blob/master/docs/v7-to-v8-migration-guide.md)
 
 To execute the code, this framework must be downloaded first, 
 the dependencies are listed in the pom.xml maven file. 
