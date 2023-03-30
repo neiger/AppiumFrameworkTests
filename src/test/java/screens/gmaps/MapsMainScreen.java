@@ -1,4 +1,4 @@
-package screens;
+package screens.gmaps;
 
 import general.BasePage;
 import io.appium.java_client.android.AndroidDriver;

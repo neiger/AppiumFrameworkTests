@@ -10,11 +10,11 @@
 
             <!--  Mobile Main Config Parameters  -->
             <parameter name="platformName" value="Android"/>
-            <parameter name="platformVersion" value="13"/>  <!-- non-GMS Android 11 / GMS Android 12 -->
-            <parameter name="deviceName" value="R3CTC0D3BFE"/> <!-- non-GMS HWQYD22514501984  GMS R3CTC0D3BFE Emulator emulator-5554 -->
+            <parameter name="platformVersion" value="11"/>  <!-- non-GMS Android 11 / GMS Android 12 -->
+            <parameter name="deviceName" value="HWQYD22514501984"/> <!-- non-GMS HWQYD22514501984  GMS R3CTC0D3BFE Emulator emulator-5554 -->
             <parameter name="automationName" value="UiAutomator2"/>
-            <parameter name="appPackage" value="com.google.android.apps.maps"/>   <!-- com.openmobilehub.auth.sample|com.google.android.apps.maps|com.avantica.qapp -->
-            <parameter name="appActivity" value="com.google.android.maps.MapsActivity"/> <!--com.openmobilehub.auth.sample.login.LoginActivity| com.google.android.maps.MapsActivity   com.avantica.qapp.activities.GreetingActivity -->
+            <parameter name="appPackage" value="com.openmobilehub.auth.sample"/>   <!-- com.openmobilehub.auth.sample|com.google.android.apps.maps|com.avantica.qapp -->
+            <parameter name="appActivity" value="com.openmobilehub.auth.sample.login.LoginActivity"/> <!--com.openmobilehub.auth.sample.login.LoginActivity| com.google.android.maps.MapsActivity   com.avantica.qapp.activities.GreetingActivity -->
             <parameter name="noReset" value="true"/> <!-- True to prevent prompt for asking permissions again -->
             <parameter name="appiumServer" value="http://127.0.0.1:4723/wd/hub"/>
         </listener>
@@ -22,35 +22,14 @@
 
 
     <!--  Test Case testing Parameters  -->
-    <parameter name="address" value="San Jose, Curridabat;San Jose, Ciudad Colon;37.3732324,-121.9654005"/>
-    <parameter name="getStartX" value="540" /> <!--   810      720 -->
-    <parameter name="getStartY" value="1780" /> <!--  1780     2500 -->
-    <parameter name="getEndX" value="540" />  <!--    330      720 -->
-    <parameter name="getEndY" value="100" /> <!--    100     506 -->
-
-
 
     <!--  Test Case Execution Order  -->
     <test name="Android Apps Test Cases">
         <classes>
-            <class name="tests.MapsMainScreenTests">
-                <!-- -->
-                <methods>
-                    <exclude name="verifySearchMapsWithCityName"/>
-                    <exclude name="verifySearchMapsWithLatAndLong"/>
-                    <exclude name="verifyDoubleTapOnMap"/>
-                    <exclude name="verifyDoubleTapOnMapScreen" />
-                    <exclude name="verifyHorizontalAndVerticalSwipeOnMapScreen" />
-                    <include name="verifyUserCanZoomInOnMapsScreen" />
-                    <exclude name="verifyUsersCanSwipeWhileExploring" />
-                    <exclude name="verifyTextDisplayedOnMobileElement" />
-                    <exclude name="dummyTestForFalseTesting"/>
-                </methods>
-            </class>
 
-            <class name="tests.AuthSampleLoginScreenTests">
+            <class name="tests.authsampleapp.AuthSampleLoginScreenTests">
                 <methods>
-                    <exclude name="verifyUserCanSignInFromWebViewBrowserScreen"/>
+                    <include name="verifyUserCanSignedInTheAppFromLoggedAccountInABrowserTab" />
                 </methods>
             </class>
 

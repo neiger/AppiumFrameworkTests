@@ -567,3 +567,15 @@ Host info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:1cde:5ee3:565b:f15e%en0'
 Date and Time: 03-27-2023 08:23:04
 ERROR MESSAGE LOG 
 java.lang.NullPointerException
+
+Date and Time: 03-28-2023 11:50:32
+ERROR MESSAGE LOG 
+org.openqa.selenium.StaleElementReferenceException: The element 'By.clazz: android.widget.TextView' does not exist in DOM anymore
+For documentation on this error, please visit: https://selenium.dev/exceptions/#stale_element_reference
+Build info: version: '4.8.2', revision: '826dbfc730'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [40149513-4551-4c2a-b946-a1907ce4c445, isElementDisplayed {id=00000000-0000-092a-ffff-ffff00000142}]
+Capabilities {appium:appActivity: com.openmobilehub.auth.samp..., appium:appPackage: com.openmobilehub.auth.sample, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: com.openmobilehub.auth.samp..., appPackage: com.openmobilehub.auth.sample, automationName: UiAutomator2, deviceName: R3CTC0D3BFE, newCommandTimeout: 0, noReset: true, platformName: android, platformVersion: 13}, appium:deviceApiLevel: 33, appium:deviceManufacturer: samsung, appium:deviceModel: SM-S901U1, appium:deviceName: R3CTC0D3BFE, appium:deviceScreenDensity: 480, appium:deviceScreenSize: 1080x2340, appium:deviceUDID: R3CTC0D3BFE, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 0, appium:noReset: true, appium:pixelRatio: 3, appium:platformVersion: 13, appium:statBarHeight: 81, appium:takesScreenshot: true, appium:viewportRect: {height: 2034, left: 0, top: 81, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Element: [[AndroidDriver:  on ANDROID (40149513-4551-4c2a-b946-a1907ce4c445)] -> class name: android.widget.TextView]
+Session ID: 40149513-4551-4c2a-b946-a1907ce4c445

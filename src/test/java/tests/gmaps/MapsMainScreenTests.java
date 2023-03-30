@@ -1,10 +1,10 @@
-package tests;
+package tests.gmaps;
 
 import general.MobileDriverManager;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import screens.MapsMainScreen;
+import screens.gmaps.MapsMainScreen;
 
 import java.util.Arrays;
 import java.util.List;
