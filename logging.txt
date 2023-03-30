@@ -579,3 +579,17 @@ Command: [40149513-4551-4c2a-b946-a1907ce4c445, isElementDisplayed {id=00000000-
 Capabilities {appium:appActivity: com.openmobilehub.auth.samp..., appium:appPackage: com.openmobilehub.auth.sample, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: com.openmobilehub.auth.samp..., appPackage: com.openmobilehub.auth.sample, automationName: UiAutomator2, deviceName: R3CTC0D3BFE, newCommandTimeout: 0, noReset: true, platformName: android, platformVersion: 13}, appium:deviceApiLevel: 33, appium:deviceManufacturer: samsung, appium:deviceModel: SM-S901U1, appium:deviceName: R3CTC0D3BFE, appium:deviceScreenDensity: 480, appium:deviceScreenSize: 1080x2340, appium:deviceUDID: R3CTC0D3BFE, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 0, appium:noReset: true, appium:pixelRatio: 3, appium:platformVersion: 13, appium:statBarHeight: 81, appium:takesScreenshot: true, appium:viewportRect: {height: 2034, left: 0, top: 81, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
 Element: [[AndroidDriver:  on ANDROID (40149513-4551-4c2a-b946-a1907ce4c445)] -> class name: android.widget.TextView]
 Session ID: 40149513-4551-4c2a-b946-a1907ce4c445
+
+Date and Time: 03-30-2023 12:31:07
+ERROR MESSAGE LOG 
+org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: An unknown server-side error occurred while processing the command. Original error: Cannot start the 'com.openmobilehub.auth.sample' application. Visit https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/android/activity-startup.md for troubleshooting. Original error: Cannot start the 'com.openmobilehub.auth.sample' application. Visit https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/android/activity-startup.md for troubleshooting. Original error: Activity name '.com.openmobilehub.auth.sample.login.LoginActivity' used to start the app doesn't exist or cannot be launched! Make sure it exists and is a launchable activity 
+Host info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:14c8:d70c:76e2:a0c%en0'
+Build info: version: '4.8.2', revision: '826dbfc730'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [null, newSession {capabilities=[{appium:noReset=true, appium:newCommandTimeout=0, appium:appActivity=com.openmobilehub.auth.sample.login.LoginActivity, platformName=ANDROID, appium:deviceName=HWQYD22514501984, appium:automationName=UiAutomator2, appium:platformVersion=11, appium:appPackage=com.openmobilehub.auth.sample}], desiredCapabilities=Capabilities {appium:appActivity: com.openmobilehub.auth.samp..., appium:appPackage: com.openmobilehub.auth.sample, appium:automationName: UiAutomator2, appium:deviceName: HWQYD22514501984, appium:newCommandTimeout: 0, appium:noReset: true, appium:platformVersion: 11, platformName: ANDROID}}]
+Capabilities {appium:appActivity: com.openmobilehub.auth.samp..., appium:appPackage: com.openmobilehub.auth.sample, appium:automationName: UiAutomator2, appium:deviceName: HWQYD22514501984, appium:newCommandTimeout: 0, appium:noReset: true, appium:platformVersion: 11, platformName: ANDROID}
+
+Date and Time: 03-30-2023 12:31:07
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
