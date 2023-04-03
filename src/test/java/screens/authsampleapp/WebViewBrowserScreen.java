@@ -6,7 +6,12 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.PageFactory;
+
+import java.time.Duration;
+import java.util.Collections;
 
 public class WebViewBrowserScreen extends BasePage {
 
@@ -23,26 +28,16 @@ public class WebViewBrowserScreen extends BasePage {
     UI ELEMENTS - Since they are in browser view, the interactions will be handled as web actions rather than mobile's
      */
 
-    @AndroidFindBy(id="com.android.chrome:id/close_button")
+    //@AndroidFindBy(id="com.android.chrome:id/close_button")
     @AndroidFindBy(id="com.huawei.browser:id/close_button")
     private WebElement closeTabBtn;
 
-    @AndroidFindBy(id="com.android.chrome:id/url_bar")
+    //@AndroidFindBy(id="com.android.chrome:id/url_bar")
     @AndroidFindBy(id="com.huawei.browser:id/url_text")
     private WebElement urlBar;
 
     @AndroidFindBy(xpath="//android.view.View[@content-desc=\"Neiger PK Drake neiger.drake@gmail.com\"]")
     private WebElement loggedAccount;
-
-/*
-    @AndroidFindBy(id="com.huawei.browser:id/close_button")
-    private WebElement closeTabBtnNonGMS;
-
-    @AndroidFindBy(id="com.huawei.browser:id/url_text")
-    private WebElement urlBarNoGMS;
-*/
-
-//X=540 Y=700
 
 
     /*
@@ -51,23 +46,34 @@ public class WebViewBrowserScreen extends BasePage {
 
 
 
-    public boolean verifySignPageLoads(String osType) {
-        if(osType.equals("GMS")){
-            return waitForMobElementToBeVisible(closeTabBtn)
-                    && waitForMobElementToBeVisible(urlBar);
-        } else {
-            //if (closeTabBtn.getText().contains("huawei") && urlBar.getText().contains("huawei"))
-            return waitForMobElementToBeVisible(closeTabBtn)
-                    && waitForMobElementToBeVisible(urlBar);
-        }
+    public boolean verifySignPageLoads() {
+        return waitForMobElementToBeVisible(closeTabBtn)
+                    && waitForMobElementToBeVisible(urlBar)
+                    && printCustomTabElements();
+
     }
 
-    private boolean clickAccountLoggedIn() {
+    private boolean printCustomTabElements() {
         boolean flag = false;
         try {
-            loggedAccount.click();
+            System.out.println(getTextFromMobElement(urlBar));
             flag = true;
-        } catch (Exception e) {ErrorsManager.errNExpManager(e);}
+        }catch (Exception e) {ErrorsManager.errNExpManager(e);}
+        return flag;
+    }
+
+    public boolean clickLoggedInAccountXY(int getX, int getY){
+        boolean flag = false;
+        try {
+            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+            Sequence tap = new Sequence(finger, 1);
+            tap.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), getX, getY));
+            tap.addAction(finger.createPointerDown(0));
+            tap.addAction(finger.createPointerUp(0));
+            driver.perform(Collections.singletonList(tap));
+            implicityWaitTimeOnScreen();
+            flag = true;
+        }catch (Exception e){ErrorsManager.errNExpManager(e);}
         return flag;
     }
 
@@ -75,8 +81,8 @@ public class WebViewBrowserScreen extends BasePage {
     RETURN-REDIRECT PAGE CALLS
      */
 
-    public AuthSampleLoginScreen returnAsSignInState() {
-        if(clickAccountLoggedIn()) {
+    public AuthSampleLoginScreen returnAsSignInState(int getX, int getY) {
+        if(clickLoggedInAccountXY(getX, getY)) {
             return new AuthSampleLoginScreen(driver);
         } else {return null;}
     }

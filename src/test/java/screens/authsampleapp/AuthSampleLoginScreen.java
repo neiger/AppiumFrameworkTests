@@ -24,69 +24,70 @@ public class AuthSampleLoginScreen extends BasePage {
     UI ELEMENTS
      */
 
-    @AndroidFindBy(id="com.openmobilehub.auth.sample:id/action_bar")
+    // logged out elements
+    @AndroidFindBy(id="com.omh.android.auth.sample:id/action_bar")
     private WebElement topActionBar;
 
     @AndroidFindBy(className="android.widget.TextView")
     private WebElement topActionBarTxt;
 
-    @AndroidFindBy(id="com.openmobilehub.auth.sample:id/btn_login")
+    @AndroidFindBy(id="com.omh.android.auth.sample:id/btn_login")
     private WebElement loginBtn;
 
-    @AndroidFindBy(id="com.android.chrome:id/close_button")
-    private WebElement closeTabBtn;
+    // account picker popup
+    @AndroidFindBy(id="com.google.android.gms:id/container")
+    private WebElement pickAccount;
 
-
-    @AndroidFindBy(id="com.openmobilehub.auth.sample:id/tvName")
+    // logged in elements
+    @AndroidFindBy(id="com.omh.android.auth.sample:id/tvName")
     private WebElement tvName;
 
-    @AndroidFindBy(id="com.openmobilehub.auth.sample:id/tvEmail")
+    @AndroidFindBy(id="com.omh.android.auth.sample:id/tvEmail")
     private WebElement tvEmail;
 
-    @AndroidFindBy(id="com.openmobilehub.auth.sample:id/btn_logout")
+    @AndroidFindBy(id="com.omh.android.auth.sample:id/btn_logout")
     private WebElement loggedOutBtn;
 
-    @AndroidFindBy(id="com.openmobilehub.auth.sample:id/tvToken")
+    @AndroidFindBy(id="com.omh.android.auth.sample:id/tvToken")
     private WebElement tokenInfo;
 
-    @AndroidFindBy(id="com.openmobilehub.auth.sample:id/btn_refresh")
+    @AndroidFindBy(id="com.omh.android.auth.sample:id/btn_refresh")
     private WebElement refreshBtn;
 
     /*
     METHODS
      */
 
-    public boolean validateSignInUIScreenElements() {
-        boolean flag = false;
-        try {
-            System.out.println(getTextFromMobElement(loginBtn));
-            System.out.println(getTextFromMobElement(topActionBarTxt));
-            flag = true;
-        } catch (Exception e) {ErrorsManager.errNExpManager(e);}
-        return flag;
-    }
-
-    public boolean tapOnLoginBtn() {
+    private boolean tapOnLoginBtn() {
         boolean flag = false;
         flag = tapMobElement(loginBtn);
         return flag;
     }
 
-    public boolean validateBrowserTab() {
+    public boolean verifySignInPopUpShown() {
         boolean flag = false;
-
-        try {
-            flag =
-            waitForMobElementToBeVisible(closeTabBtn) &&
-            tapMobElement(closeTabBtn) && implicityWaitTimeOnScreen() &&
-            waitForMobElementToBeVisible(topActionBarTxt);
-        }catch (Exception e) {ErrorsManager.errNExpManager(e);}
-
+        if(tapOnLoginBtn()) {
+            flag = waitForMobElementToBeVisible(pickAccount) && tapMobElement(pickAccount);
+        }
         return flag;
     }
 
+
+    /*
+    RETURN-REDIRECT PAGE CALLS
+     */
+    public WebViewBrowserScreen signInFromBrowser() {
+        if(tapOnLoginBtn()) {
+            return new WebViewBrowserScreen(this.driver);
+        } else {return null;}
+    }
+
+    /*
+    AFTER SIGNED IN VALIDATIONS
+     */
+
     public boolean verifySignInState() {
-        return implicityWaitTimeOnScreenManual(3) &&
+        return implicityWaitTimeOnScreen() &&
                 waitForMobElementToBeVisible(loggedOutBtn) && waitForMobElementToBeVisible(refreshBtn) &&
                 waitForMobElementToBeVisible(tvName) && waitForMobElementToBeVisible(tvEmail) &&
                 waitForMobElementToBeVisible(tokenInfo);
@@ -107,14 +108,5 @@ public class AuthSampleLoginScreen extends BasePage {
 
     public boolean signOutTheApp() {
         return tapMobElement(loggedOutBtn) && waitForMobElementToBeVisible(loginBtn);
-    }
-
-    /*
-    RETURN-REDIRECT PAGE CALLS
-     */
-    public WebViewBrowserScreen signInFromBrowser() {
-        if(tapOnLoginBtn()) {
-            return new WebViewBrowserScreen(this.driver);
-        } else {return null;}
     }
 }

@@ -9,6 +9,8 @@ import org.testng.annotations.Parameters;
 
 import java.net.URL;
 import java.time.Duration;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class MobileDriverManager extends TestUtilities {
@@ -33,20 +35,31 @@ public class MobileDriverManager extends TestUtilities {
     }
 
 
-    @Parameters({"platformName", "platformVersion", "deviceName", "automationName", "appPackage","appActivity", "noReset", "appiumServer"})
+    @Parameters({"deviceType","platformName", "platformVersion", "deviceName", "automationName", "appPackage","appActivity", "noReset", "appiumServer"})
     @BeforeMethod(alwaysRun = true)
-    public final void setMobDriver(String platformName, String platformVersion, String deviceName,
+    public final void setMobDriver(String deviceType, String platformName, String platformVersion, String deviceName,
                                    String automationName, String appPackage, String appActivity,
                                    boolean noReset, String appiumServer) {
+        List<String> platformVersionList = Arrays.asList(platformVersion.split(","));
+        List<String> deviceNameList = Arrays.asList(deviceName.split(","));
+
         try {
             System.out.println("[DRIVER MSG]  ----> The mobile test driver is being initialized now");
 
             UiAutomator2Options capability = new UiAutomator2Options();
+
             // Android Device capabilities
             capability.setPlatformName(platformName);
-            capability.setPlatformVersion(platformVersion);
-            capability.setDeviceName(deviceName);
-            capability.setAutomationName(automationName);
+
+            if (deviceType.equals("GMS")) {
+                capability.setPlatformVersion(platformVersionList.get(0)); //
+                capability.setDeviceName(deviceNameList.get(0)); //
+                capability.setAutomationName(automationName);
+
+            } else {
+                capability.setPlatformVersion(platformVersionList.get(1));
+                capability.setDeviceName(deviceNameList.get(1));
+            }
             capability.setAppPackage(appPackage);
             capability.setAppActivity(appActivity);
             capability.setNoReset(noReset);

@@ -593,3 +593,17 @@ Capabilities {appium:appActivity: com.openmobilehub.auth.samp..., appium:appPack
 Date and Time: 03-30-2023 12:31:07
 ERROR MESSAGE LOG 
 java.lang.NullPointerException
+
+Date and Time: 03-30-2023 15:15:57
+ERROR MESSAGE LOG 
+org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({AppiumBy.id: com.huawei.browser:id/close_button})
+
+Date and Time: 03-30-2023 15:21:23
+ERROR MESSAGE LOG 
+org.openqa.selenium.WebDriverException: org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: Could not proxy command to the remote server. Original error: timeout of 240000ms exceeded
+Build info: version: '4.8.2', revision: '826dbfc730'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [0c4335f5-f520-46b3-9ae1-c4002c5d6566, findElement {using=id, value=com.huawei.browser:id/close_button}]
+Capabilities {appium:appActivity: com.omh.android.auth.sample..., appium:appPackage: com.omh.android.auth.sample, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: com.omh.android.auth.sample..., appPackage: com.omh.android.auth.sample, automationName: UiAutomator2, deviceName: HWQYD22514501984, newCommandTimeout: 0, noReset: true, platformName: android, platformVersion: 11}, appium:deviceApiLevel: 30, appium:deviceManufacturer: HUAWEI, appium:deviceModel: JLN-LX3, appium:deviceName: HWQYD22514501984, appium:deviceScreenDensity: 480, appium:deviceScreenSize: 1080x2388, appium:deviceUDID: HWQYD22514501984, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 0, appium:noReset: true, appium:pixelRatio: 3, appium:platformVersion: 11, appium:statBarHeight: 106, appium:takesScreenshot: true, appium:viewportRect: {height: 2062, left: 0, top: 106, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 0c4335f5-f520-46b3-9ae1-c4002c5d6566
