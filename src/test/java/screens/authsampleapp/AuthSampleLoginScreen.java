@@ -1,6 +1,6 @@
 package screens.authsampleapp;
 
-import general.BasePage;
+import general.BaseScreen;
 import general.ErrorsManager;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -8,7 +8,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class AuthSampleLoginScreen extends BasePage {
+public class AuthSampleLoginScreen extends BaseScreen {
 
     public AuthSampleLoginScreen(AndroidDriver driver) {
         super(driver);

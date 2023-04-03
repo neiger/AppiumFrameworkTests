@@ -17,7 +17,7 @@ import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 
 
-public abstract class BasePage {
+public abstract class BaseScreen {
 
     protected AndroidDriver driver;
     private final AppiumFluentWait<AndroidDriver> wait;
@@ -25,7 +25,7 @@ public abstract class BasePage {
     private final int staticTimeOut;
 
     // CONSTRUCTOR - Receiving web driver as a parameter to save it on a global variable to be used later
-    public BasePage(AndroidDriver driver) {
+    public BaseScreen(AndroidDriver driver) {
         this.driver = driver;
         this.staticTimeOut = MobileDriverManager.getStaticTime();
         int dynamicTimeOut = MobileDriverManager.getDynamicTime();

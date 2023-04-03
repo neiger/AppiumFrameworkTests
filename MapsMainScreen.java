@@ -1,15 +1,14 @@
 package screens.gmaps;
 
-import general.BasePage;
+import general.BaseScreen;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class MapsMainScreen extends BasePage {
+public class MapsMainScreen extends BaseScreen {
 
     public MapsMainScreen(AndroidDriver driver) {
         super(driver);

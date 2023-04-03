@@ -1,6 +1,6 @@
 package screens.authsampleapp;
 
-import general.BasePage;
+import general.BaseScreen;
 import general.ErrorsManager;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -13,7 +13,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.time.Duration;
 import java.util.Collections;
 
-public class WebViewBrowserScreen extends BasePage {
+public class WebViewBrowserScreen extends BaseScreen {
 
     public WebViewBrowserScreen(AndroidDriver driver) {
         super(driver);
