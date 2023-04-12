@@ -63,18 +63,7 @@ public class WebViewBrowserScreen extends BaseScreen {
     }
 
     public boolean clickLoggedInAccountXY(int getX, int getY){
-        boolean flag = false;
-        try {
-            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
-            Sequence tap = new Sequence(finger, 1);
-            tap.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), getX, getY));
-            tap.addAction(finger.createPointerDown(0));
-            tap.addAction(finger.createPointerUp(0));
-            driver.perform(Collections.singletonList(tap));
-            implicityWaitTimeOnScreen();
-            flag = true;
-        }catch (Exception e){ErrorsManager.errNExpManager(e);}
-        return flag;
+        return tapOnScreenXY(getX, getY);
     }
 
     /*

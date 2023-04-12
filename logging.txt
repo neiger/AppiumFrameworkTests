@@ -607,3 +607,54 @@ Driver info: io.appium.java_client.android.AndroidDriver
 Command: [0c4335f5-f520-46b3-9ae1-c4002c5d6566, findElement {using=id, value=com.huawei.browser:id/close_button}]
 Capabilities {appium:appActivity: com.omh.android.auth.sample..., appium:appPackage: com.omh.android.auth.sample, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: com.omh.android.auth.sample..., appPackage: com.omh.android.auth.sample, automationName: UiAutomator2, deviceName: HWQYD22514501984, newCommandTimeout: 0, noReset: true, platformName: android, platformVersion: 11}, appium:deviceApiLevel: 30, appium:deviceManufacturer: HUAWEI, appium:deviceModel: JLN-LX3, appium:deviceName: HWQYD22514501984, appium:deviceScreenDensity: 480, appium:deviceScreenSize: 1080x2388, appium:deviceUDID: HWQYD22514501984, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 0, appium:noReset: true, appium:pixelRatio: 3, appium:platformVersion: 11, appium:statBarHeight: 106, appium:takesScreenshot: true, appium:viewportRect: {height: 2062, left: 0, top: 106, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
 Session ID: 0c4335f5-f520-46b3-9ae1-c4002c5d6566
+
+Date and Time: 04-04-2023 15:46:04
+ERROR MESSAGE LOG 
+org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. 
+Host info: host: 'CSASJOMM3701', ip: 'fe80:0:0:0:6e:8187:1c32:5fc1%en0'
+
+Date and Time: 04-04-2023 15:46:04
+ERROR MESSAGE LOG 
+java.lang.NullPointerException
+
+Date and Time: 04-12-2023 16:12:35
+ERROR MESSAGE LOG 
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for general.BaseScreen$$Lambda$394/1192513424@2cd4632 (tried for 10 second(s) with PT0.5S interval)
+Build info: version: '4.8.3', revision: 'e5e76298c3'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: unknown
+
+Date and Time: 04-12-2023 16:14:48
+ERROR MESSAGE LOG 
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for general.BaseScreen$$Lambda$393/1776729211@12fa4612 (tried for 10 second(s) with PT0.5S interval)
+Build info: version: '4.8.3', revision: 'e5e76298c3'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: unknown
+
+Date and Time: 04-12-2023 16:31:19
+ERROR MESSAGE LOG 
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for general.BaseScreen$$Lambda$391/1857735498@459c656e (tried for 10 second(s) with PT0.5S interval)
+Build info: version: '4.8.3', revision: 'e5e76298c3'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: unknown
+
+Date and Time: 04-12-2023 16:38:03
+ERROR MESSAGE LOG 
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for general.BaseScreen$$Lambda$391/1469696087@3035dcea (tried for 10 second(s) with PT0.5S interval)
+Build info: version: '4.8.3', revision: 'e5e76298c3'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: unknown
+
+Date and Time: 04-12-2023 16:44:02
+ERROR MESSAGE LOG 
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for general.BaseScreen$$Lambda$391/120642454@4a9abe6f (tried for 10 second(s) with PT0.5S interval)
+Build info: version: '4.8.3', revision: 'e5e76298c3'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: unknown
+
+Date and Time: 04-12-2023 16:45:02
+ERROR MESSAGE LOG 
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for general.BaseScreen$$Lambda$391/1279213916@297b7360 (tried for 10 second(s) with PT0.5S interval)
+Build info: version: '4.8.3', revision: 'e5e76298c3'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
+Driver info: driver.version: unknown

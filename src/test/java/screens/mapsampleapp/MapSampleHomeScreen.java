@@ -1,4 +1,4 @@
-package screens.mapssampleapp;
+package screens.mapsampleapp;
 
 import general.BaseScreen;
 import general.ErrorsManager;
@@ -7,11 +7,10 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import screens.authsampleapp.WebViewBrowserScreen;
 
-public class MapsSampleMainScreen extends BaseScreen {
+public class MapSampleHomeScreen extends BaseScreen {
 
-    public MapsSampleMainScreen(AndroidDriver driver) {
+    public MapSampleHomeScreen(AndroidDriver driver) {
         super(driver);
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
@@ -52,16 +51,16 @@ public class MapsSampleMainScreen extends BaseScreen {
         return flag;
     }
 
-    public boolean openSampleMapsScreen(){
+    public boolean openMapSampleScreen(){
         return tapMobElement(openMapBtn) && implicityWaitTimeOnScreen();
     }
 
     /*
-     RETURN-REDIRECT PAGE CALLS
+     RETURN-REDIRECT SCREEN CALLS
     */
-    public MapsDemoScreen mapsDemoScreen() {
-        if(openSampleMapsScreen()) {
-            return new MapsDemoScreen(this.driver);
+    public MapSampleScreen tapAndOpenMapSampleScreen() {
+        if(openMapSampleScreen()) {
+            return new MapSampleScreen(this.driver);
         } else {return null;}
     }
 

@@ -5,7 +5,7 @@
     <listeners>
         <listener class-name="general.MobileDriverManager">
             <!-- Mobile timeout and halt setup -->
-            <parameter name="tmStatic" value="5"/>
+            <parameter name="tmStatic" value="3"/>
             <parameter name="tmDynamic" value="10"/>
 
             <!--  Mobile Main Config Parameters  -->
@@ -28,10 +28,14 @@
     <test name="Android Apps Test Cases">
         <classes>
 
-            <class name="tests.mapssampleapp.MapsSampleScreenTests">
+            <class name="tests.mapsampleapp.MapSampleScreenTests">
                 <methods>
-                    <include name="verifyThatMapsLaunchCorrectly" />
-                    <include name="verifyThatMapsViewIsDisplayedCorrectly" />
+                    <include name="FW_13_verifyThatMapSampleAppOpensCorrectly" />
+                    <include name="FW_33_verifyThatDeviceSupportSwipeGestures" />
+                    <include name="FW_53_verifyTappingMyLocationBtnMovesToUsersLocation" />
+                    <include name="FW_54_verifyNavigatingAndTappingMyLocationBtnMovesToUsersLocation" />
+                    <include name="FW_72_verifyThatPinGetsUpdatedLocationEachTimeMoves" />
+                    <include name="FW_73_verifyThatPinLocationMatchesWhenShares" />
                 </methods>
             </class>
 
