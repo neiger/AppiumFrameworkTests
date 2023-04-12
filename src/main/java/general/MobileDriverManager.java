@@ -1,15 +1,16 @@
 package general;
 
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
-import io.appium.java_client.remote.MobileCapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import io.appium.java_client.android.options.UiAutomator2Options;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
 import java.net.URL;
+import java.time.Duration;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class MobileDriverManager extends TestUtilities {
@@ -34,28 +35,37 @@ public class MobileDriverManager extends TestUtilities {
     }
 
 
-    @Parameters({"platformName", "platformVersion", "deviceName", "automationName", "appPackage","appActivity", "noReset", "appiumServer"})
+    @Parameters({"deviceType","platformName", "platformVersion", "deviceName", "automationName", "appPackage","appActivity", "noReset", "appiumServer"})
     @BeforeMethod(alwaysRun = true)
-    public final void setMobDriver(String platformName, String platformVersion, String deviceName,
+    public final void setMobDriver(String deviceType, String platformName, String platformVersion, String deviceName,
                                    String automationName, String appPackage, String appActivity,
-                                   String noReset, String appiumServer) {
+                                   boolean noReset, String appiumServer) {
+        List<String> platformVersionList = Arrays.asList(platformVersion.split(","));
+        List<String> deviceNameList = Arrays.asList(deviceName.split(","));
+
         try {
             System.out.println("[DRIVER MSG]  ----> The mobile test driver is being initialized now");
 
-            DesiredCapabilities capability = new DesiredCapabilities();
+            UiAutomator2Options capability = new UiAutomator2Options();
 
             // Android Device capabilities
-            capability.setCapability(MobileCapabilityType.PLATFORM_NAME, platformName);
-            capability.setCapability(MobileCapabilityType.PLATFORM_VERSION, platformVersion);
-            capability.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
-            capability.setCapability(MobileCapabilityType.AUTOMATION_NAME, automationName);
-            //capability.setCapability(MobileCapabilityType.APP, appPackage); // In case apk needs to be installed
-            capability.setCapability("appPackage", appPackage);
-            capability.setCapability("appActivity", appActivity);
-            capability.setCapability(MobileCapabilityType.NO_RESET, noReset);
-            capability.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 0);
+            capability.setPlatformName(platformName);
 
-            mobAndroidDriver.set(new AndroidDriver<AndroidElement>(new URL(appiumServer), capability));
+            if (deviceType.equals("GMS")) {
+                capability.setPlatformVersion(platformVersionList.get(0)); //
+                capability.setDeviceName(deviceNameList.get(0)); //
+                capability.setAutomationName(automationName);
+
+            } else {
+                capability.setPlatformVersion(platformVersionList.get(1));
+                capability.setDeviceName(deviceNameList.get(1));
+            }
+            capability.setAppPackage(appPackage);
+            capability.setAppActivity(appActivity);
+            capability.setNoReset(noReset);
+            capability.setNewCommandTimeout(Duration.ofSeconds(0));
+
+            mobAndroidDriver.set(new AndroidDriver(new URL(appiumServer), capability));
 
         } catch (Exception e) {ErrorsManager.errNExpManager(e);}
 

@@ -1,10 +1,10 @@
-package tests;
+package tests.gmaps;
 
 import general.MobileDriverManager;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import screens.MapsMainScreen;
+import screens.gmaps.MapsMainScreen;
 
 import java.util.Arrays;
 import java.util.List;
@@ -23,8 +23,9 @@ public class MapsMainScreenTests extends MobileDriverManager {
     }
 
     @Test
-    public void verifyMapsMainScreen() {
+    public void verifySearchMapsWithCityName() {
         assertTrue(mapsMainScreen.typeAnAddressInOmniBoxSearch(stringList.get(0)), basicErrorMsg("The field was not filled"));
+        assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), basicErrorMsg("The app did not halt on screen"));
         assertTrue(mapsMainScreen.typeAnAddressInOmniBoxSearch(stringList.get(1)), basicErrorMsg("The field was not filled"));
         assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), basicErrorMsg("The app did not halt on screen"));
         assertAll();
@@ -33,7 +34,7 @@ public class MapsMainScreenTests extends MobileDriverManager {
     @Test
     public void verifySearchMapsWithLatAndLong() {
         assertTrue(mapsMainScreen.typeAnAddressInOmniBoxSearch(stringList.get(2)), basicErrorMsg("The field was not filled"));
-        assertFalse(mapsMainScreen.waitForAFewSecondsOnScreen(), basicErrorMsg("The app did not halt on screen"));
+        assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), basicErrorMsg("The app did not halt on screen"));
         assertAll();
     }
 
@@ -52,15 +53,27 @@ public class MapsMainScreenTests extends MobileDriverManager {
         assertAll();
     }
 
-    @Parameters({"getStartX", "getStartY", "getEndX", "getEndY"})
+
+
     @Test
-    public void verifySwipeOnScreenWithCoordinatesXxYy(int getStartX, int getStartY, int getEndX, int getEndY) {
-        assertTrue(mapsMainScreen.swipeOnScreenWithCoordinates(getStartX, getStartY, getEndX, getEndY), basicErrorMsg("Drag N Drop was not performed"));
-        assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), basicErrorMsg("The app did not halt on screen"));
-        assertTrue(mapsMainScreen.swipeOnScreenWithCoordinates(getStartX, getStartY, getEndX, getEndY), basicErrorMsg("Drag N Drop was not performed"));
+    public void verifyHorizontalAndVerticalSwipeOnMapScreen() {
+        assertTrue(mapsMainScreen.horizontalSwipeOnScreenWithCoordinates(), basicErrorMsg("Horizontal swipe was not performed"));
+        assertTrue(mapsMainScreen.verticalSwipeOnScreenWithCoordinates(), basicErrorMsg("Vertical swipe was not performed"));
         assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), basicErrorMsg("The app did not halt on screen"));
         assertAll();
     }
+
+    @Test
+    public void verifyUserCanZoomInOnMapsScreen() {
+        for (int i = 0; i<30; i++) {
+        assertTrue(mapsMainScreen.zoomInOnScreenCoordinates(), basicErrorMsg("Zoom feature fails"));
+        System.out.println("PRINTING EXECUTION NUMBER: " + i);
+        }
+        assertTrue(mapsMainScreen.waitForAFewSecondsOnScreen(), basicErrorMsg("The app did  not halt on screen"));
+        assertAll();
+    }
+
+
 
     @Test     @Parameters({"getStartX", "getStartY", "getEndX", "getEndY"})
     public void verifyUsersCanSwipeWhileExploring(int getStartX, int getStartY, int getEndX, int getEndY) {
@@ -70,16 +83,17 @@ public class MapsMainScreenTests extends MobileDriverManager {
     }
 
     @Test
-    public void verifyMultiTouchOnMapsScreen() {
-        assertTrue(mapsMainScreen.multiTouchOnMapsScreen(), basicErrorMsg("Zoom feature fails"));
-        assertAll();
-    }
-
-    @Test
     public void verifyTextDisplayedOnMobileElement() {
         String txt = "Explore";
         assertTrue(mapsMainScreen.verifyTextDisplayedOnElement(txt), basicErrorMsg("Unable to get the text"));
         assertTrue(mapsMainScreen.getTextFromElement(), basicErrorMsg("Unable to get the text"));
+        assertAll();
+    }
+
+    @Test
+    public void dummyTestForFalseTesting() {
+        boolean flag = false;
+        assertFalse(flag, basicErrorMsg("This test will fail due testing purposes to validate a normal failure"));
         assertAll();
     }
 

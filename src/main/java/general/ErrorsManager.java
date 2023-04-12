@@ -25,7 +25,7 @@ public abstract class ErrorsManager {
             fileWriter.write("\nERROR MESSAGE LOG "+ "\n" + error);
             fileWriter.close();
         } catch (Exception i) {
-            System.out.println("An error has occurred\n" + i);
+            System.out.println(TestUtilities.basicErrorMsg("Unable to log the exception\n") + i);
         }
     }
 
