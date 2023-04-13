@@ -5,7 +5,6 @@ import general.ErrorsManager;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -70,7 +69,11 @@ public class MapSampleScreen extends BaseScreen {
     }
 
     public boolean customXxSwipeOnScreen(int getStartX, int getEndX) {
-        return customUsersSwipeXY(mapFrameLayoutContainer, getStartX, getEndX);
+        return customUsersSwipeXLoc(mapFrameLayoutContainer, getStartX, getEndX);
+    }
+
+    public boolean customYySwipeOnScreen(int getStartY, int getEndY) {
+        return customUsersSwipeYLoc(mapFrameLayoutContainer, getStartY, getEndY);
     }
 
     public boolean pinMovesGetLoc(int getStartX, int getEndX) {

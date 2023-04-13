@@ -45,7 +45,8 @@ public class MapSampleScreenTests extends MobileDriverManager {
     public void FW_54_verifyNavigatingAndTappingMyLocationBtnMovesToUsersLocation() {
         mapSampleScreen = mapSampleHomeScreen.tapAndOpenMapSampleScreen();
         assertTrue(mapSampleScreen.verifyLoads(), basicErrorMsg("The maps screen was not loaded correctly"));
-        assertTrue(mapSampleScreen.customXxSwipeOnScreen(1000, 100), basicErrorMsg("Unable to swipe on map screen"));
+        assertTrue(mapSampleScreen.customXxSwipeOnScreen(1000, 100), basicErrorMsg("Unable to do a horizontal swipe"));
+        assertTrue(mapSampleScreen.customYySwipeOnScreen(300, 1800), basicErrorMsg("Unable to do a vertical swipe"));
         assertTrue(mapSampleScreen.tapMyLocationBtn(), basicErrorMsg("Unable to tap My Location button (GPS) icon"));
         assertAll();
     }

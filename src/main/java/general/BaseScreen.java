@@ -62,6 +62,22 @@ public abstract class BaseScreen {
         return flag;
     }
 
+    // method to tap on element by coordinates
+    protected boolean tapOnScreenXY(int getX, int getY) {
+        boolean flag = false;
+        try {
+            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+            Sequence tap = new Sequence(finger, 1);
+            tap.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), getX, getY));
+            tap.addAction(finger.createPointerDown(0));
+            tap.addAction(finger.createPointerUp(0));
+            driver.perform(Collections.singletonList(tap));
+            implicityWaitTimeOnScreen();
+            flag = true;
+        }catch (Exception e){ErrorsManager.errNExpManager(e);}
+        return flag;
+    }
+
     // method to enter text on a specific field
     protected boolean sendTextOnEmptyMobElement(WebElement element, String txt) {
 
@@ -103,6 +119,7 @@ public abstract class BaseScreen {
         return flag;
     }
 
+    // halt wait execution via xml config file
     protected boolean implicityWaitTimeOnScreen() {
         try {
             TimeUnit.SECONDS.sleep(this.staticTimeOut);
@@ -113,6 +130,7 @@ public abstract class BaseScreen {
         }
     }
 
+    // halt wait execution set manually by the user
     protected boolean implicityWaitTimeOnScreenManual(int secs) {
         try {
             TimeUnit.SECONDS.sleep(secs);
@@ -123,6 +141,7 @@ public abstract class BaseScreen {
         }
     }
 
+    // generic method to press any android key
     protected boolean pressAndroidKey(AndroidKey keyValue) {
         boolean flag = false;
         if(keyValue != null) {
@@ -190,6 +209,55 @@ public abstract class BaseScreen {
             ErrorsManager.errNExpManager(e);}
         return flag;
     }
+
+    protected boolean customUsersSwipeXLoc(WebElement element, int getStartX, int getEndX) {
+        boolean flag = false;
+
+        int centerY = element.getRect().y + (element.getSize().height/2);
+        double stStartXcc = getStartX;
+        double stEndXcc = getEndX;
+
+        try {
+            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+            Sequence swipe = new Sequence(finger,1);
+            swipe.addAction(finger.createPointerMove(Duration.ofSeconds(0), PointerInput.Origin.viewport(), (int) stStartXcc, centerY));
+            swipe.addAction(finger.createPointerDown(0));
+            swipe.addAction(finger.createPointerMove(Duration.ofMillis(700), PointerInput.Origin.viewport(), (int) stEndXcc, centerY));
+            swipe.addAction(finger.createPointerUp(0));
+
+            driver.perform(Collections.singletonList(swipe));
+
+            flag = true;
+        } catch (Exception e) {
+            ErrorsManager.errNExpManager(e);}
+
+        return flag;
+    }
+
+    protected boolean customUsersSwipeYLoc(WebElement element, int getStartY, int getEndY) {
+        boolean flag = false;
+
+        int centerX = element.getRect().x + (element.getSize().width/2);
+        double stStartYcc = getStartY;
+        double stEndYcc = getEndY;
+
+        try {
+            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+            Sequence swipe = new Sequence(finger,1);
+            swipe.addAction(finger.createPointerMove(Duration.ofSeconds(0), PointerInput.Origin.viewport(), centerX, (int) stStartYcc));
+            swipe.addAction(finger.createPointerDown(0));
+            swipe.addAction(finger.createPointerMove(Duration.ofMillis(700), PointerInput.Origin.viewport(), centerX, (int) stEndYcc));
+            swipe.addAction(finger.createPointerUp(0));
+
+            driver.perform(Collections.singletonList(swipe));
+
+            flag = true;
+        } catch (Exception e) {
+            ErrorsManager.errNExpManager(e);}
+
+        return flag;
+    }
+
 
     protected boolean zoomInOnScreenXY(WebElement element) {
         boolean flag = false;
@@ -272,80 +340,9 @@ public abstract class BaseScreen {
         return flag;
     }
 
-    // method to wait for an element to be clickable
-    protected boolean tapOnScreenXY(int getX, int getY) {
-        boolean flag = false;
-        try {
-            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
-            Sequence tap = new Sequence(finger, 1);
-            tap.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), getX, getY));
-            tap.addAction(finger.createPointerDown(0));
-            tap.addAction(finger.createPointerUp(0));
-            driver.perform(Collections.singletonList(tap));
-            implicityWaitTimeOnScreen();
-            flag = true;
-        }catch (Exception e){ErrorsManager.errNExpManager(e);}
-        return flag;
-    }
-
-    protected boolean customUsersSwipeXY(WebElement element, int getStartX, int getEndX) {
-        boolean flag = false;
-
-        int centerY = element.getRect().y + (element.getSize().height/2);
-        double stStartXcc = getStartX;
-        double stEndXcc = getEndX;
-
-        try {
-            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
-            Sequence swipe = new Sequence(finger,1);
-            swipe.addAction(finger.createPointerMove(Duration.ofSeconds(0), PointerInput.Origin.viewport(), (int) stStartXcc, centerY));
-            swipe.addAction(finger.createPointerDown(0));
-            swipe.addAction(finger.createPointerMove(Duration.ofMillis(700), PointerInput.Origin.viewport(), (int) stEndXcc, centerY));
-            swipe.addAction(finger.createPointerUp(0));
-
-            driver.perform(Collections.singletonList(swipe));
-
-            flag = true;
-        } catch (Exception e) {
-            ErrorsManager.errNExpManager(e);}
-
-        return flag;
-    }
-
-
-
-
-
-
-
     /*
     UNDER CONSTRUCTION
      */
 
-    protected boolean doubleTapOnMobElement(WebElement element) {
-        boolean flag = false;
-        try {
-            touchAction.doubleClick(element).perform();
-            flag = true;
-        } catch (Exception e) {
-            ErrorsManager.errNExpManager(e);
-        }
-        return flag;
-    }
-
-    protected boolean doubleTapOnScreenWithCoordinatesXY(WebElement element, int getStartX, int getStartY) {
-        boolean flag = false;
-        try {
-            System.out.println(element.toString());
-            Map<String, Object> args = new HashMap<>();
-            args.put("x", getStartX);
-            args.put("y", getStartY);
-            driver.executeScript("mobile: doubleTap", args);
-            flag = true;
-        } catch (Exception e) {
-            ErrorsManager.errNExpManager(e);
-        }
-        return flag;
-    }
 
 }
