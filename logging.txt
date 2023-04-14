@@ -658,3 +658,11 @@ org.openqa.selenium.TimeoutException: Expected condition failed: waiting for gen
 Build info: version: '4.8.3', revision: 'e5e76298c3'
 System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
 Driver info: driver.version: unknown
+
+Date and Time: 04-14-2023 12:58:19
+ERROR MESSAGE LOG 
+org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({AppiumBy.id: com.omh.android.auth.sample:id/alertTitle})
+
+Date and Time: 04-14-2023 13:01:00
+ERROR MESSAGE LOG 
+org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({AppiumBy.id: com.omh.android.auth.sample:id/alertTitle})

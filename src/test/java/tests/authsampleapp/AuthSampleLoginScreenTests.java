@@ -53,4 +53,10 @@ public class AuthSampleLoginScreenTests extends MobileDriverManager {
         assertAll();
     }
 
+    @Test
+    public void validateTapOusideModal() {
+        assertTrue(authSampleLoginScreen.tapOutsideModal(), basicErrorMsg("It can't be tapped outside"));
+        assertAll();
+    }
+
 }

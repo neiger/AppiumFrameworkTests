@@ -54,6 +54,16 @@ public class AuthSampleLoginScreen extends BaseScreen {
     @AndroidFindBy(id="com.omh.android.auth.sample:id/btn_refresh")
     private WebElement refreshBtn;
 
+    // Messages UI
+    @AndroidFindBy(id="android:id/button1")
+    private WebElement okBtn;
+
+    @AndroidFindBy(id="com.omh.android.auth.sample:id/alertTitle")
+    private WebElement alertTitle;
+
+    @AndroidFindBy(id="android:id/message")
+    private WebElement alertMsg;
+
     /*
     METHODS
      */
@@ -114,4 +124,21 @@ public class AuthSampleLoginScreen extends BaseScreen {
     public boolean signOutTheApp() {
         return tapMobElement(loggedOutBtn) && waitForMobElementToBeVisible(loginBtn);
     }
+
+    public boolean tapOutsideModal() {
+        return tapOnLoginBtn() && implicityWaitTimeOnScreenManual(1) && tapOnScreenXY(540, 1920)
+                && implicityWaitTimeOnScreenManual(1) && printAlertMsgs() && implicityWaitTimeOnScreenManual(2)
+                && tapOnScreenXY(540, 1920) && implicityWaitTimeOnScreenManual(1);
+    }
+
+    private boolean printAlertMsgs() {
+        boolean flag = false;
+        try {
+            String text = getTextFromMobElement(alertTitle) + "\n" + getTextFromMobElement(alertMsg);
+            System.out.println("MSG POP UP \n==================\n" + text + " \n==================\n");
+        } catch (Exception e) {ErrorsManager.errNExpManager(e);}
+        return flag;
+    }
+
+
 }
