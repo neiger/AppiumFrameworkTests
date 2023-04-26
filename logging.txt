@@ -666,3 +666,7 @@ org.openqa.selenium.NoSuchElementException: Can't locate an element by this stra
 Date and Time: 04-14-2023 13:01:00
 ERROR MESSAGE LOG 
 org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({AppiumBy.id: com.omh.android.auth.sample:id/alertTitle})
+
+Date and Time: 04-14-2023 13:09:48
+ERROR MESSAGE LOG 
+org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({AppiumBy.id: com.omh.android.auth.sample:id/alertTitle})
