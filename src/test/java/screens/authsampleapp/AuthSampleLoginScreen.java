@@ -17,7 +17,7 @@ public class AuthSampleLoginScreen extends BaseScreen {
 
     @Override
     public boolean verifyLoads() {
-        return waitForMobElementToBeVisible(topActionBar) && waitForMobElementToBeVisible(loginBtn);
+        return waitForMobElementToBeVisible(topActionBar) && implicityWaitTimeOnScreenManual(1);
     }
 
     /*
@@ -57,6 +57,11 @@ public class AuthSampleLoginScreen extends BaseScreen {
     /*
     METHODS
      */
+
+    public boolean verifySignInBtnDisplayed() {
+        getTextFromMobElement(loginBtn);
+        return waitForMobElementToBeVisible(loginBtn);
+    }
 
     private boolean tapOnLoginBtn() {
         boolean flag = false;
