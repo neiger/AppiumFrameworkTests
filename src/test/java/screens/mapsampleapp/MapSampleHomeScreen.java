@@ -24,7 +24,7 @@ public class MapSampleHomeScreen extends BaseScreen {
     UI MAPS ELEMENTS
      */
 
-    @AndroidFindBy(id="com.omh.android.maps.sample:id/action_bar")
+    @AndroidFindBy(id="com.omh.android.maps.sample:id/toolbar")
     private WebElement topActionBar;
 
     @AndroidFindBy(className="android.widget.TextView")
