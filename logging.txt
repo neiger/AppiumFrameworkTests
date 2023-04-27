@@ -658,3 +658,97 @@ org.openqa.selenium.TimeoutException: Expected condition failed: waiting for gen
 Build info: version: '4.8.3', revision: 'e5e76298c3'
 System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '1.8.0_361'
 Driver info: driver.version: unknown
+
+Date and Time: 04-27-2023 13:55:31
+ERROR MESSAGE LOG 
+org.openqa.selenium.InvalidArgumentException: Exception while reading JSON
+Build info: version: '4.9.0', revision: 'd7057100a6'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '11.0.19'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [c444dd62-10e8-4092-8ef2-a16186dafaa9, actions {actions=[org.openqa.selenium.interactions.Sequence@13feb268]}]
+Capabilities {appium:appActivity: com.omh.android.maps.sample..., appium:appPackage: com.omh.android.maps.sample, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: com.omh.android.maps.sample..., appPackage: com.omh.android.maps.sample, automationName: UiAutomator2, deviceName: R3CTC0D3BFE, newCommandTimeout: 0, noReset: true, platformName: ANDROID, platformVersion: 13}, appium:deviceApiLevel: 33, appium:deviceManufacturer: samsung, appium:deviceModel: SM-S901U1, appium:deviceName: R3CTC0D3BFE, appium:deviceScreenDensity: 480, appium:deviceScreenSize: 1080x2340, appium:deviceUDID: R3CTC0D3BFE, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 0, appium:noReset: true, appium:pixelRatio: 3, appium:platformVersion: 13, appium:statBarHeight: 81, appium:takesScreenshot: true, appium:viewportRect: {height: 2034, left: 0, top: 81, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: c444dd62-10e8-4092-8ef2-a16186dafaa9
+
+Date and Time: 04-27-2023 14:13:24
+ERROR MESSAGE LOG 
+org.openqa.selenium.InvalidArgumentException: Exception while reading JSON
+Build info: version: '4.9.0', revision: 'd7057100a6'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '11.0.19'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [9a6b3622-8797-4246-8fe8-a9c2256493d7, actions {actions=[org.openqa.selenium.interactions.Sequence@610728e0]}]
+Capabilities {appium:appActivity: com.omh.android.maps.sample..., appium:appPackage: com.omh.android.maps.sample, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: com.omh.android.maps.sample..., appPackage: com.omh.android.maps.sample, automationName: UiAutomator2, deviceName: R3CTC0D3BFE, newCommandTimeout: 0, noReset: true, platformName: ANDROID, platformVersion: 13}, appium:deviceApiLevel: 33, appium:deviceManufacturer: samsung, appium:deviceModel: SM-S901U1, appium:deviceName: R3CTC0D3BFE, appium:deviceScreenDensity: 480, appium:deviceScreenSize: 1080x2340, appium:deviceUDID: R3CTC0D3BFE, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 0, appium:noReset: true, appium:pixelRatio: 3, appium:platformVersion: 13, appium:statBarHeight: 81, appium:takesScreenshot: true, appium:viewportRect: {height: 2034, left: 0, top: 81, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 9a6b3622-8797-4246-8fe8-a9c2256493d7
+
+Date and Time: 04-27-2023 14:13:54
+ERROR MESSAGE LOG 
+org.openqa.selenium.InvalidArgumentException: Exception while reading JSON
+Build info: version: '4.9.0', revision: 'd7057100a6'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '11.0.19'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [9886f162-1033-4e7d-8d31-e69b4ba5761b, actions {actions=[org.openqa.selenium.interactions.Sequence@18b30e28]}]
+Capabilities {appium:appActivity: com.omh.android.maps.sample..., appium:appPackage: com.omh.android.maps.sample, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: com.omh.android.maps.sample..., appPackage: com.omh.android.maps.sample, automationName: UiAutomator2, deviceName: R3CTC0D3BFE, newCommandTimeout: 0, noReset: true, platformName: ANDROID, platformVersion: 13}, appium:deviceApiLevel: 33, appium:deviceManufacturer: samsung, appium:deviceModel: SM-S901U1, appium:deviceName: R3CTC0D3BFE, appium:deviceScreenDensity: 480, appium:deviceScreenSize: 1080x2340, appium:deviceUDID: R3CTC0D3BFE, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 0, appium:noReset: true, appium:pixelRatio: 3, appium:platformVersion: 13, appium:statBarHeight: 81, appium:takesScreenshot: true, appium:viewportRect: {height: 2034, left: 0, top: 81, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 9886f162-1033-4e7d-8d31-e69b4ba5761b
+
+Date and Time: 04-27-2023 14:15:09
+ERROR MESSAGE LOG 
+org.openqa.selenium.InvalidArgumentException: Exception while reading JSON
+Build info: version: '4.9.0', revision: 'd7057100a6'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '11.0.19'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [43e01032-732e-4667-9d7f-c0bacaa0edc2, actions {actions=[org.openqa.selenium.interactions.Sequence@4bfa1a92]}]
+Capabilities {appium:appActivity: com.omh.android.maps.sample..., appium:appPackage: com.omh.android.maps.sample, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: com.omh.android.maps.sample..., appPackage: com.omh.android.maps.sample, automationName: UiAutomator2, deviceName: R3CTC0D3BFE, newCommandTimeout: 0, noReset: true, platformName: ANDROID, platformVersion: 13}, appium:deviceApiLevel: 33, appium:deviceManufacturer: samsung, appium:deviceModel: SM-S901U1, appium:deviceName: R3CTC0D3BFE, appium:deviceScreenDensity: 480, appium:deviceScreenSize: 1080x2340, appium:deviceUDID: R3CTC0D3BFE, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 0, appium:noReset: true, appium:pixelRatio: 3, appium:platformVersion: 13, appium:statBarHeight: 81, appium:takesScreenshot: true, appium:viewportRect: {height: 2034, left: 0, top: 81, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 43e01032-732e-4667-9d7f-c0bacaa0edc2
+
+Date and Time: 04-27-2023 14:18:04
+ERROR MESSAGE LOG 
+org.openqa.selenium.InvalidArgumentException: Exception while reading JSON
+Build info: version: '4.9.0', revision: 'd7057100a6'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '11.0.19'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [35b33f78-c562-40e8-98fc-7160337bc139, actions {actions=[org.openqa.selenium.interactions.Sequence@7d15092c]}]
+Capabilities {appium:appActivity: com.omh.android.maps.sample..., appium:appPackage: com.omh.android.maps.sample, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: com.omh.android.maps.sample..., appPackage: com.omh.android.maps.sample, automationName: UiAutomator2, deviceName: R3CTC0D3BFE, newCommandTimeout: 0, noReset: true, platformName: ANDROID, platformVersion: 13}, appium:deviceApiLevel: 33, appium:deviceManufacturer: samsung, appium:deviceModel: SM-S901U1, appium:deviceName: R3CTC0D3BFE, appium:deviceScreenDensity: 480, appium:deviceScreenSize: 1080x2340, appium:deviceUDID: R3CTC0D3BFE, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 0, appium:noReset: true, appium:pixelRatio: 3, appium:platformVersion: 13, appium:statBarHeight: 81, appium:takesScreenshot: true, appium:viewportRect: {height: 2034, left: 0, top: 81, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 35b33f78-c562-40e8-98fc-7160337bc139
+
+Date and Time: 04-27-2023 14:21:04
+ERROR MESSAGE LOG 
+org.openqa.selenium.InvalidArgumentException: Exception while reading JSON
+Build info: version: '4.9.0', revision: 'd7057100a6'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '11.0.19'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [8df4f770-4a36-4a1e-8d34-04c1b8b6caa3, actions {actions=[org.openqa.selenium.interactions.Sequence@5b6a25b3]}]
+Capabilities {appium:appActivity: com.omh.android.maps.sample..., appium:appPackage: com.omh.android.maps.sample, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: com.omh.android.maps.sample..., appPackage: com.omh.android.maps.sample, automationName: UiAutomator2, deviceName: R3CTC0D3BFE, newCommandTimeout: 0, noReset: true, platformName: ANDROID, platformVersion: 13}, appium:deviceApiLevel: 33, appium:deviceManufacturer: samsung, appium:deviceModel: SM-S901U1, appium:deviceName: R3CTC0D3BFE, appium:deviceScreenDensity: 480, appium:deviceScreenSize: 1080x2340, appium:deviceUDID: R3CTC0D3BFE, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 0, appium:noReset: true, appium:pixelRatio: 3, appium:platformVersion: 13, appium:statBarHeight: 81, appium:takesScreenshot: true, appium:viewportRect: {height: 2034, left: 0, top: 81, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 8df4f770-4a36-4a1e-8d34-04c1b8b6caa3
+
+Date and Time: 04-27-2023 14:26:40
+ERROR MESSAGE LOG 
+org.openqa.selenium.InvalidArgumentException: Exception while reading JSON
+Build info: version: '4.9.0', revision: 'd7057100a6'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '11.0.19'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [2f6f9e06-ff84-43df-bcac-7f44d2683fc4, actions {actions=[org.openqa.selenium.interactions.Sequence@6e3a0e6f]}]
+Capabilities {appium:appActivity: com.omh.android.maps.sample..., appium:appPackage: com.omh.android.maps.sample, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: com.omh.android.maps.sample..., appPackage: com.omh.android.maps.sample, automationName: UiAutomator2, deviceName: R3CTC0D3BFE, newCommandTimeout: 0, noReset: true, platformName: ANDROID, platformVersion: 13}, appium:deviceApiLevel: 33, appium:deviceManufacturer: samsung, appium:deviceModel: SM-S901U1, appium:deviceName: R3CTC0D3BFE, appium:deviceScreenDensity: 480, appium:deviceScreenSize: 1080x2340, appium:deviceUDID: R3CTC0D3BFE, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 0, appium:noReset: true, appium:pixelRatio: 3, appium:platformVersion: 13, appium:statBarHeight: 81, appium:takesScreenshot: true, appium:viewportRect: {height: 2034, left: 0, top: 81, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 2f6f9e06-ff84-43df-bcac-7f44d2683fc4
+
+Date and Time: 04-27-2023 14:31:24
+ERROR MESSAGE LOG 
+org.openqa.selenium.InvalidArgumentException: Exception while reading JSON
+Build info: version: '4.9.0', revision: 'd7057100a6'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '11.0.19'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [9e757228-ca77-4e40-8763-888b5948729f, actions {actions=[org.openqa.selenium.interactions.Sequence@33ba9a29]}]
+Capabilities {appium:appActivity: com.omh.android.maps.sample..., appium:appPackage: com.omh.android.maps.sample, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: com.omh.android.maps.sample..., appPackage: com.omh.android.maps.sample, automationName: UiAutomator2, deviceName: R3CTC0D3BFE, newCommandTimeout: 0, noReset: true, platformName: ANDROID, platformVersion: 13}, appium:deviceApiLevel: 33, appium:deviceManufacturer: samsung, appium:deviceModel: SM-S901U1, appium:deviceName: R3CTC0D3BFE, appium:deviceScreenDensity: 480, appium:deviceScreenSize: 1080x2340, appium:deviceUDID: R3CTC0D3BFE, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 0, appium:noReset: true, appium:pixelRatio: 3, appium:platformVersion: 13, appium:statBarHeight: 81, appium:takesScreenshot: true, appium:viewportRect: {height: 2034, left: 0, top: 81, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 9e757228-ca77-4e40-8763-888b5948729f
+
+Date and Time: 04-27-2023 14:35:46
+ERROR MESSAGE LOG 
+org.openqa.selenium.InvalidElementStateException: Unable to perform W3C actions. Check the logcat output for possible error reports and make sure your input actions chain is valid.
+Build info: version: '4.9.0', revision: 'd7057100a6'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.2.1', java.version: '11.0.19'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [2818e559-c2f5-4285-94c5-5169747a0a60, actions {actions=[org.openqa.selenium.interactions.Sequence@1875ab09]}]
+Capabilities {appium:appActivity: com.omh.android.maps.sample..., appium:appPackage: com.omh.android.maps.sample, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: com.omh.android.maps.sample..., appPackage: com.omh.android.maps.sample, automationName: UiAutomator2, deviceName: R3CTC0D3BFE, newCommandTimeout: 0, noReset: true, platformName: ANDROID, platformVersion: 13}, appium:deviceApiLevel: 33, appium:deviceManufacturer: samsung, appium:deviceModel: SM-S901U1, appium:deviceName: R3CTC0D3BFE, appium:deviceScreenDensity: 480, appium:deviceScreenSize: 1080x2340, appium:deviceUDID: R3CTC0D3BFE, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 0, appium:noReset: true, appium:pixelRatio: 3, appium:platformVersion: 13, appium:statBarHeight: 81, appium:takesScreenshot: true, appium:viewportRect: {height: 2034, left: 0, top: 81, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 2818e559-c2f5-4285-94c5-5169747a0a60
+
+Date and Time: 04-27-2023 15:33:54
+ERROR MESSAGE LOG
+java.lang.IllegalArgumentException: Age must be at least 18
