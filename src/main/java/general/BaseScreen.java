@@ -3,8 +3,6 @@ package general;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import io.appium.java_client.AppiumFluentWait;
@@ -13,6 +11,7 @@ import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 
@@ -259,90 +258,117 @@ public abstract class BaseScreen {
     }
 
 
-    protected boolean zoomInOnScreenXY(WebElement element) {
+    // method to double tap by coordinates
+    protected boolean doubleTapOnScreenXY(int getX, int getY) {
         boolean flag = false;
-
-        int centerX = element.getRect().x + (element.getSize().width/2);
-        int centerY = element.getRect().y + (element.getSize().height/2);
-        int xMovement = 300;
-
-        int finger1Start = centerX - 40;
-        int finger2Start = centerX + 40;
-
-        int finger1End = (int) (centerX - (1.33 * xMovement));
-        int finger2End = (int) (centerX + (1.4 * xMovement));
-
-        System.out.println("ZOOM IN\nCenterX: " + centerX + "\nCenterY: " + centerY + "\nFinger1 Start: " + finger1Start
-                            + "--->Finger1 End: " + finger1End + "\nFinger2 Start: " + finger2Start + "--->Finger2 End: " + finger2End);
-
-
         try {
-            PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
-            Sequence swipe01 = new Sequence(finger1,1);
-            swipe01.addAction(finger1.createPointerMove(Duration.ofSeconds(0), PointerInput.Origin.viewport(), finger1Start, centerY-100));
-            swipe01.addAction(finger1.createPointerDown(0));
-            swipe01.addAction(finger1.createPointerMove(Duration.ofMillis(700), PointerInput.Origin.viewport(), finger1End, centerY-100));
-            swipe01.addAction(finger1.createPointerUp(0));
+            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+            Sequence tap = new Sequence(finger, 1);
+            tap.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), getX, getY));
+            tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+            tap.addAction(new Pause(finger, Duration.ofMillis(50))); // Adding a short delay between taps
+            tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+            tap.addAction(new Pause(finger, Duration.ofMillis(50))); // Adding a short delay between taps
+            tap.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+            tap.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
 
-            PointerInput finger2 = new PointerInput(PointerInput.Kind.TOUCH, "finger2");
-            Sequence swipe02 = new Sequence(finger2,1);
-            swipe02.addAction(finger2.createPointerMove(Duration.ofSeconds(0), PointerInput.Origin.viewport(), finger2Start, centerY+100));
-            swipe02.addAction(finger2.createPointerDown(0));
-            swipe02.addAction(finger2.createPointerMove(Duration.ofMillis(700), PointerInput.Origin.viewport(), finger2End, centerY+100));
-            swipe02.addAction(finger2.createPointerUp(0));
-
-            driver.perform(Arrays.asList(swipe01,swipe02));
-
+            driver.perform(Collections.singletonList(tap));
+            implicityWaitTimeOnScreenManual(1);
             flag = true;
-        } catch (Exception e) {
-            ErrorsManager.errNExpManager(e);}
-
+        }catch (Exception e){ErrorsManager.errNExpManager(e);}
         return flag;
     }
 
-    protected boolean zoomOutOnScreenXY(WebElement element) {
+    // method to single tap with two fingers by coordinates
+    protected boolean singleTapWithTwoFingersOnScreenXY(int getX, int getY) {
         boolean flag = false;
-
-        int centerX = element.getRect().x + (element.getSize().width/2);
-        int centerY = element.getRect().y + (element.getSize().height/2);
-        int xMovement = 300;
-
-        int finger1Start = (int) (centerX - (1.65 * xMovement));
-        int finger2Start = (int) (centerX + (1.65 * xMovement));
-
-        int finger1End = centerX - 40;
-        int finger2End = centerX + 40;
-
-        System.out.println("ZOOM OUT\nCenterX: " + centerX + "\nCenterY: " + centerY + "\nFinger1 Start: " + finger1Start
-                + "--->Finger1 End: " + finger1End + "\nFinger2 Start: " + finger2Start + "--->Finger2 End: " + finger2End);
-
         try {
             PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
-            Sequence swipe01 = new Sequence(finger1,1);
-            swipe01.addAction(finger1.createPointerMove(Duration.ofSeconds(0), PointerInput.Origin.viewport(), finger1Start, centerY));
-            swipe01.addAction(finger1.createPointerDown(0));
-            swipe01.addAction(finger1.createPointerMove(Duration.ofMillis(700), PointerInput.Origin.viewport(), finger1End, centerY));
-            swipe01.addAction(finger1.createPointerUp(0));
-
             PointerInput finger2 = new PointerInput(PointerInput.Kind.TOUCH, "finger2");
-            Sequence swipe02 = new Sequence(finger2,1);
-            swipe02.addAction(finger2.createPointerMove(Duration.ofSeconds(0), PointerInput.Origin.viewport(), finger2Start, centerY));
-            swipe02.addAction(finger2.createPointerDown(0));
-            swipe02.addAction(finger2.createPointerMove(Duration.ofMillis(700), PointerInput.Origin.viewport(), finger2End, centerY));
-            swipe02.addAction(finger2.createPointerUp(0));
 
-            driver.perform(Arrays.asList(swipe01,swipe02));
+            Sequence finger1Sequence = new Sequence(finger1, 1);
+            finger1Sequence.addAction(finger1.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), getX - 50, getY - 50));
+            finger1Sequence.addAction(finger1.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+            finger1Sequence.addAction(new Pause(finger1, Duration.ofMillis(100))); // Adding a pause between tap down and tap up
+            finger1Sequence.addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
 
+            Sequence finger2Sequence = new Sequence(finger2, 1);
+            finger2Sequence.addAction(finger2.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), getX + 50, getY + 50));
+            finger2Sequence.addAction(finger2.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+            finger2Sequence.addAction(new Pause(finger2, Duration.ofMillis(100))); // Adding a pause between tap down and tap up
+            finger2Sequence.addAction(finger2.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+            driver.perform(Arrays.asList(finger1Sequence, finger2Sequence));
+            implicityWaitTimeOnScreenManual(1);
             flag = true;
         } catch (Exception e) {
-            ErrorsManager.errNExpManager(e);}
-
+            ErrorsManager.errNExpManager(e);
+        }
         return flag;
     }
+
+
+    protected boolean doubleTapHoldAndSwipeUpOnScreenXY(int getX, int getY) {
+        boolean flag = false;
+        try {
+            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+            Sequence tapAndSwipe = new Sequence(finger, 1);
+            tapAndSwipe.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), getX, getY));
+            tapAndSwipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+            tapAndSwipe.addAction(new Pause(finger, Duration.ofMillis(50))); // Adding a short delay between taps
+            tapAndSwipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+            tapAndSwipe.addAction(new Pause(finger, Duration.ofMillis(50))); // Adding a short delay between taps
+            tapAndSwipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+
+            // Holding the second tap
+            tapAndSwipe.addAction(new Pause(finger, Duration.ofMillis(200))); // Adding a pause for holding the second tap
+
+            // Swiping up
+            tapAndSwipe.addAction(finger.createPointerMove(Duration.ofMillis(500), PointerInput.Origin.viewport(), getX, getY - 600));
+            tapAndSwipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+            driver.perform(Collections.singletonList(tapAndSwipe));
+            implicityWaitTimeOnScreenManual(1);
+            flag = true;
+        } catch (Exception e) {
+            ErrorsManager.errNExpManager(e);
+        }
+        return flag;
+    }
+
+
+    protected boolean doubleTapHoldAndSwipeDownOnScreenXY(int getX, int getY) {
+        boolean flag = false;
+        try {
+            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+            Sequence tapAndSwipe = new Sequence(finger, 1);
+            tapAndSwipe.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), getX, getY));
+            tapAndSwipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+            tapAndSwipe.addAction(new Pause(finger, Duration.ofMillis(50))); // Adding a short delay between taps
+            tapAndSwipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+            tapAndSwipe.addAction(new Pause(finger, Duration.ofMillis(50))); // Adding a short delay between taps
+            tapAndSwipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+
+            // Holding the second tap
+            tapAndSwipe.addAction(new Pause(finger, Duration.ofMillis(200))); // Adding a pause for holding the second tap
+
+            // Swiping down
+            tapAndSwipe.addAction(finger.createPointerMove(Duration.ofMillis(500), PointerInput.Origin.viewport(), getX, getY + 500));
+            tapAndSwipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+            driver.perform(Collections.singletonList(tapAndSwipe));
+            implicityWaitTimeOnScreenManual(1);
+            flag = true;
+        } catch (Exception e) {
+            ErrorsManager.errNExpManager(e);
+        }
+        return flag;
+    }
+
 
     /*
     UNDER CONSTRUCTION
-     */
+    */
 
 
 }
