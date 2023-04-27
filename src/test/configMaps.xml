@@ -32,10 +32,12 @@
                 <methods>
                     <include name="FW_13_verifyThatMapSampleAppOpensCorrectly" />
                     <include name="FW_33_verifyThatDeviceSupportSwipeGestures" />
+                    <include name="FW_41_verifyThatDeviceCanSupportZoomGestures" />
                     <include name="FW_53_verifyTappingMyLocationBtnMovesToUsersLocation" />
                     <include name="FW_54_verifyNavigatingAndTappingMyLocationBtnMovesToUsersLocation" />
                     <include name="FW_72_verifyThatPinGetsUpdatedLocationEachTimeMoves" />
                     <include name="FW_73_verifyThatPinLocationMatchesWhenShares" />
+                    <!-- <include name="exceptionThrown" /> -->
                 </methods>
             </class>
 

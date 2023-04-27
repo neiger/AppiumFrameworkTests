@@ -119,12 +119,22 @@ public class MapSampleScreen extends BaseScreen {
     }
 
 
-    // PENDING IMPLEMENTATION
-/*    public boolean zoomInOnScreen() {
-        return zoomInOnScreenXY(mapFrameLayoutContainer);
+    public boolean doubleTapXY(int getX, int getY){
+        return doubleTapOnScreenXY(getX, getY);
     }
 
-    public boolean zoomOutOnScreen() {
-        return zoomOutOnScreenXY(mapFrameLayoutContainer);
-    }*/
+    public boolean singleTapWith2FingersXY(int getX, int getY) {
+        return singleTapWithTwoFingersOnScreenXY(getX, getY);
+    }
+
+    public boolean doubleTapXYHoldAndSwipeUp(int getX, int getY) {
+        return doubleTapHoldAndSwipeUpOnScreenXY(getX, getY) && doubleTapHoldAndSwipeUpOnScreenXY(getX, getY);
+    }
+
+    public boolean doubleTapXYHoldAndSwipeDown(int getX, int getY) {
+        return doubleTapHoldAndSwipeDownOnScreenXY(getX, getY) && doubleTapHoldAndSwipeDownOnScreenXY(getX, getY);
+    }
+
+    // PENDING IMPLEMENTATION
+
 }

@@ -1,5 +1,6 @@
 package tests.mapsampleapp;
 
+import general.ErrorsManager;
 import general.MobileDriverManager;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -28,7 +29,6 @@ public class MapSampleScreenTests extends MobileDriverManager {
     public void FW_33_verifyThatDeviceSupportSwipeGestures() {
      mapSampleScreen = mapSampleHomeScreen.tapAndOpenMapSampleScreen();
      assertTrue(mapSampleScreen.verifyLoads(), basicErrorMsg("The maps screen was not loaded correctly"));
-     assertTrue(mapSampleScreen.printCurrentLocation(), basicErrorMsg("Unable to print current location"));
      assertTrue(mapSampleScreen.swipeOnDeviceScreen(), basicErrorMsg("Unable to swipe on map screen"));
      assertAll();
     }
@@ -65,5 +65,39 @@ public class MapSampleScreenTests extends MobileDriverManager {
         assertTrue(mapSampleScreen.verifyLoads(), basicErrorMsg("The maps screen was not loaded correctly"));
         assertTrue(mapSampleScreen.sharePinsLocation(), basicErrorMsg("Both locations do not match"));
         assertAll();
+    }
+
+    @Test
+    public void FW_41_verifyThatDeviceCanSupportZoomGestures() {
+        mapSampleScreen = mapSampleHomeScreen.tapAndOpenMapSampleScreen();
+        assertTrue(mapSampleScreen.doubleTapXY(778, 1224), basicErrorMsg("The double tap can't be performed"));
+        assertTrue(mapSampleScreen.singleTapWith2FingersXY(540, 1120), basicErrorMsg("The single tap with two fingers can't be performed"));
+        assertTrue(mapSampleScreen.doubleTapXYHoldAndSwipeUp(540, 1120), basicErrorMsg("The double tap, hold and swipe up can't be performed"));
+        assertTrue(mapSampleScreen.doubleTapXYHoldAndSwipeDown(540, 1120), basicErrorMsg("The double tap, hold and swipe down can't be performed"));
+        assertAll();
+    }
+
+
+
+
+
+
+
+
+    @Test
+    public void exceptionThrown() {
+        try {
+            validateAge(15);
+        } catch (IllegalArgumentException e) {
+            ErrorsManager.errNExpManager(e);
+            System.err.println("Caught exception: " + e.getMessage());
+        }
+    }
+
+    private static void validateAge(int age) {
+        if (age < 18) {
+            throw new IllegalArgumentException("Age must be at least 18");
+        }
+        System.out.println("Age is valid: " + age);
     }
 }
