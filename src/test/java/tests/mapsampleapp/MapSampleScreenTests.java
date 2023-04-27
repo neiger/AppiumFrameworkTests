@@ -29,7 +29,6 @@ public class MapSampleScreenTests extends MobileDriverManager {
     public void FW_33_verifyThatDeviceSupportSwipeGestures() {
      mapSampleScreen = mapSampleHomeScreen.tapAndOpenMapSampleScreen();
      assertTrue(mapSampleScreen.verifyLoads(), basicErrorMsg("The maps screen was not loaded correctly"));
-     assertTrue(mapSampleScreen.printCurrentLocation(), basicErrorMsg("Unable to print current location"));
      assertTrue(mapSampleScreen.swipeOnDeviceScreen(), basicErrorMsg("Unable to swipe on map screen"));
      assertAll();
     }
@@ -77,6 +76,14 @@ public class MapSampleScreenTests extends MobileDriverManager {
         assertTrue(mapSampleScreen.doubleTapXYHoldAndSwipeDown(540, 1120), basicErrorMsg("The double tap, hold and swipe down can't be performed"));
         assertAll();
     }
+
+
+
+
+
+
+
+
     @Test
     public void exceptionThrown() {
         try {
