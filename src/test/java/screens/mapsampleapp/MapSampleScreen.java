@@ -81,12 +81,18 @@ public class MapSampleScreen extends BaseScreen {
 
         try{
             customXxSwipeOnScreen(getStartX, getEndX);
-            System.out.println("First pin location: " + getTextFromMobElement(locationTxt));
+            String loc1 = getTextFromMobElement(locationTxt);
+            //System.out.println("First pin location: " + getTextFromMobElement(locationTxt));
             implicityWaitTimeOnScreen();
             customXxSwipeOnScreen(getStartX+50, getEndX-50);
+            String loc2 = getTextFromMobElement(locationTxt);
             implicityWaitTimeOnScreen();
-            System.out.println("Second pin location: " + getTextFromMobElement(locationTxt));
-            flag = true;
+            //System.out.println("Second pin location: " + getTextFromMobElement(locationTxt));
+            if(!loc1.equals(loc2)) {
+                System.out.println("First pin location: " + loc1 + " does not equal " + loc2);
+                flag = true;
+            }
+            //flag = true;
         } catch (Exception e) {
             ErrorsManager.errNExpManager(e);
         }
@@ -100,8 +106,10 @@ public class MapSampleScreen extends BaseScreen {
             String latlong = getTextFromMobElement(locationTxt);
             tapMobElement(shareBtn);
             implicityWaitTimeOnScreen();
-            verifyTextOnMobElement(txtCoordinates, latlong);
-            flag = true;
+            if(verifyTextOnMobElement(txtCoordinates, latlong)){
+                System.out.println("Share location: " + latlong + " does equal " + getTextFromMobElement(txtCoordinates));
+                flag = true;
+            }
 
         } catch (Exception e) {
             ErrorsManager.errNExpManager(e);
