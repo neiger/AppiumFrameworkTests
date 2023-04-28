@@ -47,6 +47,15 @@ public class MapSampleScreen extends BaseScreen {
     Methods
      */
 
+    public boolean verifyScreen(String deviceType){
+        if(deviceType.equals("GMS")) {
+            return waitForMobElementToBeVisible(mylocBtn) && waitForMobElementToBeVisible(markerBtn) &&
+                    waitForMobElementToBeVisible(shareBtn);
+        }else {
+            return waitForMobElementToBeVisible(markerBtn) && waitForMobElementToBeVisible(shareBtn);
+        }
+    }
+
     public boolean printCurrentLocation() {
         boolean flag = false;
 
@@ -64,8 +73,12 @@ public class MapSampleScreen extends BaseScreen {
         return horizontalSwipeOnScreenXY(mapFrameLayoutContainer) && verticalSwipeOnScreenXY(mapFrameLayoutContainer);
     }
 
-    public boolean tapMyLocationBtn() {
-        return tapMobElement(mylocBtn) && implicityWaitTimeOnScreen();
+    public boolean tapMyLocationBtn(String deviceType) {
+        if(deviceType.equals("GMS")) {
+            return tapMobElement(mylocBtn) && implicityWaitTimeOnScreen();
+        } else {
+            return tapOnScreenXY(985, 362);
+        }
     }
 
     public boolean customXxSwipeOnScreen(int getStartX, int getEndX) {
