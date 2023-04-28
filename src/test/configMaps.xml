@@ -9,7 +9,7 @@
             <parameter name="tmDynamic" value="10"/>
 
             <!--  Mobile Main Config Parameters  -->
-            <parameter name="deviceType" value="GMS"/> <!-- GMS / nonGMS -->
+            <parameter name="deviceType" value="nonGMS"/> <!-- GMS / nonGMS -->
             <parameter name="platformName" value="Android"/>
             <parameter name="platformVersion" value="13,11"/>  <!-- non-GMS Android 11 / GMS Android 12 -->
             <parameter name="deviceName" value="R3CTC0D3BFE,HWQYD22514501984"/> <!-- non-GMS HWQYD22514501984  GMS R3CTC0D3BFE Emulator emulator-5554 -->

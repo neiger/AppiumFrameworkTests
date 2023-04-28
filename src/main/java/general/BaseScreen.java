@@ -259,7 +259,7 @@ public abstract class BaseScreen {
 
 
     // method to double tap by coordinates
-    protected boolean doubleTapOnScreenXY(int getX, int getY) {
+    protected boolean doubleTapWithOneFingerOnScreenXY(int getX, int getY) {
         boolean flag = false;
         try {
             PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
@@ -274,6 +274,7 @@ public abstract class BaseScreen {
 
             driver.perform(Collections.singletonList(tap));
             implicityWaitTimeOnScreenManual(1);
+            System.out.println("ZOOM IN => Double Tap with one finger");
             flag = true;
         }catch (Exception e){ErrorsManager.errNExpManager(e);}
         return flag;
@@ -300,6 +301,7 @@ public abstract class BaseScreen {
 
             driver.perform(Arrays.asList(finger1Sequence, finger2Sequence));
             implicityWaitTimeOnScreenManual(1);
+            System.out.println("ZOOM OUT => Single Tap with two fingers");
             flag = true;
         } catch (Exception e) {
             ErrorsManager.errNExpManager(e);
@@ -308,7 +310,7 @@ public abstract class BaseScreen {
     }
 
 
-    protected boolean doubleTapHoldAndSwipeUpOnScreenXY(int getX, int getY) {
+    protected boolean doubleTapWithOneFingerHoldAndSwipeUpOnScreenXY(int getX, int getY) {
         boolean flag = false;
         try {
             PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
@@ -329,6 +331,7 @@ public abstract class BaseScreen {
 
             driver.perform(Collections.singletonList(tapAndSwipe));
             implicityWaitTimeOnScreenManual(1);
+            System.out.println("ZOOM OUT => Double Tap with one finger and swipe up");
             flag = true;
         } catch (Exception e) {
             ErrorsManager.errNExpManager(e);
@@ -337,7 +340,7 @@ public abstract class BaseScreen {
     }
 
 
-    protected boolean doubleTapHoldAndSwipeDownOnScreenXY(int getX, int getY) {
+    protected boolean doubleTapWithOneFingerHoldAndSwipeDownOnScreenXY(int getX, int getY) {
         boolean flag = false;
         try {
             PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
@@ -358,6 +361,7 @@ public abstract class BaseScreen {
 
             driver.perform(Collections.singletonList(tapAndSwipe));
             implicityWaitTimeOnScreenManual(1);
+            System.out.println("ZOOM IN => Double Tap with one finger and swipe down");
             flag = true;
         } catch (Exception e) {
             ErrorsManager.errNExpManager(e);

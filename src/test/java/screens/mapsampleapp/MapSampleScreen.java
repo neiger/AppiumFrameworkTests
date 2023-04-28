@@ -119,20 +119,20 @@ public class MapSampleScreen extends BaseScreen {
     }
 
 
-    public boolean doubleTapXY(int getX, int getY){
-        return doubleTapOnScreenXY(getX, getY);
+    public boolean doubleTapWithOneFingerXY(int getX, int getY){
+        return doubleTapWithOneFingerOnScreenXY(getX, getY);
     }
 
     public boolean singleTapWith2FingersXY(int getX, int getY) {
         return singleTapWithTwoFingersOnScreenXY(getX, getY);
     }
 
-    public boolean doubleTapXYHoldAndSwipeUp(int getX, int getY) {
-        return doubleTapHoldAndSwipeUpOnScreenXY(getX, getY) && doubleTapHoldAndSwipeUpOnScreenXY(getX, getY);
+    public boolean doubleTapWithOneFingerXYHoldAndSwipeUp(int getX, int getY) {
+        return doubleTapWithOneFingerHoldAndSwipeUpOnScreenXY(getX, getY);
     }
 
-    public boolean doubleTapXYHoldAndSwipeDown(int getX, int getY) {
-        return doubleTapHoldAndSwipeDownOnScreenXY(getX, getY) && doubleTapHoldAndSwipeDownOnScreenXY(getX, getY);
+    public boolean doubleTapWithOneFingerXYHoldAndSwipeDown(int getX, int getY) {
+        return doubleTapWithOneFingerHoldAndSwipeDownOnScreenXY(getX, getY);
     }
 
     // PENDING IMPLEMENTATION

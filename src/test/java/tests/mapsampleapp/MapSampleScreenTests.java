@@ -70,10 +70,10 @@ public class MapSampleScreenTests extends MobileDriverManager {
     @Test
     public void FW_41_verifyThatDeviceCanSupportZoomGestures() {
         mapSampleScreen = mapSampleHomeScreen.tapAndOpenMapSampleScreen();
-        assertTrue(mapSampleScreen.doubleTapXY(778, 1224), basicErrorMsg("The double tap can't be performed"));
+        assertTrue(mapSampleScreen.doubleTapWithOneFingerXY(778, 1224), basicErrorMsg("The double tap can't be performed"));
         assertTrue(mapSampleScreen.singleTapWith2FingersXY(540, 1120), basicErrorMsg("The single tap with two fingers can't be performed"));
-        assertTrue(mapSampleScreen.doubleTapXYHoldAndSwipeUp(540, 1120), basicErrorMsg("The double tap, hold and swipe up can't be performed"));
-        assertTrue(mapSampleScreen.doubleTapXYHoldAndSwipeDown(540, 1120), basicErrorMsg("The double tap, hold and swipe down can't be performed"));
+        assertTrue(mapSampleScreen.doubleTapWithOneFingerXYHoldAndSwipeUp(540, 1120), basicErrorMsg("The double tap, hold and swipe up can't be performed"));
+        assertTrue(mapSampleScreen.doubleTapWithOneFingerXYHoldAndSwipeDown(540, 1120), basicErrorMsg("The double tap, hold and swipe down can't be performed"));
         assertAll();
     }
 
