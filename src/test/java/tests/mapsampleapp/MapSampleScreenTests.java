@@ -3,6 +3,7 @@ package tests.mapsampleapp;
 import general.ErrorsManager;
 import general.MobileDriverManager;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import screens.mapsampleapp.MapSampleScreen;
 import screens.mapsampleapp.MapSampleHomeScreen;
@@ -25,55 +26,56 @@ public class MapSampleScreenTests extends MobileDriverManager {
         assertAll();
     }
 
+    @Parameters({"deviceType"})
+    private void validateDeviceTypeTesting(String deviceType) {
+        mapSampleScreen = mapSampleHomeScreen.tapAndOpenMapSampleScreen();
+        assertTrue(mapSampleScreen.verifyScreen(deviceType), basicErrorMsg("The maps screen was not loaded correctly"));
+    }
+
     @Test
     public void FW_33_verifyThatDeviceSupportSwipeGestures() {
-     mapSampleScreen = mapSampleHomeScreen.tapAndOpenMapSampleScreen();
-     assertTrue(mapSampleScreen.verifyLoads(), basicErrorMsg("The maps screen was not loaded correctly"));
+     validateDeviceTypeTesting("");
      assertTrue(mapSampleScreen.swipeOnDeviceScreen(), basicErrorMsg("Unable to swipe on map screen"));
      assertAll();
     }
 
-    @Test
-    public void FW_53_verifyTappingMyLocationBtnMovesToUsersLocation() {
-        mapSampleScreen = mapSampleHomeScreen.tapAndOpenMapSampleScreen();
-        assertTrue(mapSampleScreen.verifyLoads(), basicErrorMsg("The maps screen was not loaded correctly"));
-        assertTrue(mapSampleScreen.tapMyLocationBtn(), basicErrorMsg("Unable to tap My Location button (GPS) icon"));
+    @Test     @Parameters({"deviceType"})
+    public void FW_53_verifyTappingMyLocationBtnMovesToUsersLocation(String deviceType) {
+        validateDeviceTypeTesting("");
+        assertTrue(mapSampleScreen.tapMyLocationBtn(deviceType), basicErrorMsg("Unable to tap My Location button (GPS) icon"));
         assertAll();
     }
 
-    @Test
-    public void FW_54_verifyNavigatingAndTappingMyLocationBtnMovesToUsersLocation() {
-        mapSampleScreen = mapSampleHomeScreen.tapAndOpenMapSampleScreen();
-        assertTrue(mapSampleScreen.verifyLoads(), basicErrorMsg("The maps screen was not loaded correctly"));
+    @Test    @Parameters({"deviceType"})
+    public void FW_54_verifyNavigatingAndTappingMyLocationBtnMovesToUsersLocation(String deviceType) {
+        validateDeviceTypeTesting("");
         assertTrue(mapSampleScreen.customXxSwipeOnScreen(1000, 100), basicErrorMsg("Unable to do a horizontal swipe"));
         assertTrue(mapSampleScreen.customYySwipeOnScreen(300, 1800), basicErrorMsg("Unable to do a vertical swipe"));
-        assertTrue(mapSampleScreen.tapMyLocationBtn(), basicErrorMsg("Unable to tap My Location button (GPS) icon"));
+        assertTrue(mapSampleScreen.tapMyLocationBtn(deviceType), basicErrorMsg("Unable to tap My Location button (GPS) icon"));
         assertAll();
     }
 
     @Test
     public void FW_72_verifyThatPinGetsUpdatedLocationEachTimeMoves() {
-        mapSampleScreen = mapSampleHomeScreen.tapAndOpenMapSampleScreen();
-        assertTrue(mapSampleScreen.verifyLoads(), basicErrorMsg("The maps screen was not loaded correctly"));
+        validateDeviceTypeTesting("");
         assertTrue(mapSampleScreen.pinMovesGetLoc(100, 1000), basicErrorMsg("Unable to swipe on map screen"));
         assertAll();
     }
 
     @Test
     public void FW_73_verifyThatPinLocationMatchesWhenShares() {
-        mapSampleScreen = mapSampleHomeScreen.tapAndOpenMapSampleScreen();
-        assertTrue(mapSampleScreen.verifyLoads(), basicErrorMsg("The maps screen was not loaded correctly"));
+        validateDeviceTypeTesting("");
         assertTrue(mapSampleScreen.sharePinsLocation(), basicErrorMsg("Both locations do not match"));
         assertAll();
     }
 
     @Test
     public void FW_41_verifyThatDeviceCanSupportZoomGestures() {
-        mapSampleScreen = mapSampleHomeScreen.tapAndOpenMapSampleScreen();
-        assertTrue(mapSampleScreen.doubleTapXY(778, 1224), basicErrorMsg("The double tap can't be performed"));
+        validateDeviceTypeTesting("");
+        assertTrue(mapSampleScreen.doubleTapWithOneFingerXY(778, 1224), basicErrorMsg("The double tap can't be performed"));
         assertTrue(mapSampleScreen.singleTapWith2FingersXY(540, 1120), basicErrorMsg("The single tap with two fingers can't be performed"));
-        assertTrue(mapSampleScreen.doubleTapXYHoldAndSwipeUp(540, 1120), basicErrorMsg("The double tap, hold and swipe up can't be performed"));
-        assertTrue(mapSampleScreen.doubleTapXYHoldAndSwipeDown(540, 1120), basicErrorMsg("The double tap, hold and swipe down can't be performed"));
+        assertTrue(mapSampleScreen.doubleTapWithOneFingerXYHoldAndSwipeUp(540, 1120), basicErrorMsg("The double tap, hold and swipe up can't be performed"));
+        assertTrue(mapSampleScreen.doubleTapWithOneFingerXYHoldAndSwipeDown(540, 1120), basicErrorMsg("The double tap, hold and swipe down can't be performed"));
         assertAll();
     }
 
