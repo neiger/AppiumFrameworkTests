@@ -157,13 +157,10 @@ public abstract class BaseScreen {
     protected boolean horizontalSwipeOnScreenXY(WebElement element) {
         boolean flag = false;
 
-        //System.out.println("Maps Dimension: " + element.getSize());
 
         int centerY = element.getRect().y + (element.getSize().height/2);
         double stStartXcc = element.getRect().x + (element.getSize().width * 0.9);
         double stEndXcc = element.getRect().x + (element.getSize().width * 0.1);
-
-        //System.out.println("Horizontal swipe Y: " + centerY + "\nStart X: " + stStartXcc + "\nEnd X: " + stEndXcc);
 
 
         try {
@@ -185,13 +182,9 @@ public abstract class BaseScreen {
     protected boolean verticalSwipeOnScreenXY(WebElement element) {
         boolean flag = false;
 
-        //System.out.println("Maps Dimension: " + element.getSize());
-
         int centerX = element.getRect().x + (element.getSize().width/2);
         double stStartYcc = element.getRect().y + (element.getSize().height * 0.8);
         double stEndYcc = element.getRect().y + (element.getSize().height * 0.1);
-
-        //System.out.println("Vertical swipe X: " + centerX + "\nStart Y: " + stStartYcc + "\nEnd Y: " + stEndYcc);
 
         try {
             PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");

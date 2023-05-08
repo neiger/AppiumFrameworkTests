@@ -15,7 +15,7 @@
             <parameter name="deviceName" value="R3CTC0D3BFE,HWQYD22514501984"/> <!-- non-GMS HWQYD22514501984  GMS R3CTC0D3BFE Emulator emulator-5554 -->
             <parameter name="automationName" value="UiAutomator2"/>
             <parameter name="appPackage" value="com.omh.android.maps.sample"/>
-            <parameter name="appActivity" value="com.omh.android.maps.sample.start.MainActivity"/> 
+            <parameter name="appActivity" value="com.omh.android.maps.sample.start.MainActivity"/>
             <parameter name="noReset" value="true"/> <!-- True to prevent prompt for asking permissions again -->
             <parameter name="appiumServer" value="http://127.0.0.1:4723/wd/hub"/>
         </listener>
@@ -37,7 +37,6 @@
                     <include name="FW_54_verifyNavigatingAndTappingMyLocationBtnMovesToUsersLocation" />
                     <include name="FW_72_verifyThatPinGetsUpdatedLocationEachTimeMoves" />
                     <include name="FW_73_verifyThatPinLocationMatchesWhenShares" />
-                    <!-- <include name="exceptionThrown" /> -->
                 </methods>
             </class>
 
