@@ -95,12 +95,10 @@ public class MapSampleScreen extends BaseScreen {
         try{
             customXxSwipeOnScreen(getStartX, getEndX);
             String loc1 = getTextFromMobElement(locationTxt);
-            //System.out.println("First pin location: " + getTextFromMobElement(locationTxt));
             implicityWaitTimeOnScreen();
             customXxSwipeOnScreen(getStartX+50, getEndX-50);
             String loc2 = getTextFromMobElement(locationTxt);
             implicityWaitTimeOnScreen();
-            //System.out.println("Second pin location: " + getTextFromMobElement(locationTxt));
             if(!loc1.equals(loc2)) {
                 System.out.println("First pin location: " + loc1 + " does not equal " + loc2);
                 flag = true;

@@ -34,8 +34,6 @@ public class MapSampleScreenTests extends MobileDriverManager {
 
     @Test
     public void FW_33_verifyThatDeviceSupportSwipeGestures() {
-     //mapSampleScreen = mapSampleHomeScreen.tapAndOpenMapSampleScreen();
-     //assertTrue(mapSampleScreen.verifyLoads(), basicErrorMsg("The maps screen was not loaded correctly"));
      validateDeviceTypeTesting("");
      assertTrue(mapSampleScreen.swipeOnDeviceScreen(), basicErrorMsg("Unable to swipe on map screen"));
      assertAll();
@@ -43,8 +41,6 @@ public class MapSampleScreenTests extends MobileDriverManager {
 
     @Test     @Parameters({"deviceType"})
     public void FW_53_verifyTappingMyLocationBtnMovesToUsersLocation(String deviceType) {
-        //mapSampleScreen = mapSampleHomeScreen.tapAndOpenMapSampleScreen();
-        //assertTrue(mapSampleScreen.verifyLoads(), basicErrorMsg("The maps screen was not loaded correctly"));
         validateDeviceTypeTesting("");
         assertTrue(mapSampleScreen.tapMyLocationBtn(deviceType), basicErrorMsg("Unable to tap My Location button (GPS) icon"));
         assertAll();
@@ -52,8 +48,6 @@ public class MapSampleScreenTests extends MobileDriverManager {
 
     @Test    @Parameters({"deviceType"})
     public void FW_54_verifyNavigatingAndTappingMyLocationBtnMovesToUsersLocation(String deviceType) {
-        //mapSampleScreen = mapSampleHomeScreen.tapAndOpenMapSampleScreen();
-        //assertTrue(mapSampleScreen.verifyLoads(), basicErrorMsg("The maps screen was not loaded correctly"));
         validateDeviceTypeTesting("");
         assertTrue(mapSampleScreen.customXxSwipeOnScreen(1000, 100), basicErrorMsg("Unable to do a horizontal swipe"));
         assertTrue(mapSampleScreen.customYySwipeOnScreen(300, 1800), basicErrorMsg("Unable to do a vertical swipe"));
@@ -63,8 +57,6 @@ public class MapSampleScreenTests extends MobileDriverManager {
 
     @Test
     public void FW_72_verifyThatPinGetsUpdatedLocationEachTimeMoves() {
-        //mapSampleScreen = mapSampleHomeScreen.tapAndOpenMapSampleScreen();
-        //assertTrue(mapSampleScreen.verifyLoads(), basicErrorMsg("The maps screen was not loaded correctly"));
         validateDeviceTypeTesting("");
         assertTrue(mapSampleScreen.pinMovesGetLoc(100, 1000), basicErrorMsg("Unable to swipe on map screen"));
         assertAll();
@@ -72,8 +64,6 @@ public class MapSampleScreenTests extends MobileDriverManager {
 
     @Test
     public void FW_73_verifyThatPinLocationMatchesWhenShares() {
-        //mapSampleScreen = mapSampleHomeScreen.tapAndOpenMapSampleScreen();
-        //assertTrue(mapSampleScreen.verifyLoads(), basicErrorMsg("The maps screen was not loaded correctly"));
         validateDeviceTypeTesting("");
         assertTrue(mapSampleScreen.sharePinsLocation(), basicErrorMsg("Both locations do not match"));
         assertAll();
@@ -81,8 +71,6 @@ public class MapSampleScreenTests extends MobileDriverManager {
 
     @Test
     public void FW_41_verifyThatDeviceCanSupportZoomGestures() {
-        //mapSampleScreen = mapSampleHomeScreen.tapAndOpenMapSampleScreen();
-        //assertTrue(mapSampleScreen.verifyLoads(), basicErrorMsg("The maps screen was not loaded correctly"));
         validateDeviceTypeTesting("");
         assertTrue(mapSampleScreen.doubleTapWithOneFingerXY(778, 1224), basicErrorMsg("The double tap can't be performed"));
         assertTrue(mapSampleScreen.singleTapWith2FingersXY(540, 1120), basicErrorMsg("The single tap with two fingers can't be performed"));

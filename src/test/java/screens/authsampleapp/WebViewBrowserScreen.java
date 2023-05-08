@@ -28,11 +28,9 @@ public class WebViewBrowserScreen extends BaseScreen {
     UI ELEMENTS - Since they are in browser view, the interactions will be handled as web actions rather than mobile's
      */
 
-    //@AndroidFindBy(id="com.android.chrome:id/close_button")
     @AndroidFindBy(id="com.huawei.browser:id/close_button")
     private WebElement closeTabBtn;
 
-    //@AndroidFindBy(id="com.android.chrome:id/url_bar")
     @AndroidFindBy(id="com.huawei.browser:id/url_text")
     private WebElement urlBar;
 
