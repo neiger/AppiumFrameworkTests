@@ -25,19 +25,20 @@ public class MapSampleScreen extends BaseScreen {
     UI MAPS ELEMENTS
      */
 
-    @AndroidFindBy(xpath="//android.widget.ImageView[@content-desc=\"My Location\"]")
+    @AndroidFindBy(xpath="//android.widget.ImageView[@content-desc=\"My Location\"]")  // GMS
     private WebElement mylocBtn;
 
-    @AndroidFindBy(id="com.omh.android.maps.sample:id/marker_shadow_image_view")
+    @AndroidFindBy(id="com.omh.android.maps.sample:id/marker_shadow_image_view") // Both
     private WebElement markerBtn;
 
-    @AndroidFindBy(id="com.omh.android.maps.sample:id/fab_share_location")
+    @AndroidFindBy(id="com.omh.android.maps.sample:id/fab_share_location") // Both
     private WebElement shareBtn;
 
-    @AndroidFindBy(id="com.omh.android.maps.sample:id/textView_location")
+    @AndroidFindBy(id="com.omh.android.maps.sample:id/textView_location") // Both
     private WebElement locationTxt;
 
-    @AndroidFindBy(id="com.omh.android.maps.sample:id/frameLayout_mapContainer")
+    //@AndroidFindBy(id="com.omh.android.maps.sample:id/frameLayout_mapContainer") // GMS
+    @AndroidFindBy(id="com.omh.android.maps.sample:id/fragment_map_container")
     private WebElement mapFrameLayoutContainer;
 
     @AndroidFindBy(id="com.omh.android.maps.sample:id/textView_coordinate")
@@ -91,7 +92,7 @@ public class MapSampleScreen extends BaseScreen {
 
     public boolean pinMovesGetLoc(int getStartX, int getEndX) {
         boolean flag = false;
-
+        tapMobElement(markerBtn);
         try{
             customXxSwipeOnScreen(getStartX, getEndX);
             String loc1 = getTextFromMobElement(locationTxt);
@@ -114,6 +115,7 @@ public class MapSampleScreen extends BaseScreen {
     public boolean sharePinsLocation() {
         boolean flag = false;
         try{
+            tapMobElement(markerBtn);
             String latlong = getTextFromMobElement(locationTxt);
             tapMobElement(shareBtn);
             implicityWaitTimeOnScreen();

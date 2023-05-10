@@ -30,8 +30,8 @@
 
             <class name="tests.mapsampleapp.MapSampleScreenTests">
                 <methods>
-                    <include name="FW_13_verifyThatMapSampleAppOpensCorrectly" />
-                    <include name="FW_33_verifyThatDeviceSupportSwipeGestures" />
+                    <include name="FW_13_FW_14_verifyThatMapSampleAppOpensCorrectly" />
+                    <include name="FW_33_FW_34_verifyThatDeviceSupportSwipeGestures" />
                     <include name="FW_41_verifyThatDeviceCanSupportZoomGestures" />
                     <include name="FW_53_verifyTappingMyLocationBtnMovesToUsersLocation" />
                     <include name="FW_54_verifyNavigatingAndTappingMyLocationBtnMovesToUsersLocation" />
