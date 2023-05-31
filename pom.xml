@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.qaautomation.androidframework</groupId>
-    <artifactId>AndroidFramework</artifactId>
+    <artifactId>AppiumFramework</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <!-- Mobile framework dependencies -->
