@@ -19,7 +19,7 @@ public class MapSampleScreenTests extends MobileDriverManager {
     }
 
     @Test
-    public void FW_13_verifyThatMapSampleAppOpensCorrectly() {
+    public void FW_13_FW_14_verifyThatMapSampleAppOpensCorrectly() {
         assertTrue(mapSampleHomeScreen.verifyLoads(), basicErrorMsg("Unable to load the main screen"));
         assertTrue(mapSampleHomeScreen.printMainMapsElements(), basicErrorMsg("Unable to print the elements"));
         assertTrue(mapSampleHomeScreen.openMapSampleScreen(), basicErrorMsg("Maps screen can't be opened"));
@@ -33,7 +33,7 @@ public class MapSampleScreenTests extends MobileDriverManager {
     }
 
     @Test
-    public void FW_33_verifyThatDeviceSupportSwipeGestures() {
+    public void FW_33_FW_34_verifyThatDeviceSupportSwipeGestures() {
      validateDeviceTypeTesting("");
      assertTrue(mapSampleScreen.swipeOnDeviceScreen(), basicErrorMsg("Unable to swipe on map screen"));
      assertAll();

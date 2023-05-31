@@ -19,14 +19,14 @@ public class AuthSampleLoginScreenTests extends MobileDriverManager {
     }
 
     @Test
-    public void FW_6_verifyThatAuthButtonIsDisplayed() {
+    public void FW_6_FW_7_FW_86_verifyThatAuthButtonIsDisplayed() {
         assertTrue(authSampleLoginScreen.verifySignInBtnDisplayed(), basicErrorMsg("Unable to get the button info"));
         assertAll();
     }
 
 
     @Test @Parameters({"deviceType"})
-    public void FW_11_verifyThatUserIsReturnedToSampleAppInLoggedInState(String deviceType) {
+    public void FW_10_FW_11_verifyThatUserIsReturnedToSampleAppInLoggedInState(String deviceType) {
         if(deviceType.equals("nonGMS")) {
             WebViewBrowserScreen webViewBrowserScreen = authSampleLoginScreen.signInFromBrowser();
             assertTrue(webViewBrowserScreen.verifySignPageLoads(), basicErrorMsg("The signIn web view was not loaded correctly"));
@@ -36,8 +36,6 @@ public class AuthSampleLoginScreenTests extends MobileDriverManager {
             assertTrue(authSampleLoginScreen.verifySignInPopUpShown(), basicErrorMsg("Unable to shown the pop up account"));
         }
         assertTrue(authSampleLoginScreen.verifySignInState(), basicErrorMsg("The signed in state fails the validation"));
-        //assertTrue(authSampleLoginScreen.getUsersDataInformationPrint(),basicErrorMsg("The data from the signed in user fails to be retrieved"));
-        //assertTrue(authSampleLoginScreen.signOutTheApp(), basicErrorMsg("Unable to tap on LOGOUT button"));
         assertAll();
     }
 

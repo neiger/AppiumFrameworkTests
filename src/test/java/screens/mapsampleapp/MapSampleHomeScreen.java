@@ -30,7 +30,7 @@ public class MapSampleHomeScreen extends BaseScreen {
     @AndroidFindBy(className="android.widget.TextView")
     private WebElement topActionBarTxt;
 
-    @AndroidFindBy(id="com.omh.android.maps.sample:id/button_first")
+    @AndroidFindBy(id="com.omh.android.maps.sample:id/button_open_map")
     private WebElement openMapBtn;
 
 
