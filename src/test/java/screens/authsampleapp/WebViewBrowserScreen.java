@@ -64,6 +64,9 @@ public class WebViewBrowserScreen extends BaseScreen {
         return tapOnScreenXY(getX, getY);
     }
 
+    public boolean clickTheXOnBrowser() {
+        return tapMobElement(closeTabBtn);
+    }
     /*
     RETURN-REDIRECT PAGE CALLS
      */

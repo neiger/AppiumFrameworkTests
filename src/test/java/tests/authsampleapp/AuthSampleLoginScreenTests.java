@@ -52,11 +52,14 @@ public class AuthSampleLoginScreenTests extends MobileDriverManager {
     }
 
     @Test @Parameters({"deviceType"})
-    public void validateTapOusideModal(String deviceType) {
+    public void FW_60_FW_63verifyThatUserCanTapXInBrowserOrTapOusideModal(String deviceType) {
         if(deviceType.equals("GMS")) {
             assertTrue(authSampleLoginScreen.tapOutsideModal(), basicErrorMsg("It can't be tapped outside"));
-        } else {System.out.println("nonGMS device is still under construction");
-        assertTrue(true, "just a message");
+        } else {
+            WebViewBrowserScreen webViewBrowserScreen = authSampleLoginScreen.signInFromBrowser();
+            assertTrue(webViewBrowserScreen.verifySignPageLoads(), basicErrorMsg("The signIn web view was not loaded correctly"));
+            assertTrue(webViewBrowserScreen.clickTheXOnBrowser(), basicErrorMsg("Unable to tap on the X close browser"));
+            assertTrue(authSampleLoginScreen.checkAlerMsgPrint(), basicErrorMsg(""));
         }
         assertAll();
 

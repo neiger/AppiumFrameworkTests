@@ -140,5 +140,8 @@ public class AuthSampleLoginScreen extends BaseScreen {
         return flag;
     }
 
+    public boolean checkAlerMsgPrint() {
+        return printAlertMsgs();
+    }
 
 }
