@@ -126,16 +126,16 @@ public class AuthSampleLoginScreen extends BaseScreen {
     }
 
     public boolean tapOutsideModal() {
-        return tapOnLoginBtn() && implicityWaitTimeOnScreenManual(1) && tapOnScreenXY(540, 1920)
-                && implicityWaitTimeOnScreenManual(1) && printAlertMsgs() && implicityWaitTimeOnScreenManual(2)
-                && tapOnScreenXY(540, 1920) && implicityWaitTimeOnScreenManual(1);
+        return tapOnLoginBtn() && implicityWaitTimeOnScreenManual(1) && tapOnScreenXY(880, 2265)
+                && printAlertMsgs() && tapOnScreenXY(880, 2265);
     }
 
     private boolean printAlertMsgs() {
         boolean flag = false;
         try {
             String text = getTextFromMobElement(alertTitle) + "\n" + getTextFromMobElement(alertMsg);
-            System.out.println("MSG POP UP \n==================\n" + text + " \n==================\n");
+            System.out.println(" \n==================\n" + text + " \n==================\n");
+            flag = true;
         } catch (Exception e) {ErrorsManager.errNExpManager(e);}
         return flag;
     }
